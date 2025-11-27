@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://airesumeadvisor.com/sitemap-index.xml
