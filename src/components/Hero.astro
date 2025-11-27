@@ -1,0 +1,164 @@
+---
+import { LINKS } from '../config/links';
+---
+
+<section class="relative overflow-hidden bg-gradient-to-b from-white to-primary-selected py-16 md:py-24">
+  <!-- Decorative elements -->
+  <div class="pointer-events-none absolute inset-0 overflow-hidden">
+    <div class="absolute -right-4 bottom-1/4 text-2xl text-primary/20">+</div>
+    <div class="absolute right-1/4 top-1/4 text-xl text-alert/30">+</div>
+    <div class="absolute bottom-1/3 right-1/3 text-lg text-primary/10">+</div>
+  </div>
+
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+      <!-- Left Content -->
+      <div class="max-w-xl">
+        <h1 class="font-display text-4xl font-bold leading-tight tracking-tight text-text-primary sm:text-5xl lg:text-6xl">
+          Land Your Dream Job with AI-Powered Resumes
+        </h1>
+
+        <p class="mt-6 text-lg leading-relaxed text-text-body">
+          Get a resume tailored to each job posting, using the right keywords to
+          stand out. Our AI Resume Builder analyzes job descriptions and your
+          LinkedIn profile to create a personalized, optimized resume that gives
+          you the competitive edge. Start building a resume that matches your
+          next opportunity effortlessly.
+        </p>
+
+        <div class="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
+          <a
+            href={LINKS.signup}
+            class="inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-6 py-3 text-base font-medium text-white shadow-primary transition-all hover:bg-primary-hover hover:shadow-lg"
+          >
+            Sign Up Free
+            <svg
+              class="h-5 w-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M17 8l4 4m0 0l-4 4m4-4H3"
+              />
+            </svg>
+          </a>
+        </div>
+
+        <!-- Sponsor Badge -->
+        <div class="mt-8 flex items-center gap-3">
+          <span class="text-sm text-text-caption">Sponsored by</span>
+          <svg class="h-6 w-auto" viewBox="0 0 23 23" fill="none">
+            <path d="M0 0h10.931v10.931H0z" fill="#f25022"/>
+            <path d="M12.069 0H23v10.931H12.069z" fill="#7fba00"/>
+            <path d="M0 12.069h10.931V23H0z" fill="#00a4ef"/>
+            <path d="M12.069 12.069H23V23H12.069z" fill="#ffb900"/>
+          </svg>
+          <span class="text-sm font-medium text-text-primary">Microsoft</span>
+        </div>
+      </div>
+
+      <!-- Right Content - Hero Image -->
+      <div class="relative">
+        <!-- MacBook Mockup Container -->
+        <div class="relative mx-auto max-w-lg lg:max-w-none">
+          <!-- Main MacBook Image Placeholder -->
+          <div class="relative rounded-2xl bg-gray-900 p-2 shadow-2xl">
+            <div class="rounded-xl bg-gray-800 p-1">
+              <div class="aspect-[16/10] rounded-lg bg-gradient-to-br from-gray-100 to-gray-200 p-4">
+                <!-- Placeholder for product screenshot -->
+                <div class="flex h-full flex-col gap-3">
+                  <div class="flex items-center gap-2">
+                    <div class="h-3 w-3 rounded-full bg-red-400"></div>
+                    <div class="h-3 w-3 rounded-full bg-yellow-400"></div>
+                    <div class="h-3 w-3 rounded-full bg-green-400"></div>
+                    <div class="ml-4 h-4 w-48 rounded bg-gray-300"></div>
+                  </div>
+                  <div class="flex flex-1 gap-4">
+                    <div class="w-1/4 space-y-2">
+                      <div class="h-4 w-full rounded bg-gray-300"></div>
+                      <div class="h-4 w-3/4 rounded bg-gray-300"></div>
+                      <div class="h-4 w-5/6 rounded bg-gray-300"></div>
+                    </div>
+                    <div class="flex-1 rounded-lg bg-white p-3 shadow-sm">
+                      <div class="space-y-2">
+                        <div class="h-3 w-3/4 rounded bg-gray-200"></div>
+                        <div class="h-3 w-full rounded bg-gray-200"></div>
+                        <div class="h-3 w-2/3 rounded bg-gray-200"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- MacBook Base -->
+            <div class="mx-auto h-4 w-1/3 rounded-b-xl bg-gray-700"></div>
+          </div>
+
+          <!-- Floating Card 1 - LinkedIn Profile -->
+          <div class="absolute -left-4 top-8 z-10 animate-float rounded-xl bg-white p-3 shadow-lg sm:-left-8">
+            <div class="flex items-center gap-2">
+              <div class="flex h-8 w-8 items-center justify-center rounded bg-[#0077B5]">
+                <svg class="h-5 w-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                </svg>
+              </div>
+              <div>
+                <p class="text-xs font-medium text-text-primary">LinkedIn Profile URL</p>
+                <p class="text-xs text-text-caption">Import your profile information</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Floating Card 2 - Job Alignment Score -->
+          <div class="absolute -right-4 top-1/4 z-10 rounded-xl bg-white p-3 shadow-lg sm:-right-8" style="animation: float 3s ease-in-out infinite; animation-delay: 0.5s;">
+            <div class="flex items-center gap-3">
+              <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-primary-light">
+                <svg class="h-5 w-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                </svg>
+              </div>
+              <div>
+                <p class="text-lg font-bold text-primary">83%</p>
+                <p class="text-xs text-text-caption">Job Alignment Score</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Floating Card 3 - Recommended Courses -->
+          <div class="absolute -bottom-4 right-8 z-10 rounded-xl bg-white p-3 shadow-lg" style="animation: float 3s ease-in-out infinite; animation-delay: 1s;">
+            <div class="flex items-center gap-2">
+              <div class="flex h-8 w-8 items-center justify-center rounded bg-green-100">
+                <svg class="h-5 w-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                </svg>
+              </div>
+              <div>
+                <p class="text-xs font-medium text-text-primary">Recommended Courses</p>
+                <p class="text-xs text-text-caption">3 courses to boost your score</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+</style>

@@ -1,41 +1,61 @@
 # AI Resume Advisor - Design Tokens
 
+> **Note**: Colors aligned with Bubble Web App for brand consistency.
+
 ## Color Palette
 
-### Primary Colors
+### Primary Colors (Blue)
 | Token | Value | Usage |
 |-------|-------|-------|
-| `primary-50` | `#EFF6FF` | Light backgrounds |
-| `primary-100` | `#DBEAFE` | Hover states |
-| `primary-500` | `#3B82F6` | Default brand |
-| `primary-600` | `#2563EB` | Primary buttons |
-| `primary-700` | `#1D4ED8` | Hover states |
+| `primary` | `#0183FF` | Primary buttons, CTAs, links |
+| `primary-hover` | `#0170E0` | Hover states |
+| `primary-light` | `#E2F1FF` | Light backgrounds, badges |
+| `primary-selected` | `#EBF5FF` | Selected/active states |
+| `primary-contrast` | `#FFFFFF` | Text on primary buttons |
+
+### Text Colors
+| Token | Value | Usage |
+|-------|-------|-------|
+| `text-primary` | `#1D2125` | Headlines, important text |
+| `text-body` | `#6A6C6E` | Body text, paragraphs |
+| `text-caption` | `#8A8C8E` | Captions, labels |
+| `text-placeholder` | `#9CA3AF` | Placeholder text, disabled |
+
+### Background Colors
+| Token | Value | Usage |
+|-------|-------|-------|
+| `bg-page` | `#F5F5F5` | Page background |
+| `bg-surface` | `#E5E5E5` | Card/container background |
+| `bg-white` | `#FFFFFF` | Clean sections, cards |
 
 ### Semantic Colors
 | Token | Value | Usage |
 |-------|-------|-------|
-| `success` | `#10B981` | Success states, positive metrics |
-| `warning` | `#F59E0B` | Warning states |
-| `error` | `#EF4444` | Error states |
+| `success` | `#38A169` | Success states, positive metrics |
+| `alert` | `#F59E0B` | Warning states, caution |
+| `destructive` | `#E53E3E` | Error states, delete actions |
 
 ### Gradients
 ```css
-/* CTA Gradient - Purple to Pink */
---gradient-cta: linear-gradient(135deg, #6366F1 0%, #8B5CF6 50%, #A855F7 100%);
+/* Hero Background - Subtle blue tint */
+--gradient-hero: linear-gradient(180deg, #FFFFFF 0%, #EBF5FF 100%);
 
-/* Dark Gradient - For dark sections */
---gradient-dark: linear-gradient(135deg, #1E1B4B 0%, #312E81 100%);
+/* CTA Gradient - Primary blue accent */
+--gradient-cta: linear-gradient(135deg, #0183FF 0%, #0170E0 100%);
 
-/* Hero Background */
---gradient-hero: linear-gradient(to bottom right, #F8FAFC, #FFFFFF, #EFF6FF);
+/* Dark Section */
+--gradient-dark: linear-gradient(135deg, #1D2125 0%, #2D3748 100%);
 ```
 
 ## Typography
 
 ### Font Stack
 ```css
---font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
---font-display: 'Cabinet Grotesk', 'Plus Jakarta Sans', sans-serif;
+/* Display - Headlines */
+--font-display: 'Cabinet Grotesk', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+
+/* Body - Paragraphs */
+--font-sans: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 ```
 
 ### Font Sizes
@@ -51,6 +71,14 @@
 | `text-4xl` | 36px | 40px | H1 mobile |
 | `text-5xl` | 48px | 48px | H1 tablet |
 | `text-6xl` | 60px | 60px | H1 desktop |
+
+### Font Weights
+| Token | Value | Usage |
+|-------|-------|-------|
+| `font-normal` | 400 | Body text |
+| `font-medium` | 500 | Emphasis, buttons |
+| `font-semibold` | 600 | Subheadings |
+| `font-bold` | 700 | Headlines |
 
 ## Spacing
 
@@ -73,6 +101,16 @@
 }
 ```
 
+### Component Spacing
+| Token | Value | Usage |
+|-------|-------|-------|
+| `gap-xs` | 4px | Tight spacing |
+| `gap-sm` | 8px | Small gaps |
+| `gap-md` | 16px | Default gaps |
+| `gap-lg` | 24px | Section gaps |
+| `gap-xl` | 32px | Large sections |
+| `gap-2xl` | 48px | Major sections |
+
 ## Shadows
 
 ```css
@@ -82,8 +120,8 @@
 --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1);
 --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
 
-/* Colored shadows for buttons */
---shadow-primary: 0 10px 25px -5px rgb(37 99 235 / 0.25);
+/* Primary button shadow */
+--shadow-primary: 0 4px 14px 0 rgb(1 131 255 / 0.25);
 ```
 
 ## Border Radius
@@ -123,3 +161,31 @@
 | `z-30` | 30 | Fixed headers |
 | `z-40` | 40 | Modals backdrop |
 | `z-50` | 50 | Modals content |
+
+## Button Styles
+
+### Primary Button
+```css
+.btn-primary {
+  @apply bg-[#0183FF] text-white font-medium px-6 py-3 rounded-lg;
+  @apply hover:bg-[#0170E0] transition-colors;
+  @apply shadow-[0_4px_14px_0_rgb(1_131_255/0.25)];
+}
+```
+
+### Secondary Button
+```css
+.btn-secondary {
+  @apply bg-white text-[#1D2125] font-medium px-6 py-3 rounded-lg;
+  @apply border border-[#E5E5E5] hover:border-[#0183FF] hover:text-[#0183FF];
+  @apply transition-colors;
+}
+```
+
+### Ghost Button
+```css
+.btn-ghost {
+  @apply bg-transparent text-[#0183FF] font-medium px-6 py-3;
+  @apply hover:bg-[#EBF5FF] rounded-lg transition-colors;
+}
+```

@@ -1,0 +1,31 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="border-t border-gray-100 bg-white py-8">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col items-center justify-between gap-4 sm:flex-row">
+      <!-- Copyright -->
+      <p class="text-sm text-text-body">
+        <span class="font-medium text-text-primary">AI Resume Advisor</span>
+        {' '}© {currentYear}. All rights reserved.
+      </p>
+
+      <!-- Legal Links -->
+      <div class="flex items-center gap-6">
+        <a
+          href="/terms"
+          class="text-sm text-text-body transition-colors hover:text-text-primary"
+        >
+          Terms
+        </a>
+        <a
+          href="/privacy"
+          class="text-sm text-text-body transition-colors hover:text-text-primary"
+        >
+          Privacy
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
