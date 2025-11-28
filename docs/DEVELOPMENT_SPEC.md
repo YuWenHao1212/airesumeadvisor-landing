@@ -26,31 +26,32 @@
 ### 1.1 Purpose
 
 Create a high-converting, SEO-optimized landing page for AI Resume Advisor that:
+
 - Attracts organic traffic through search engines
 - Clearly communicates product value proposition
 - Drives user signups to the Bubble web application
 
 ### 1.2 Tech Stack Decision
 
-| Technology | Choice | Rationale |
-|------------|--------|-----------|
-| Framework | **Astro 4.x** | SSG for SEO, fast build, island architecture |
-| Styling | **Tailwind CSS 3.x** | Rapid development, consistent design |
+| Technology | Choice                    | Rationale                                      |
+| ---------- | ------------------------- | ---------------------------------------------- |
+| Framework  | **Astro 4.x**             | SSG for SEO, fast build, island architecture   |
+| Styling    | **Tailwind CSS 3.x**      | Rapid development, consistent design           |
 | Deployment | **Azure Static Web Apps** | Integration with existing Azure infrastructure |
-| Monitoring | **Application Insights** | Unified monitoring with backend API |
-| CI/CD | **GitHub Actions** | Native Azure SWA integration |
+| Monitoring | **Application Insights**  | Unified monitoring with backend API            |
+| CI/CD      | **GitHub Actions**        | Native Azure SWA integration                   |
 
 ### 1.3 Target Metrics
 
-| Metric | Target |
-|--------|--------|
-| Lighthouse Performance | > 90 |
-| Lighthouse SEO | > 95 |
-| Lighthouse Accessibility | > 90 |
-| First Contentful Paint | < 1.5s |
+| Metric                   | Target |
+| ------------------------ | ------ |
+| Lighthouse Performance   | > 90   |
+| Lighthouse SEO           | > 95   |
+| Lighthouse Accessibility | > 90   |
+| First Contentful Paint   | < 1.5s |
 | Largest Contentful Paint | < 2.5s |
-| Cumulative Layout Shift | < 0.1 |
-| Time to Interactive | < 3.5s |
+| Cumulative Layout Shift  | < 0.1  |
+| Time to Interactive      | < 3.5s |
 
 ---
 
@@ -167,25 +168,25 @@ airesumeadvisor-landing/
 
 Based on the Figma design, the page consists of these sections in order:
 
-| # | Section | Component | Estimated Height |
-|---|---------|-----------|------------------|
-| 1 | Header | `Header.astro` | 80px (sticky) |
-| 2 | Hero | `Hero.astro` | 100vh |
-| 3 | Features | `FeatureTabs.astro` | ~600px |
-| 4 | Job Simulator | `JobSimulator.astro` | ~500px |
-| 5 | Social Proof | `SocialProof.astro` | ~400px |
-| 6 | CTA Banner | `CTABanner.astro` | ~300px |
-| 7 | How it Works | `HowItWorks.astro` | ~500px |
-| 8 | Pricing | `Pricing.astro` | ~600px |
-| 9 | Bottom CTA | `BottomCTA.astro` | ~350px |
-| 10 | Footer | `Footer.astro` | ~100px |
+| #   | Section       | Component            | Estimated Height |
+| --- | ------------- | -------------------- | ---------------- |
+| 1   | Header        | `Header.astro`       | 80px (sticky)    |
+| 2   | Hero          | `Hero.astro`         | 100vh            |
+| 3   | Features      | `FeatureTabs.astro`  | ~600px           |
+| 4   | Job Simulator | `JobSimulator.astro` | ~500px           |
+| 5   | Social Proof  | `SocialProof.astro`  | ~400px           |
+| 6   | CTA Banner    | `CTABanner.astro`    | ~300px           |
+| 7   | How it Works  | `HowItWorks.astro`   | ~500px           |
+| 8   | Pricing       | `Pricing.astro`      | ~600px           |
+| 9   | Bottom CTA    | `BottomCTA.astro`    | ~350px           |
+| 10  | Footer        | `Footer.astro`       | ~100px           |
 
 ### 3.2 Additional Pages
 
-| Page | URL | Purpose |
-|------|-----|---------|
-| Terms of Service | `/terms` | Legal requirements |
-| Privacy Policy | `/privacy` | GDPR/privacy compliance |
+| Page             | URL        | Purpose                 |
+| ---------------- | ---------- | ----------------------- |
+| Terms of Service | `/terms`   | Legal requirements      |
+| Privacy Policy   | `/privacy` | GDPR/privacy compliance |
 
 ---
 
@@ -194,98 +195,45 @@ Based on the Figma design, the page consists of these sections in order:
 ### 4.1 Header Component
 
 ```astro
-<!-- Header.astro -->
-Props: None (static content)
-
-Structure:
-├── Logo (left)
-│   └── Link to "/"
-├── Navigation (center)
-│   ├── About (anchor: #features)
-│   ├── How it works (anchor: #how-it-works)
-│   └── Pricing (anchor: #pricing)
-├── Actions (right)
-│   ├── Log In (text link → app.domain/login)
-│   └── Sign Up Free (button → app.domain/signup)
-└── Mobile Menu (hamburger)
-
-Behavior:
-- Sticky on scroll
-- White background with subtle shadow on scroll
-- Mobile: Hamburger menu with slide-in drawer
+<!-- Header.astro -->Props: None (static content) Structure: ├── Logo (left) │ └── Link to "/" ├──
+Navigation (center) │ ├── About (anchor: #features) │ ├── How it works (anchor: #how-it-works) │ └──
+Pricing (anchor: #pricing) ├── Actions (right) │ ├── Log In (text link → app.domain/login) │ └──
+Sign Up Free (button → app.domain/signup) └── Mobile Menu (hamburger) Behavior: - Sticky on scroll -
+White background with subtle shadow on scroll - Mobile: Hamburger menu with slide-in drawer
 ```
 
 ### 4.2 Hero Component
 
 ```astro
-<!-- Hero.astro -->
-Props: None (static content)
-
-Structure:
-├── Left Column (55%)
-│   ├── Headline: "Land Your Dream Job with AI-Powered Resumes"
-│   ├── Subtext: Product description
-│   ├── CTA Button: "Sign Up Free →"
-│   └── Badge: "Sponsored by Microsoft" (optional)
-└── Right Column (45%)
-    └── Product Screenshot (macOS mockup)
-
-Responsive:
-- Desktop: Two columns
-- Tablet: Stacked, image below
-- Mobile: Text only, smaller image
+<!-- Hero.astro -->Props: None (static content) Structure: ├── Left Column (55%) │ ├── Headline:
+"Land Your Dream Job with AI-Powered Resumes" │ ├── Subtext: Product description │ ├── CTA Button:
+"Sign Up Free →" │ └── Badge: "Sponsored by Microsoft" (optional) └── Right Column (45%) └── Product
+Screenshot (macOS mockup) Responsive: - Desktop: Two columns - Tablet: Stacked, image below -
+Mobile: Text only, smaller image
 ```
 
 ### 4.3 FeatureTabs Component
 
 ```astro
-<!-- FeatureTabs.astro -->
-Props: None (static content)
-
-Structure:
-├── Section Title: "Unlock Dream Career with AI Hub"
-├── Tab Navigation
-│   ├── Tab 1: "Alignment Assessment Report" (active default)
-│   ├── Tab 2: "Tailored Resume"
-│   └── Tab 3: "Self-Development Suggestion"
-└── Tab Content (changes based on active tab)
-    ├── Left: Screenshot
-    ├── Right: Title + Description + CTA
-
-Behavior:
-- Client-side tab switching (minimal JS)
-- Use Astro's client:visible for hydration
-- Smooth fade transition between tabs
+<!-- FeatureTabs.astro -->Props: None (static content) Structure: ├── Section Title: "Unlock Dream
+Career with AI Hub" ├── Tab Navigation │ ├── Tab 1: "Alignment Assessment Report" (active default) │
+├── Tab 2: "Tailored Resume" │ └── Tab 3: "Self-Development Suggestion" └── Tab Content (changes
+based on active tab) ├── Left: Screenshot ├── Right: Title + Description + CTA Behavior: -
+Client-side tab switching (minimal JS) - Use Astro's client:visible for hydration - Smooth fade
+transition between tabs
 ```
 
 ### 4.4 Pricing Component
 
 ```astro
-<!-- Pricing.astro -->
-Props: None (static content)
-
-Structure:
-├── Section Title: "Pricing"
-├── Pricing Cards Container
-│   ├── Card 1: Daily Pass
-│   │   ├── Price: "$10"
-│   │   ├── Period: "1 Day"
-│   │   └── CTA: "Buy Now" (outline style)
-│   └── Card 2: Weekly Pass (highlighted)
-│       ├── Badge: "Popular"
-│       ├── Price: "$20"
-│       ├── Period: "7 Days"
-│       └── CTA: "Buy Now" (filled style)
-└── Free Features List
-    ├── ✓ Unlimited alignment assessments
-    ├── ✓ Instant ATS-compatible resume revisions
-    ├── ✓ Personalized recommendations
-    ├── ✓ Course suggestions for missing skills
-    ├── ✓ Before/after comparison
-    └── ℹ️ "Get 10 free credits daily..."
-
-CTA Links:
-- Buy Now → app.airesumeadvisor.com/pricing
+<!-- Pricing.astro -->Props: None (static content) Structure: ├── Section Title: "Pricing" ├──
+Pricing Cards Container │ ├── Card 1: Daily Pass │ │ ├── Price: "$10" │ │ ├── Period: "1 Day" │ │
+└── CTA: "Buy Now" (outline style) │ └── Card 2: Weekly Pass (highlighted) │ ├── Badge: "Popular" │
+├── Price: "$20" │ ├── Period: "7 Days" │ └── CTA: "Buy Now" (filled style) └── Free Features List
+├── ✓ Unlimited alignment assessments ├── ✓ Instant ATS-compatible resume revisions ├── ✓
+Personalized recommendations ├── ✓ Course suggestions for missing skills ├── ✓ Before/after
+comparison └── ℹ️ "Get 10 free credits daily..." CTA Links: - Buy Now →
+app.airesumeadvisor.com/pricing
 ```
 
 ---
@@ -297,31 +245,31 @@ CTA Links:
 ```css
 :root {
   /* Primary */
-  --color-primary: #2563EB;
-  --color-primary-hover: #1D4ED8;
-  --color-primary-light: #DBEAFE;
+  --color-primary: #2563eb;
+  --color-primary-hover: #1d4ed8;
+  --color-primary-light: #dbeafe;
 
   /* Secondary */
-  --color-secondary: #10B981;
+  --color-secondary: #10b981;
   --color-secondary-hover: #059669;
 
   /* Neutrals */
   --color-text-primary: #111827;
-  --color-text-secondary: #6B7280;
-  --color-text-muted: #9CA3AF;
-  --color-bg-white: #FFFFFF;
-  --color-bg-light: #F9FAFB;
-  --color-bg-gray: #F3F4F6;
-  --color-border: #E5E7EB;
+  --color-text-secondary: #6b7280;
+  --color-text-muted: #9ca3af;
+  --color-bg-white: #ffffff;
+  --color-bg-light: #f9fafb;
+  --color-bg-gray: #f3f4f6;
+  --color-border: #e5e7eb;
 
   /* Gradients */
-  --gradient-cta: linear-gradient(135deg, #6366F1 0%, #8B5CF6 50%, #A855F7 100%);
-  --gradient-dark: linear-gradient(135deg, #1E1B4B 0%, #312E81 100%);
+  --gradient-cta: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a855f7 100%);
+  --gradient-dark: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
 
   /* Semantic */
-  --color-success: #10B981;
-  --color-warning: #F59E0B;
-  --color-error: #EF4444;
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-error: #ef4444;
 }
 ```
 
@@ -352,6 +300,7 @@ h3: text-2xl/text-xl(mobile), font-semibold, text-gray-900
 ### 5.3 Spacing System
 
 Using Tailwind's default spacing scale:
+
 - Section padding: `py-16 md:py-24`
 - Component gaps: `gap-8 md:gap-12`
 - Container max-width: `max-w-7xl mx-auto px-4 sm:px-6 lg:px-8`
@@ -360,23 +309,22 @@ Using Tailwind's default spacing scale:
 
 ```astro
 <!-- Primary Button -->
-<button class="bg-blue-600 hover:bg-blue-700 text-white font-medium
-               py-3 px-6 rounded-lg transition-colors duration-200
-               flex items-center gap-2">
+<button
+  class="flex items-center gap-2 rounded-lg bg-blue-600 px-6 py-3 font-medium text-white transition-colors duration-200 hover:bg-blue-700"
+>
   Sign Up Free
   <svg>→</svg>
 </button>
 
 <!-- Secondary/Outline Button -->
-<button class="border-2 border-blue-600 text-blue-600
-               hover:bg-blue-50 font-medium py-3 px-6 rounded-lg
-               transition-colors duration-200">
+<button
+  class="rounded-lg border-2 border-blue-600 px-6 py-3 font-medium text-blue-600 transition-colors duration-200 hover:bg-blue-50"
+>
   Learn More
 </button>
 
 <!-- Ghost Button -->
-<button class="text-blue-600 hover:text-blue-700 font-medium
-               flex items-center gap-1">
+<button class="flex items-center gap-1 font-medium text-blue-600 hover:text-blue-700">
   Get Started
   <svg>→</svg>
 </button>
@@ -391,23 +339,35 @@ Using Tailwind's default spacing scale:
 ```html
 <!-- Primary Meta Tags -->
 <title>AI Resume Advisor - Land Your Dream Job with AI-Powered Resumes</title>
-<meta name="title" content="AI Resume Advisor - Land Your Dream Job with AI-Powered Resumes">
-<meta name="description" content="Create tailored resumes that match job descriptions perfectly. Our AI analyzes keywords, skills, and requirements to help you stand out and get hired faster.">
-<meta name="keywords" content="AI resume builder, resume optimizer, ATS resume, job application, career tools, resume tailoring">
+<meta name="title" content="AI Resume Advisor - Land Your Dream Job with AI-Powered Resumes" />
+<meta
+  name="description"
+  content="Create tailored resumes that match job descriptions perfectly. Our AI analyzes keywords, skills, and requirements to help you stand out and get hired faster."
+/>
+<meta
+  name="keywords"
+  content="AI resume builder, resume optimizer, ATS resume, job application, career tools, resume tailoring"
+/>
 
 <!-- Open Graph / Facebook -->
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://airesumeadvisor.com/">
-<meta property="og:title" content="AI Resume Advisor - Land Your Dream Job">
-<meta property="og:description" content="Create tailored resumes that match job descriptions perfectly.">
-<meta property="og:image" content="https://airesumeadvisor.com/images/og-image.png">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://airesumeadvisor.com/" />
+<meta property="og:title" content="AI Resume Advisor - Land Your Dream Job" />
+<meta
+  property="og:description"
+  content="Create tailored resumes that match job descriptions perfectly."
+/>
+<meta property="og:image" content="https://airesumeadvisor.com/images/og-image.png" />
 
 <!-- Twitter -->
-<meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:url" content="https://airesumeadvisor.com/">
-<meta property="twitter:title" content="AI Resume Advisor - Land Your Dream Job">
-<meta property="twitter:description" content="Create tailored resumes that match job descriptions perfectly.">
-<meta property="twitter:image" content="https://airesumeadvisor.com/images/og-image.png">
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content="https://airesumeadvisor.com/" />
+<meta property="twitter:title" content="AI Resume Advisor - Land Your Dream Job" />
+<meta
+  property="twitter:description"
+  content="Create tailored resumes that match job descriptions perfectly."
+/>
+<meta property="twitter:image" content="https://airesumeadvisor.com/images/og-image.png" />
 ```
 
 ### 6.2 Structured Data (JSON-LD)
@@ -450,12 +410,12 @@ Using Tailwind's default spacing scale:
 
 ### 7.1 Image Optimization
 
-| Image Type | Format | Max Size | Dimensions |
-|------------|--------|----------|------------|
-| Hero mockup | WebP | 150KB | 800x600 |
-| Feature screenshots | WebP | 100KB | 600x400 |
-| Testimonial photos | WebP | 30KB | 200x200 |
-| Logo | SVG | 5KB | - |
+| Image Type          | Format | Max Size | Dimensions |
+| ------------------- | ------ | -------- | ---------- |
+| Hero mockup         | WebP   | 150KB    | 800x600    |
+| Feature screenshots | WebP   | 100KB    | 600x400    |
+| Testimonial photos  | WebP   | 30KB     | 200x200    |
+| Logo                | SVG    | 5KB      | -          |
 
 ### 7.2 Asset Loading Strategy
 
@@ -466,7 +426,7 @@ Using Tailwind's default spacing scale:
 </style>
 
 <!-- Fonts preloaded -->
-<link rel="preload" href="/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin />
 
 <!-- Images lazy loaded -->
 <img loading="lazy" decoding="async" ... />
@@ -477,12 +437,12 @@ Using Tailwind's default spacing scale:
 
 ### 7.3 Bundle Size Targets
 
-| Asset | Target | Actual |
-|-------|--------|--------|
-| HTML | < 50KB | TBD |
-| CSS | < 30KB | TBD |
-| JS | < 20KB | TBD |
-| Total (excluding images) | < 100KB | TBD |
+| Asset                    | Target  | Actual |
+| ------------------------ | ------- | ------ |
+| HTML                     | < 50KB  | TBD    |
+| CSS                      | < 30KB  | TBD    |
+| JS                       | < 20KB  | TBD    |
+| Total (excluding images) | < 100KB | TBD    |
 
 ---
 
@@ -491,6 +451,7 @@ Using Tailwind's default spacing scale:
 ### 8.1 Azure Static Web Apps Setup
 
 1. **Create Resource**
+
 ```bash
 az staticwebapp create \
   --name airesumeadvisor-landing \
@@ -515,6 +476,7 @@ A       @       <Azure provided IP>                           1h
 ```
 
 3. **Environment Variables**
+
 ```bash
 az staticwebapp appsettings set \
   --name airesumeadvisor-landing \
@@ -567,9 +529,9 @@ jobs:
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          action: "upload"
-          app_location: "/"
-          output_location: "dist"
+          action: 'upload'
+          app_location: '/'
+          output_location: 'dist'
           skip_app_build: true
 
   close_pull_request_job:
@@ -582,7 +544,7 @@ jobs:
         uses: Azure/static-web-apps-deploy@v1
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
-          action: "close"
+          action: 'close'
 ```
 
 ---
@@ -591,12 +553,12 @@ jobs:
 
 ### 9.1 Bubble Integration
 
-| Action | Landing Page | Bubble |
-|--------|--------------|--------|
-| Sign Up | Redirect | Handle registration |
-| Log In | Redirect | Handle authentication |
-| Pricing CTA | Redirect | Display pricing/checkout |
-| Get Started | Redirect | Dashboard or onboarding |
+| Action      | Landing Page | Bubble                   |
+| ----------- | ------------ | ------------------------ |
+| Sign Up     | Redirect     | Handle registration      |
+| Log In      | Redirect     | Handle authentication    |
+| Pricing CTA | Redirect     | Display pricing/checkout |
+| Get Started | Redirect     | Dashboard or onboarding  |
 
 ### 9.2 Application Insights
 
@@ -609,7 +571,7 @@ const appInsights = new ApplicationInsights({
     instrumentationKey: import.meta.env.PUBLIC_APP_INSIGHTS_KEY,
     enableAutoRouteTracking: true,
     enableRequestHeaderTracking: true,
-  }
+  },
 });
 
 appInsights.loadAppInsights();
@@ -632,6 +594,7 @@ cors_origins: str = "https://airesumeadvisor.com,https://www.airesumeadvisor.com
 ## 10. Development Timeline
 
 ### Phase 1: Setup (Day 1) - 2-3 hours
+
 - [x] Create project repository
 - [x] Initialize Astro project
 - [x] Configure Tailwind CSS
@@ -639,23 +602,27 @@ cors_origins: str = "https://airesumeadvisor.com,https://www.airesumeadvisor.com
 - [ ] Create base Layout component
 
 ### Phase 2: Core Components (Day 1-2) - 6-8 hours
+
 - [ ] Header component (sticky, responsive)
 - [ ] Hero section
 - [ ] Footer component
 - [ ] Common components (Button, Container)
 
 ### Phase 3: Feature Sections (Day 2-3) - 6-8 hours
+
 - [ ] FeatureTabs component (with JS hydration)
 - [ ] JobSimulator section
 - [ ] SocialProof section
 - [ ] CTABanner component
 
 ### Phase 4: Conversion Sections (Day 3) - 4-5 hours
+
 - [ ] HowItWorks section (video embed)
 - [ ] Pricing component
 - [ ] BottomCTA component
 
 ### Phase 5: Polish & Deploy (Day 4) - 4-5 hours
+
 - [ ] Responsive testing
 - [ ] Image optimization
 - [ ] SEO implementation
@@ -698,20 +665,20 @@ export const LINKS = {
 
 ## Appendix B: Image Assets Checklist
 
-| Image | Source | Status | Notes |
-|-------|--------|--------|-------|
-| Logo (SVG) | Design | [ ] Pending | Need vector version |
-| Hero mockup | Figma | [ ] Pending | Export from design |
-| Feature: Alignment | Figma | [ ] Pending | Tab 1 screenshot |
-| Feature: Tailored | Figma | [ ] Pending | Tab 2 screenshot |
-| Feature: Self-Dev | Figma | [ ] Pending | Tab 3 screenshot |
-| Job Simulator | Figma | [ ] Pending | Section screenshot |
-| Testimonial 1 | Stock | [ ] Pending | Professional woman |
-| Testimonial 2 | Stock | [ ] Pending | Professional group |
-| Testimonial 3 | Stock | [ ] Pending | Professional man |
-| How it Works video | Record | [ ] Pending | Demo video |
-| OG Image | Create | [ ] Pending | 1200x630px |
-| Favicon | Design | [ ] Pending | Multi-size |
+| Image              | Source | Status      | Notes               |
+| ------------------ | ------ | ----------- | ------------------- |
+| Logo (SVG)         | Design | [ ] Pending | Need vector version |
+| Hero mockup        | Figma  | [ ] Pending | Export from design  |
+| Feature: Alignment | Figma  | [ ] Pending | Tab 1 screenshot    |
+| Feature: Tailored  | Figma  | [ ] Pending | Tab 2 screenshot    |
+| Feature: Self-Dev  | Figma  | [ ] Pending | Tab 3 screenshot    |
+| Job Simulator      | Figma  | [ ] Pending | Section screenshot  |
+| Testimonial 1      | Stock  | [ ] Pending | Professional woman  |
+| Testimonial 2      | Stock  | [ ] Pending | Professional group  |
+| Testimonial 3      | Stock  | [ ] Pending | Professional man    |
+| How it Works video | Record | [ ] Pending | Demo video          |
+| OG Image           | Create | [ ] Pending | 1200x630px          |
+| Favicon            | Design | [ ] Pending | Multi-size          |
 
 ---
 

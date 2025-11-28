@@ -50,14 +50,14 @@ export default {
         'gradient-dark': 'linear-gradient(135deg, #1D2125 0%, #2D3748 100%)',
       },
       boxShadow: {
-        'primary': '0 4px 14px 0 rgb(1 131 255 / 0.25)',
-        'card': '0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)',
+        primary: '0 4px 14px 0 rgb(1 131 255 / 0.25)',
+        card: '0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)',
         'card-hover': '0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)',
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-in-out',
         'slide-up': 'slideUp 0.5s ease-out',
-        'float': 'float 3s ease-in-out infinite',
+        float: 'float 3s ease-in-out infinite',
       },
       keyframes: {
         fadeIn: {

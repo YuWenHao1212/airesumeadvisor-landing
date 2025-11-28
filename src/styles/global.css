@@ -47,17 +47,17 @@
 
   /* Primary Button */
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 rounded-lg bg-primary-600 px-6 py-3 font-medium text-white transition-colors duration-200 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+    @apply bg-primary-600 hover:bg-primary-700 focus:ring-primary-500 inline-flex items-center justify-center gap-2 rounded-lg px-6 py-3 font-medium text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2;
   }
 
   /* Secondary/Outline Button */
   .btn-secondary {
-    @apply inline-flex items-center justify-center gap-2 rounded-lg border-2 border-primary-600 px-6 py-3 font-medium text-primary-600 transition-colors duration-200 hover:bg-primary-50 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+    @apply border-primary-600 text-primary-600 hover:bg-primary-50 focus:ring-primary-500 inline-flex items-center justify-center gap-2 rounded-lg border-2 px-6 py-3 font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2;
   }
 
   /* Ghost Button */
   .btn-ghost {
-    @apply inline-flex items-center gap-1 font-medium text-primary-600 transition-colors duration-200 hover:text-primary-700;
+    @apply text-primary-600 hover:text-primary-700 inline-flex items-center gap-1 font-medium transition-colors duration-200;
   }
 
   /* Card */
@@ -78,7 +78,7 @@
 @layer utilities {
   /* Text gradient */
   .text-gradient {
-    @apply bg-gradient-to-r from-primary-600 to-purple-600 bg-clip-text text-transparent;
+    @apply from-primary-600 bg-gradient-to-r to-purple-600 bg-clip-text text-transparent;
   }
 
   /* Smooth hover transitions */
@@ -88,6 +88,6 @@
 
   /* Focus visible styles */
   .focus-ring {
-    @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2;
+    @apply focus-visible:ring-primary-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2;
   }
 }

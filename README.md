@@ -53,13 +53,13 @@ Azure Container API (Backend)
 
 ### Commands
 
-| Command | Action |
-|---------|--------|
-| `npm run dev` | Start dev server at `localhost:4321` |
-| `npm run build` | Build production site to `./dist/` |
-| `npm run preview` | Preview build locally |
-| `npm run lint` | Run ESLint |
-| `npm run format` | Format with Prettier |
+| Command           | Action                               |
+| ----------------- | ------------------------------------ |
+| `npm run dev`     | Start dev server at `localhost:4321` |
+| `npm run build`   | Build production site to `./dist/`   |
+| `npm run preview` | Preview build locally                |
+| `npm run lint`    | Run ESLint                           |
+| `npm run format`  | Format with Prettier                 |
 
 ### Environment Variables
 

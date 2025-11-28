@@ -5,10 +5,7 @@ import sitemap from '@astrojs/sitemap';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://airesumeadvisor.com',
-  integrations: [
-    tailwind(),
-    sitemap(),
-  ],
+  integrations: [tailwind(), sitemap()],
   output: 'static',
   build: {
     assets: 'assets',
