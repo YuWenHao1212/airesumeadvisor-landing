@@ -117,20 +117,20 @@ This is **Item #4** from Sprint Plan 2025W45:
 
 ### Why App Service?
 
-| Feature | Benefit |
-|---------|---------|
-| **Shared compute** | One Plan cost, multiple Apps |
-| **Independent deploy** | Each App has own CI/CD, domain, settings |
-| **Shared App Insights** | Same Instrumentation Key, unified monitoring |
-| **Scalable** | Upgrade Plan when needed, all Apps benefit |
+| Feature                 | Benefit                                                          |
+| ----------------------- | ---------------------------------------------------------------- |
+| **Shared compute**      | One Plan cost, multiple Apps                                     |
+| **Independent deploy**  | Each App has own CI/CD, domain, settings                         |
+| **Shared App Insights** | Same Instrumentation Key, unified monitoring                     |
+| **Scalable**            | Upgrade Plan when needed, all Apps benefit                       |
 | **Independent domains** | Landing → `airesumeadvisor.com`, Web → `app.airesumeadvisor.com` |
 
 ### Cost Estimation
 
-| Plan | Monthly | Use Case |
-|------|---------|----------|
-| **F1 (Free)** | $0 | Testing/Development |
-| **B1 (Basic)** | ~$13 USD | Landing Page only |
+| Plan              | Monthly  | Use Case                 |
+| ----------------- | -------- | ------------------------ |
+| **F1 (Free)**     | $0       | Testing/Development      |
+| **B1 (Basic)**    | ~$13 USD | Landing Page only        |
 | **S1 (Standard)** | ~$70 USD | Landing + Future Web App |
 
 **Recommendation**: Start with **B1**, upgrade to **S1** when Web App migrates.
@@ -141,22 +141,22 @@ This is **Item #4** from Sprint Plan 2025W45:
 
 ### Core Azure Information
 
-| Item | Value |
-|------|-------|
-| **Subscription ID** | `5396d388-8261-464e-8ee4-112770674fba` |
-| **Resource Group** | `airesumeadvisorfastapi` |
-| **Region** | `japaneast` (primary) |
-| **Tenant** | `wenhaoairesumeadvisor.onmicrosoft.com` |
+| Item                | Value                                   |
+| ------------------- | --------------------------------------- |
+| **Subscription ID** | `5396d388-8261-464e-8ee4-112770674fba`  |
+| **Resource Group**  | `airesumeadvisorfastapi`                |
+| **Region**          | `japaneast` (primary)                   |
+| **Tenant**          | `wenhaoairesumeadvisor.onmicrosoft.com` |
 
 ### Existing Resources
 
-| Resource | Type | Details |
-|----------|------|---------|
-| **Container App** | Microsoft.App/containerApps | `airesumeadvisor-api-production` |
-| **Container Registry** | Microsoft.ContainerRegistry | `airesumeadvisorregistry.azurecr.io` |
-| **Application Insights** | Microsoft.Insights | `azure-container-api-insights-v3` (East Asia) |
-| **PostgreSQL Database** | DBforPostgreSQL | `airesumeadvisor-courses-db-eastasia` |
-| **Log Analytics** | Log Analytics Workspace | Connected to Application Insights |
+| Resource                 | Type                        | Details                                       |
+| ------------------------ | --------------------------- | --------------------------------------------- |
+| **Container App**        | Microsoft.App/containerApps | `airesumeadvisor-api-production`              |
+| **Container Registry**   | Microsoft.ContainerRegistry | `airesumeadvisorregistry.azurecr.io`          |
+| **Application Insights** | Microsoft.Insights          | `azure-container-api-insights-v3` (East Asia) |
+| **PostgreSQL Database**  | DBforPostgreSQL             | `airesumeadvisor-courses-db-eastasia`         |
+| **Log Analytics**        | Log Analytics Workspace     | Connected to Application Insights             |
 
 ### Azure Portal Links
 
@@ -177,10 +177,10 @@ https://portal.azure.com/#@wenhaoairesumeadvisor.onmicrosoft.com/resource/subscr
 
 ### Domain Configuration
 
-| URL | Points To | Purpose | Status |
-|-----|-----------|---------|--------|
-| `airesumeadvisor.com` | Azure App Service | Landing Page (Marketing, SEO) | Pending |
-| `app.airesumeadvisor.com` | Bubble.io | Web App (Login, Dashboard) | Pending |
+| URL                       | Points To         | Purpose                       | Status  |
+| ------------------------- | ----------------- | ----------------------------- | ------- |
+| `airesumeadvisor.com`     | Azure App Service | Landing Page (Marketing, SEO) | Pending |
+| `app.airesumeadvisor.com` | Bubble.io         | Web App (Login, Dashboard)    | Pending |
 
 ### Why This Approach?
 
@@ -228,10 +228,10 @@ export const LINKS = {
 
 ### Current State
 
-| Data Type | Location | Notes |
-|-----------|----------|-------|
-| **Courses** | Azure PostgreSQL | `airesumeadvisor-courses-db-eastasia` |
-| **Users, Resumes, etc.** | Bubble.io | To be migrated |
+| Data Type                | Location         | Notes                                 |
+| ------------------------ | ---------------- | ------------------------------------- |
+| **Courses**              | Azure PostgreSQL | `airesumeadvisor-courses-db-eastasia` |
+| **Users, Resumes, etc.** | Bubble.io        | To be migrated                        |
 
 ### Recommended: Two Independent PostgreSQL (Plan B)
 
@@ -245,18 +245,19 @@ PostgreSQL 1 (Existing)           PostgreSQL 2 (New - Future)
 ```
 
 **Benefits**:
+
 - Separation of concerns (course data vs user data)
 - Independent scaling, backup
 - Better security (user data isolation)
 
 ### Migration Timeline
 
-| Phase | Action | Timeline |
-|-------|--------|----------|
-| **Phase 1** | Landing Page on App Service | Now |
-| **Phase 2** | Keep Bubble.io for Web App | Current |
-| **Phase 3** | Create new PostgreSQL for User/Resume | Future |
-| **Phase 4** | Migrate Bubble → App Service | Future |
+| Phase       | Action                                | Timeline |
+| ----------- | ------------------------------------- | -------- |
+| **Phase 1** | Landing Page on App Service           | Now      |
+| **Phase 2** | Keep Bubble.io for Web App            | Current  |
+| **Phase 3** | Create new PostgreSQL for User/Resume | Future   |
+| **Phase 4** | Migrate Bubble → App Service          | Future   |
 
 ---
 
@@ -264,25 +265,25 @@ PostgreSQL 1 (Existing)           PostgreSQL 2 (New - Future)
 
 ### Completed
 
-| Item | Status | Notes |
-|------|--------|-------|
-| Project structure | Done | Astro + Tailwind setup |
-| Design system | Done | Colors match Bubble app |
-| All 9 components | Done | Header, Hero, Features, etc. |
-| Sponsor badges | Done | Microsoft + Coursera |
-| CTA links config | Done | `src/config/links.ts` |
-| GitHub repo | Done | `YuWenHao1212/airesumeadvisor-landing` |
-| GitHub Actions workflow | Done | Azure deployment ready |
+| Item                    | Status | Notes                                  |
+| ----------------------- | ------ | -------------------------------------- |
+| Project structure       | Done   | Astro + Tailwind setup                 |
+| Design system           | Done   | Colors match Bubble app                |
+| All 9 components        | Done   | Header, Hero, Features, etc.           |
+| Sponsor badges          | Done   | Microsoft + Coursera                   |
+| CTA links config        | Done   | `src/config/links.ts`                  |
+| GitHub repo             | Done   | `YuWenHao1212/airesumeadvisor-landing` |
+| GitHub Actions workflow | Done   | Azure deployment ready                 |
 
 ### Pending
 
-| Item | Priority | Notes |
-|------|----------|-------|
-| Create Azure App Service | High | Next step |
-| Configure App Insights | High | Connect to existing `insights-v3` |
-| DNS configuration | High | After App Service setup |
-| Replace placeholder images | Medium | Waiting for PNG files |
-| Commit current changes | Medium | After Azure setup |
+| Item                       | Priority | Notes                             |
+| -------------------------- | -------- | --------------------------------- |
+| Create Azure App Service   | High     | Next step                         |
+| Configure App Insights     | High     | Connect to existing `insights-v3` |
+| DNS configuration          | High     | After App Service setup           |
+| Replace placeholder images | Medium   | Waiting for PNG files             |
+| Commit current changes     | Medium   | After Azure setup                 |
 
 ---
 
@@ -346,14 +347,15 @@ Sponsored by Microsoft | Course content by Coursera
 
 ### Partner Logos
 
-| Partner | Logo Location | Usage |
-|---------|---------------|-------|
-| Microsoft | Inline SVG | Sponsor badge |
-| Coursera | `/public/images/coursera-logo.svg` | Course content partner |
+| Partner   | Logo Location                      | Usage                  |
+| --------- | ---------------------------------- | ---------------------- |
+| Microsoft | Inline SVG                         | Sponsor badge          |
+| Coursera  | `/public/images/coursera-logo.svg` | Course content partner |
 
 ### Future Expansion
 
 When more course platforms join (within 6 months):
+
 1. Change "Course content by" to "Course Partners"
 2. Consider moving to separate Partners section
 3. Use data-driven logo grid for scalability
@@ -362,14 +364,14 @@ When more course platforms join (within 6 months):
 
 ## 9. Tech Stack Summary
 
-| Layer | Technology | Purpose |
-|-------|------------|---------|
-| **Framework** | Astro 4.x | Static Site Generation |
-| **Styling** | Tailwind CSS 3.x | Utility-first CSS |
-| **Hosting** | Azure App Service | Web hosting with App Insights |
-| **CI/CD** | GitHub Actions | Auto-deploy on push |
-| **Monitoring** | Application Insights | Performance & usage tracking |
-| **DNS** | GoDaddy | Domain management |
+| Layer          | Technology           | Purpose                       |
+| -------------- | -------------------- | ----------------------------- |
+| **Framework**  | Astro 4.x            | Static Site Generation        |
+| **Styling**    | Tailwind CSS 3.x     | Utility-first CSS             |
+| **Hosting**    | Azure App Service    | Web hosting with App Insights |
+| **CI/CD**      | GitHub Actions       | Auto-deploy on push           |
+| **Monitoring** | Application Insights | Performance & usage tracking  |
+| **DNS**        | GoDaddy              | Domain management             |
 
 ---
 
@@ -414,11 +416,11 @@ public/images/
 
 ## 11. Related Projects
 
-| Project | Path | Purpose |
-|---------|------|---------|
-| **Backend API** | `/Users/yuwenhao/Documents/GitHub/azure_container` | FastAPI + GPT-4.1 |
-| **Landing Page** | `/Users/yuwenhao/Documents/GitHub/airesumeadvisor-landing` | This project |
-| **Web App** | Bubble.io (`app.airesumeadvisor.com`) | User-facing application |
+| Project          | Path                                                       | Purpose                 |
+| ---------------- | ---------------------------------------------------------- | ----------------------- |
+| **Backend API**  | `/Users/yuwenhao/Documents/GitHub/azure_container`         | FastAPI + GPT-4.1       |
+| **Landing Page** | `/Users/yuwenhao/Documents/GitHub/airesumeadvisor-landing` | This project            |
+| **Web App**      | Bubble.io (`app.airesumeadvisor.com`)                      | User-facing application |
 
 ---
 

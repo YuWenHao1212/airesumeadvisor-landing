@@ -91,16 +91,16 @@ import { LINKS } from '@config/links';
 
 ## 📚 文檔快速導航
 
-| 主題             | 位置                                                              | 說明                       |
-| ---------------- | ----------------------------------------------------------------- | -------------------------- |
-| **專案章程**     | `docs/PROJECT_CHARTER.md`                                         | 專案目標、範圍、里程碑     |
-| **交接文檔**     | `.claude/HANDOVER.md`                                             | 專案背景、技術架構         |
-| **每日規劃**     | `daily_develop/YYYY-MM-DD.md`                                     | 每日開發計劃與任務追蹤     |
-| **開發規格**     | `docs/DEVELOPMENT_SPEC.md`                                        | 完整技術規格 (900+ 行)     |
-| **設計 Tokens**  | `.claude/skills/frontend-design/resources/design-tokens.md`       | 顏色、字體、間距           |
-| **組件檢查清單** | `.claude/skills/frontend-design/resources/component-checklist.md` | QA 檢查項目                |
-| **CTA 連結配置** | `src/config/links.ts`                                             | Bubble App 連結            |
-| **CI/CD 設定**   | `.github/workflows/azure-static-web-apps.yml`                     | 部署流程                   |
+| 主題             | 位置                                                              | 說明                   |
+| ---------------- | ----------------------------------------------------------------- | ---------------------- |
+| **專案章程**     | `docs/PROJECT_CHARTER.md`                                         | 專案目標、範圍、里程碑 |
+| **交接文檔**     | `.claude/HANDOVER.md`                                             | 專案背景、技術架構     |
+| **每日規劃**     | `daily_develop/YYYY-MM-DD.md`                                     | 每日開發計劃與任務追蹤 |
+| **開發規格**     | `docs/DEVELOPMENT_SPEC.md`                                        | 完整技術規格 (900+ 行) |
+| **設計 Tokens**  | `.claude/skills/frontend-design/resources/design-tokens.md`       | 顏色、字體、間距       |
+| **組件檢查清單** | `.claude/skills/frontend-design/resources/component-checklist.md` | QA 檢查項目            |
+| **CTA 連結配置** | `src/config/links.ts`                                             | Bubble App 連結        |
+| **CI/CD 設定**   | `.github/workflows/azure-static-web-apps.yml`                     | 部署流程               |
 
 ---
 
