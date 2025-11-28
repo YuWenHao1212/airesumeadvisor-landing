@@ -15,7 +15,7 @@ export default {
         text: {
           primary: '#1D2125',
           body: '#6A6C6E',
-          caption: '#8A8C8E',
+          caption: '#6B7280', // Improved contrast (4.6:1 vs white)
           placeholder: '#9CA3AF',
         },
         // Background colors
