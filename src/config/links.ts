@@ -8,13 +8,13 @@
 const BUBBLE_APP_URL = import.meta.env.PUBLIC_BUBBLE_APP_URL || 'https://app.airesumeadvisor.com';
 
 export const LINKS = {
-  // Main CTAs
-  signup: `${BUBBLE_APP_URL}/signup`,
-  login: `${BUBBLE_APP_URL}/login`,
+  // Main CTAs - Bubble uses ?function parameter for auth pages
+  signup: `${BUBBLE_APP_URL}?function=Signup`,
+  login: `${BUBBLE_APP_URL}?function=Login`,
 
   // Feature CTAs
-  getStarted: `${BUBBLE_APP_URL}/signup`,
-  tryFree: `${BUBBLE_APP_URL}/signup`,
+  getStarted: `${BUBBLE_APP_URL}?function=Signup`,
+  tryFree: `${BUBBLE_APP_URL}?function=Signup`,
   dashboard: `${BUBBLE_APP_URL}/dashboard`,
 
   // Pricing CTAs
