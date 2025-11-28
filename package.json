@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "astro dev",
-    "start": "serve dist -l 8080",
+    "start": "serve dist -l 8080 -c dist/serve.json",
     "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",
