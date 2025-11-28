@@ -5,38 +5,42 @@ const plans = [
   {
     name: 'Free',
     price: 0,
-    period: '10 credits/day',
+    period: 'daily',
     popular: false,
     href: LINKS.signup,
     cta: 'Get Started',
     highlight: 'No Credit Card Required',
+    description: 'Analyze and optimize up to 5 jobs per day',
   },
   {
     name: 'Daily Pass',
-    price: 10,
-    period: '1 Day',
+    price: 6,
+    period: '24 hours',
     popular: false,
     href: LINKS.buyDaily,
     cta: 'Buy Now',
     highlight: null,
+    description: 'Less than your morning coffee',
   },
   {
     name: 'Weekly Pass',
     price: 20,
-    period: '7 Days',
+    period: '7 days',
     popular: true,
     href: LINKS.buyWeekly,
     cta: 'Buy Now',
-    highlight: null,
+    highlight: 'Save over 50%',
+    description: 'Perfect for active job seekers',
   },
 ];
 
 const features = [
-  'Unlimited alignment assessments',
-  'ATS-compatible resume revisions',
-  'Personalized recommendations',
-  'Course suggestions for missing skills',
-  'Before/after comparison',
+  'Alignment score + keyword coverage analysis',
+  'Strengths, weaknesses & quick wins report',
+  'AI-powered resume rewrite',
+  'Skill gap analysis with course recommendations',
+  'Before/after score comparison',
+  'Job alignment simulator',
 ];
 ---
 
@@ -46,8 +50,11 @@ const features = [
     <h2
       class="text-center font-display text-3xl font-bold text-text-primary sm:text-4xl md:text-5xl"
     >
-      Pricing
+      Career Consultant Insights at a Fraction of the Cost
     </h2>
+    <p class="mx-auto mt-4 max-w-2xl text-center text-lg text-text-body">
+      A career consultant charges $100–300/hour. Get the same level of analysis—instantly.
+    </p>
 
     <!-- Pricing Cards -->
     <div class="mx-auto mt-12 grid max-w-4xl gap-6 md:grid-cols-3">
@@ -70,6 +77,9 @@ const features = [
               </p>
               <p class="mt-2 text-lg font-medium text-text-primary">{plan.name}</p>
               <p class="text-sm text-text-caption">{plan.period}</p>
+              {plan.description && (
+                <p class="mt-2 text-xs text-text-body">{plan.description}</p>
+              )}
             </div>
 
             <a
@@ -134,7 +144,7 @@ const features = [
           </svg>
         </div>
         <p class="text-sm font-medium text-primary">
-          Get 10 free credits daily to try all premium features at no cost
+          Analyze and optimize up to 5 jobs per day—free, no credit card required
         </p>
       </div>
     </div>

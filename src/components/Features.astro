@@ -4,24 +4,24 @@ import { LINKS } from '../config/links';
 const features = [
   {
     id: 'alignment',
-    tab: 'Alignment Assessment Report',
-    title: 'AI-Powered Resume Alignment: Perfect Your Fit',
+    tab: 'See Your Match',
+    title: 'Know Exactly Where You Stand',
     description:
-      'Instantly see how well your LinkedIn profile and resume align with your target job. Our smart Alignment Assessment Report analyses your skills, experience, and keywords against the job description, highlighting strengths, gaps, and tailored suggestions. Refine your resume with data-driven insights and increase your chances of landing interviews for the roles you truly want.',
+      'Get your alignment score in seconds—not just keyword matches, but true semantic analysis of how your experience fits the role. See your strengths, gaps, and quick wins at a glance. No more guessing if you\'re qualified. Know before you apply.',
   },
   {
     id: 'tailored',
-    tab: 'Tailored Resume',
-    title: 'Upskill Smarter: Personalized Growth Recommendations',
+    tab: 'Fix & Polish',
+    title: 'AI-Powered Resume Rewrite',
     description:
-      'Unlock your next level of career growth with personalized development insights. Our AI analyses your resume and target job to identify skill gaps, then recommends the right courses, certifications, and learning paths to help you close them. Strengthen your profile, stay ahead of industry trends, and build the skills employers are searching for.',
+      'Found a presentation gap? Our AI rewrites your resume to better showcase what you already have. See exactly how each section improves with before-and-after scores. Your experience stays real—just presented in the language employers want to see.',
   },
   {
     id: 'development',
-    tab: 'Self-Development Suggestion',
-    title: 'Upskill Smarter: Personalized Growth Recommendations',
+    tab: 'Level Up',
+    title: 'Bridge Your Skill Gaps',
     description:
-      'Chart your career path with confidence. Our Self-Development engine analyzes market trends and your profile to suggest the most impactful skills to learn next. Get curated course recommendations from top providers, track your progress, and stay competitive in your field.',
+      'Found skills you\'re missing? We\'ll show you exactly which courses and certifications can close the gap—with recommendations tailored to your target role. No more wondering what to learn next.',
   },
 ];
 ---
@@ -30,7 +30,7 @@ const features = [
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <!-- Section Title -->
     <h2 class="text-center font-display text-3xl font-bold text-text-primary sm:text-4xl md:text-5xl">
-      Unlock Dream Career with AI Hub
+      From Analysis to Action
     </h2>
 
     <!-- Tabs -->
@@ -57,7 +57,7 @@ const features = [
           data-content={feature.id}
           data-visible={index === 0 ? 'true' : 'false'}
         >
-          <div class="grid items-center gap-8 lg:grid-cols-2 lg:gap-12">
+          <div class="grid items-start gap-8 lg:grid-cols-2 lg:gap-12">
             <!-- Image Placeholder -->
             <div class="relative">
               <div class="relative rounded-2xl bg-gray-900 p-2 shadow-2xl">
