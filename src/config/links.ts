@@ -15,12 +15,12 @@ export const LINKS = {
   // Feature CTAs
   getStarted: `${BUBBLE_APP_URL}?function=Signup`,
   tryFree: `${BUBBLE_APP_URL}?function=Signup`,
-  dashboard: `${BUBBLE_APP_URL}/dashboard`,
+  dashboard: `${BUBBLE_APP_URL}/main`,
 
-  // Pricing CTAs
-  buyDaily: `${BUBBLE_APP_URL}/pricing?plan=daily`,
-  buyWeekly: `${BUBBLE_APP_URL}/pricing?plan=weekly`,
-  pricing: `${BUBBLE_APP_URL}/pricing`,
+  // Pricing CTAs - Include plan parameter for post-signup redirect
+  buyDaily: `${BUBBLE_APP_URL}?function=Signup&plan=daily`,
+  buyWeekly: `${BUBBLE_APP_URL}?function=Signup&plan=weekly`,
+  pricing: `${BUBBLE_APP_URL}?function=Signup`,
 
   // Legal (internal)
   terms: '/terms',
