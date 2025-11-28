@@ -3,11 +3,22 @@ import { LINKS } from '../config/links';
 
 const plans = [
   {
+    name: 'Free',
+    price: 0,
+    period: '10 credits/day',
+    popular: false,
+    href: LINKS.signup,
+    cta: 'Get Started',
+    highlight: 'No Credit Card Required',
+  },
+  {
     name: 'Daily Pass',
     price: 10,
     period: '1 Day',
     popular: false,
     href: LINKS.buyDaily,
+    cta: 'Buy Now',
+    highlight: null,
   },
   {
     name: 'Weekly Pass',
@@ -15,12 +26,14 @@ const plans = [
     period: '7 Days',
     popular: true,
     href: LINKS.buyWeekly,
+    cta: 'Buy Now',
+    highlight: null,
   },
 ];
 
-const freeFeatures = [
+const features = [
   'Unlimited alignment assessments',
-  'Instant ATS-compatible resume revisions',
+  'ATS-compatible resume revisions',
   'Personalized recommendations',
   'Course suggestions for missing skills',
   'Before/after comparison',
@@ -30,87 +43,94 @@ const freeFeatures = [
 <section id="pricing" class="bg-background py-16 md:py-24">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <!-- Section Title -->
-    <h2 class="text-center font-display text-3xl font-bold text-text-primary sm:text-4xl md:text-5xl">
+    <h2
+      class="text-center font-display text-3xl font-bold text-text-primary sm:text-4xl md:text-5xl"
+    >
       Pricing
     </h2>
 
     <!-- Pricing Cards -->
-    <div class="mx-auto mt-12 grid max-w-3xl gap-6 md:grid-cols-2">
-      {plans.map((plan) => (
-        <div
-          class={`relative rounded-2xl border bg-white p-8 ${
-            plan.popular
-              ? 'border-primary shadow-lg'
-              : 'border-gray-200'
-          }`}
-        >
-          {plan.popular && (
-            <span class="absolute -top-3 right-4 rounded-full border border-primary bg-white px-3 py-1 text-xs font-medium text-primary">
-              Popular
-            </span>
-          )}
-
-          <div class="text-center">
-            <p class="text-4xl font-bold text-text-primary">
-              ${plan.price}
-            </p>
-            <p class="mt-2 text-lg font-medium text-text-primary">
-              {plan.name}
-            </p>
-            <p class="text-sm text-text-caption">{plan.period}</p>
-          </div>
-
-          <a
-            href={plan.href}
-            class={`mt-8 block w-full rounded-full py-3 text-center font-medium transition-all ${
-              plan.popular
-                ? 'bg-primary text-white hover:bg-primary-hover'
-                : 'border border-gray-200 bg-white text-primary hover:border-primary'
+    <div class="mx-auto mt-12 grid max-w-4xl gap-6 md:grid-cols-3">
+      {
+        plans.map((plan) => (
+          <div
+            class={`relative rounded-2xl border bg-white p-6 transition-shadow hover:shadow-lg ${
+              plan.popular ? 'border-primary shadow-lg' : 'border-gray-200'
             }`}
           >
-            Buy Now
-          </a>
-        </div>
-      ))}
+            {plan.popular && (
+              <span class="absolute -top-3 right-4 rounded-full border border-primary bg-white px-3 py-1 text-xs font-medium text-primary">
+                Popular
+              </span>
+            )}
+
+            <div class="text-center">
+              <p class="text-4xl font-bold text-text-primary">
+                {plan.price === 0 ? 'Free' : `$${plan.price}`}
+              </p>
+              <p class="mt-2 text-lg font-medium text-text-primary">{plan.name}</p>
+              <p class="text-sm text-text-caption">{plan.period}</p>
+            </div>
+
+            <a
+              href={plan.href}
+              class={`mt-6 block w-full rounded-full py-3 text-center font-medium transition-all ${
+                plan.popular
+                  ? 'bg-primary text-white hover:bg-primary-hover'
+                  : 'border border-gray-200 bg-white text-primary hover:border-primary'
+              }`}
+            >
+              {plan.cta}
+            </a>
+
+            {plan.highlight && (
+              <p class="mt-3 text-center text-xs font-medium text-success">{plan.highlight}</p>
+            )}
+          </div>
+        ))
+      }
     </div>
 
-    <!-- Free Features -->
+    <!-- Features -->
     <div class="mx-auto mt-12 max-w-4xl rounded-2xl border border-gray-200 bg-white p-8">
-      <h3 class="text-xl font-bold text-text-primary">Free Features</h3>
+      <h3 class="text-xl font-bold text-text-primary">Features</h3>
 
-      <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {freeFeatures.map((feature) => (
-          <div class="flex items-center gap-3">
-            <div class="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-success">
-              <svg
-                class="h-4 w-4 text-white"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M5 13l4 4L19 7"
-                />
-              </svg>
+      <div class="mt-6 grid gap-x-8 gap-y-4 sm:grid-cols-2 lg:grid-cols-3">
+        {
+          features.map((feature) => (
+            <div class="flex items-start gap-3">
+              <div class="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-success">
+                <svg
+                  class="h-3 w-3 text-white"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="3"
+                    d="M5 13l4 4L19 7"
+                  />
+                </svg>
+              </div>
+              <span class="text-sm leading-tight text-text-body">{feature}</span>
             </div>
-            <span class="text-sm text-text-body">{feature}</span>
-          </div>
-        ))}
+          ))
+        }
       </div>
 
       <!-- Free Credits Banner -->
       <div class="mt-6 flex items-center gap-3 rounded-lg bg-primary-light px-4 py-3">
-        <div class="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full border border-primary text-primary">
-          <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div
+          class="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full border border-primary text-primary"
+        >
+          <svg class="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path
               stroke-linecap="round"
               stroke-linejoin="round"
               stroke-width="2"
-              d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-            />
+              d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
           </svg>
         </div>
         <p class="text-sm font-medium text-primary">
