@@ -25,23 +25,26 @@ AI Resume Advisor works like a **Career Consultant**:
 
 ### Core Metrics (Differentiation)
 
-| Metric | Competitors | AI Resume Advisor |
-|--------|-------------|-------------------|
-| **Keyword Coverage** | ✅ Only this | ✅ Included |
-| **Alignment Score** | ❌ None | ✅ Semantic similarity between JD & Resume |
+| Metric               | Competitors  | AI Resume Advisor                          |
+| -------------------- | ------------ | ------------------------------------------ |
+| **Keyword Coverage** | ✅ Only this | ✅ Included                                |
+| **Alignment Score**  | ❌ None      | ✅ Semantic similarity between JD & Resume |
 
 **Why this matters:**
+
 - Keyword Coverage = surface-level match
 - Alignment Score = true semantic match (what employers actually look for)
 
 ### Quantitative + Qualitative Analysis
 
 **Quantitative:**
+
 - Alignment Score (e.g., 79% Content Match)
 - Keyword Coverage (e.g., 3/10)
 - Section-by-section breakdown scores
 
 **Qualitative:**
+
 - Strengths
 - Weaknesses
 - Quick Wins
@@ -52,6 +55,7 @@ This report helps job seekers decide **whether to apply in the first 30 seconds*
 ### Job Alignment Simulator
 
 Users can:
+
 - See **Before/After** comparison after AI optimization
 - Add courses/certifications/projects to see score changes **before investing time and money**
 - Understand **what to learn, in what order, and how much it matters**
@@ -62,12 +66,13 @@ Users can:
 
 ## 2. Target Users
 
-| User Type | Primary Pain Point |
-|-----------|-------------------|
+| User Type            | Primary Pain Point                                      |
+| -------------------- | ------------------------------------------------------- |
 | **Recent Graduates** | Don't know what skills they're missing or what to learn |
-| **Career Changers** | Know the goal but don't know the path from A to B |
+| **Career Changers**  | Know the goal but don't know the path from A to B       |
 
 **Common Pain Points:**
+
 - Submitting resumes without knowing if they're qualified
 - No feedback on why applications fail
 - Making resume changes without knowing if they help
@@ -76,46 +81,48 @@ Users can:
 
 ## 3. Brand Voice
 
-| Attribute | Description |
-|-----------|-------------|
-| **Tone** | Friendly & Supportive + Professional |
-| **NOT** | Pushy, aggressive, or overly salesy |
-| **Language** | Clear, concise, benefit-focused |
+| Attribute    | Description                          |
+| ------------ | ------------------------------------ |
+| **Tone**     | Friendly & Supportive + Professional |
+| **NOT**      | Pushy, aggressive, or overly salesy  |
+| **Language** | Clear, concise, benefit-focused      |
 
 ---
 
 ## 4. Confirmed Pricing
 
-| Plan | Price | Duration | Copy |
-|------|-------|----------|------|
-| **Free** | $0 | Daily | Analyze and optimize up to 5 jobs per day. Includes full reports with before/after comparison. |
-| **Daily Pass** | $6 | 24 hours | Less than your morning coffee. Unlimited assessments for one focused job-hunting session. |
-| **Weekly Pass** | $20 | 7 days | Best value—save over 50%. Perfect for active job seekers. |
+| Plan            | Price | Duration | Copy                                                                                           |
+| --------------- | ----- | -------- | ---------------------------------------------------------------------------------------------- |
+| **Free**        | $0    | Daily    | Analyze and optimize up to 5 jobs per day. Includes full reports with before/after comparison. |
+| **Daily Pass**  | $6    | 24 hours | Less than your morning coffee. Unlimited assessments for one focused job-hunting session.      |
+| **Weekly Pass** | $20   | 7 days   | Best value—save over 50%. Perfect for active job seekers.                                      |
 
 **Credit System:**
+
 - Analyze = 1 credit
 - Tailor Resume (includes Before/After) = 1 credit
 - Simulation (manual edit + recalculate) = 1 credit
 - 10 credits/day free ≈ 5 complete job analyses
 
 **Value Comparison:**
+
 > A career consultant charges $100–300/hour. Get the same level of analysis—instantly.
 
 ---
 
 ## 5. Confirmed Landing Page Structure
 
-| # | Section | Status |
-|---|---------|--------|
-| 1 | Header | Keep existing |
-| 2 | Hero | ✅ New copy |
-| 3 | Features (3 Tabs) | ✅ New copy + renamed tabs |
-| 4 | Job Simulator | ✅ New copy + user quote |
-| 5 | ~~Social Proof~~ | ❌ **REMOVE** (redundant with Hero trust badges) |
-| 6 | How it Works | Keep existing |
-| 7 | Pricing | ✅ New copy + new pricing ($6/$20) |
-| 8 | Bottom CTA | ✅ New copy |
-| 9 | Footer | Keep existing |
+| #   | Section           | Status                                           |
+| --- | ----------------- | ------------------------------------------------ |
+| 1   | Header            | Keep existing                                    |
+| 2   | Hero              | ✅ New copy                                      |
+| 3   | Features (3 Tabs) | ✅ New copy + renamed tabs                       |
+| 4   | Job Simulator     | ✅ New copy + user quote                         |
+| 5   | ~~Social Proof~~  | ❌ **REMOVE** (redundant with Hero trust badges) |
+| 6   | How it Works      | Keep existing                                    |
+| 7   | Pricing           | ✅ New copy + new pricing ($6/$20)               |
+| 8   | Bottom CTA        | ✅ New copy                                      |
+| 9   | Footer            | Keep existing                                    |
 
 ---
 
@@ -123,12 +130,12 @@ Users can:
 
 ### Hero Section
 
-| Element | Content |
-|---------|---------|
-| **Headline** | Know Your Match Before You Apply |
-| **Subheadline** | Instant analysis of your resume vs. job requirements—with a clear path to improve. |
-| **CTA** | Sign Up Free |
-| **Trust Badges** | Sponsored by Microsoft · Course content by Coursera |
+| Element          | Content                                                                            |
+| ---------------- | ---------------------------------------------------------------------------------- |
+| **Headline**     | Know Your Match Before You Apply                                                   |
+| **Subheadline**  | Instant analysis of your resume vs. job requirements—with a clear path to improve. |
+| **CTA**          | Sign Up Free                                                                       |
+| **Trust Badges** | Sponsored by Microsoft · Course content by Coursera                                |
 
 ---
 
@@ -138,37 +145,37 @@ Users can:
 
 #### Tab 1: See Your Match
 
-| Element | Content |
-|---------|---------|
-| **Tab Title** | See Your Match |
-| **Card Title** | Know Exactly Where You Stand |
-| **Copy** | Get your alignment score in seconds—not just keyword matches, but true semantic analysis of how your experience fits the role. See your strengths, gaps, and quick wins at a glance. No more guessing if you're qualified. Know before you apply. |
+| Element        | Content                                                                                                                                                                                                                                           |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Tab Title**  | See Your Match                                                                                                                                                                                                                                    |
+| **Card Title** | Know Exactly Where You Stand                                                                                                                                                                                                                      |
+| **Copy**       | Get your alignment score in seconds—not just keyword matches, but true semantic analysis of how your experience fits the role. See your strengths, gaps, and quick wins at a glance. No more guessing if you're qualified. Know before you apply. |
 
 #### Tab 2: Fix & Polish
 
-| Element | Content |
-|---------|---------|
-| **Tab Title** | Fix & Polish |
-| **Card Title** | AI-Powered Resume Rewrite |
-| **Copy** | Found a presentation gap? Our AI rewrites your resume to better showcase what you already have. See exactly how each section improves with before-and-after scores. Your experience stays real—just presented in the language employers want to see. |
+| Element        | Content                                                                                                                                                                                                                                              |
+| -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Tab Title**  | Fix & Polish                                                                                                                                                                                                                                         |
+| **Card Title** | AI-Powered Resume Rewrite                                                                                                                                                                                                                            |
+| **Copy**       | Found a presentation gap? Our AI rewrites your resume to better showcase what you already have. See exactly how each section improves with before-and-after scores. Your experience stays real—just presented in the language employers want to see. |
 
 #### Tab 3: Level Up
 
-| Element | Content |
-|---------|---------|
-| **Tab Title** | Level Up |
-| **Card Title** | Bridge Your Skill Gaps |
-| **Copy** | Found skills you're missing? We'll show you exactly which courses and certifications can close the gap—with recommendations tailored to your target role. No more wondering what to learn next. |
+| Element        | Content                                                                                                                                                                                         |
+| -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Tab Title**  | Level Up                                                                                                                                                                                        |
+| **Card Title** | Bridge Your Skill Gaps                                                                                                                                                                          |
+| **Copy**       | Found skills you're missing? We'll show you exactly which courses and certifications can close the gap—with recommendations tailored to your target role. No more wondering what to learn next. |
 
 ---
 
 ### Job Simulator Section
 
-| Element | Content |
-|---------|---------|
-| **Headline** | Your Career Skill Tree |
-| **Copy** | Before you invest months in a course, see if it's worth it. Add any skill, certification, or project to your resume and watch your alignment score change in real time. Know the ROI of every learning decision before you make it. |
-| **Quote** | "It's like a skill tree in a game, but it's my real career—and now I finally know how to level up my life." |
+| Element      | Content                                                                                                                                                                                                                             |
+| ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Headline** | Your Career Skill Tree                                                                                                                                                                                                              |
+| **Copy**     | Before you invest months in a course, see if it's worth it. Add any skill, certification, or project to your resume and watch your alignment score change in real time. Know the ROI of every learning decision before you make it. |
+| **Quote**    | "It's like a skill tree in a game, but it's my real career—and now I finally know how to level up my life."                                                                                                                         |
 
 ---
 
@@ -182,14 +189,15 @@ Users can:
 
 ### Pricing Section
 
-| Element | Content |
-|---------|---------|
-| **Headline** | Career Consultant Insights at a Fraction of the Cost |
+| Element         | Content                                                                              |
+| --------------- | ------------------------------------------------------------------------------------ |
+| **Headline**    | Career Consultant Insights at a Fraction of the Cost                                 |
 | **Subheadline** | A career consultant charges $100–300/hour. Get the same level of analysis—instantly. |
 
 **Plans:** (See Section 4 above)
 
 **Features List:**
+
 - ✓ Alignment score + keyword coverage analysis
 - ✓ Strengths, weaknesses & quick wins report
 - ✓ AI-powered resume rewrite
@@ -201,11 +209,11 @@ Users can:
 
 ### Bottom CTA Section
 
-| Element | Content |
-|---------|---------|
-| **Headline** | Ready to Know Your Match? |
-| **Copy** | Upload your resume, paste a job description, and see exactly where you stand—in seconds. Free to start, no credit card required. |
-| **CTA** | Get Your Match Score Free |
+| Element      | Content                                                                                                                          |
+| ------------ | -------------------------------------------------------------------------------------------------------------------------------- |
+| **Headline** | Ready to Know Your Match?                                                                                                        |
+| **Copy**     | Upload your resume, paste a job description, and see exactly where you stand—in seconds. Free to start, no credit card required. |
+| **CTA**      | Get Your Match Score Free                                                                                                        |
 
 ---
 
@@ -213,14 +221,14 @@ Users can:
 
 ### Files to Update
 
-| File | Changes |
-|------|---------|
-| `src/components/Hero.astro` | New headline, subheadline |
-| `src/components/Features.astro` | New section title, tab names, card titles, copy |
-| `src/components/JobSimulator.astro` | New headline, copy, add quote |
-| `src/components/SocialProof.astro` | **REMOVE or HIDE** |
-| `src/components/Pricing.astro` | New headline, pricing ($6/$20), features list |
-| `src/components/BottomCTA.astro` | New headline, copy, CTA text |
+| File                                | Changes                                         |
+| ----------------------------------- | ----------------------------------------------- |
+| `src/components/Hero.astro`         | New headline, subheadline                       |
+| `src/components/Features.astro`     | New section title, tab names, card titles, copy |
+| `src/components/JobSimulator.astro` | New headline, copy, add quote                   |
+| `src/components/SocialProof.astro`  | **REMOVE or HIDE**                              |
+| `src/components/Pricing.astro`      | New headline, pricing ($6/$20), features list   |
+| `src/components/BottomCTA.astro`    | New headline, copy, CTA text                    |
 
 ### Code Changes Required
 
