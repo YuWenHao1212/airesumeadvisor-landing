@@ -1,6 +1,7 @@
 import eslint from '@eslint/js';
 import tseslint from '@typescript-eslint/parser';
 import eslintPluginAstro from 'eslint-plugin-astro';
+import globals from 'globals';
 
 export default [
   eslint.configs.recommended,
@@ -12,6 +13,9 @@ export default [
       parserOptions: {
         ecmaVersion: 'latest',
         sourceType: 'module',
+      },
+      globals: {
+        ...globals.browser,
       },
     },
   },

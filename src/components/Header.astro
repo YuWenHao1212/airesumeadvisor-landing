@@ -14,7 +14,13 @@ const navItems = [
     <a href="/" class="flex items-center gap-2">
       <picture>
         <source srcset="/images/logo.webp" type="image/webp" />
-        <img src="/images/logo.png" alt="AI Resume Advisor" class="h-10 w-auto" width="167" height="40" />
+        <img
+          src="/images/logo.png"
+          alt="AI Resume Advisor"
+          class="h-10 w-auto"
+          width="167"
+          height="40"
+        />
       </picture>
     </a>
 
@@ -36,12 +42,14 @@ const navItems = [
     <div class="hidden items-center gap-4 md:flex">
       <a
         href={LINKS.login}
+        data-cta-link="login"
         class="text-sm font-medium text-primary transition-colors hover:text-primary-hover"
       >
         Log In
       </a>
       <a
         href={LINKS.signup}
+        data-cta-link="signup"
         class="inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-2.5 text-sm font-medium text-white shadow-primary transition-all hover:bg-primary-hover hover:shadow-lg"
       >
         Sign Up Free
@@ -88,12 +96,14 @@ const navItems = [
       <div class="mt-4 flex flex-col gap-3 border-t border-gray-100 pt-4">
         <a
           href={LINKS.login}
+          data-cta-link="login"
           class="block rounded-lg px-3 py-2 text-center text-base font-medium text-primary hover:bg-primary-light"
         >
           Log In
         </a>
         <a
           href={LINKS.signup}
+          data-cta-link="signup"
           class="block rounded-lg bg-primary px-3 py-2.5 text-center text-base font-medium text-white hover:bg-primary-hover"
         >
           Sign Up Free

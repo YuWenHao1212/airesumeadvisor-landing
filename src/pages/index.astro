@@ -1,5 +1,6 @@
 ---
 import Layout from '@layouts/Layout.astro';
+import ReferralBanner from '../components/ReferralBanner.astro';
 import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
 import Features from '../components/Features.astro';
@@ -11,6 +12,7 @@ import Footer from '../components/Footer.astro';
 ---
 
 <Layout title="AI Resume Advisor - Know Your Match Before You Apply">
+  <ReferralBanner />
   <Header />
 
   <main>
@@ -24,3 +26,10 @@ import Footer from '../components/Footer.astro';
 
   <Footer />
 </Layout>
+
+<script>
+  import { initReferralSystem } from '../utils/referral';
+
+  // Initialize referral system when DOM is ready
+  document.addEventListener('DOMContentLoaded', initReferralSystem);
+</script>
