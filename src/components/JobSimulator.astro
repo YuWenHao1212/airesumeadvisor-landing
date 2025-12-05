@@ -40,23 +40,17 @@ import { LINKS } from '../config/links';
 
       <!-- Image -->
       <div class="relative">
-        <!-- MacBook Mockup -->
-        <div class="relative rounded-2xl bg-gray-900 p-2 shadow-2xl">
-          <div class="rounded-xl bg-gray-800 p-1">
-            <picture>
-              <source srcset="/images/skill-tree.webp" type="image/webp" />
-              <img
-                src="/images/screenshots/skill-tree.png"
-                alt="Career skill tree showing skill progression and learning paths"
-                class="aspect-[16/10] w-full rounded-lg object-cover object-top"
-                width="800"
-                height="500"
-                loading="lazy"
-              />
-            </picture>
-          </div>
-          <div class="mx-auto h-4 w-1/3 rounded-b-xl bg-gray-700"></div>
-        </div>
+        <picture>
+          <source srcset="/images/skill-tree.webp" type="image/webp" />
+          <img
+            src="/images/screenshots/skill-tree.png"
+            alt="Career skill tree showing skill progression and learning paths"
+            class="w-full rounded-2xl shadow-2xl"
+            width="800"
+            height="500"
+            loading="lazy"
+          />
+        </picture>
 
         <!-- Floating Card -->
         <div class="absolute -right-4 top-1/4 z-10 rounded-xl bg-white p-4 shadow-lg sm:-right-8">
