@@ -24,21 +24,21 @@ The Landing Page needs to handle this referral flow to:
 
 ### 2.1 Files Created
 
-| File | Purpose |
-|------|---------|
-| `src/utils/referral.ts` | Referral utility module - handles localStorage, expiry, URL manipulation |
-| `src/components/ReferralBanner.astro` | Top banner component showing "20% OFF" message |
+| File                                  | Purpose                                                                  |
+| ------------------------------------- | ------------------------------------------------------------------------ |
+| `src/utils/referral.ts`               | Referral utility module - handles localStorage, expiry, URL manipulation |
+| `src/components/ReferralBanner.astro` | Top banner component showing "20% OFF" message                           |
 
 ### 2.2 Files Modified
 
-| File | Changes |
-|------|---------|
-| `src/components/Header.astro` | Added `data-cta-link` attributes to 4 CTA links |
-| `src/components/Hero.astro` | Added `data-cta-link` attribute to signup button |
-| `src/components/Pricing.astro` | Added `data-cta-link` attributes, discount badges, card layout fixes |
-| `src/components/BottomCTA.astro` | Added `data-cta-link` attribute to CTA button |
-| `src/pages/index.astro` | Added ReferralBanner component and init script |
-| `eslint.config.js` | Added browser globals support |
+| File                             | Changes                                                              |
+| -------------------------------- | -------------------------------------------------------------------- |
+| `src/components/Header.astro`    | Added `data-cta-link` attributes to 4 CTA links                      |
+| `src/components/Hero.astro`      | Added `data-cta-link` attribute to signup button                     |
+| `src/components/Pricing.astro`   | Added `data-cta-link` attributes, discount badges, card layout fixes |
+| `src/components/BottomCTA.astro` | Added `data-cta-link` attribute to CTA button                        |
+| `src/pages/index.astro`          | Added ReferralBanner component and init script                       |
+| `eslint.config.js`               | Added browser globals support                                        |
 
 ### 2.3 Features Implemented
 
@@ -68,11 +68,11 @@ The Landing Page needs to handle this referral flow to:
 
 ### 3.1 URL Format
 
-| Type | Example |
-|------|---------|
-| Referral Link | `https://app.airesumeadvisor.com/ref/WEN123` |
-| Landing Page URL | `https://airesumeadvisor.com/?ref=WEN123` |
-| Signup URL | `https://app.airesumeadvisor.com?function=Signup&ref=WEN123` |
+| Type             | Example                                                      |
+| ---------------- | ------------------------------------------------------------ |
+| Referral Link    | `https://app.airesumeadvisor.com/ref/WEN123`                 |
+| Landing Page URL | `https://airesumeadvisor.com/?ref=WEN123`                    |
+| Signup URL       | `https://app.airesumeadvisor.com?function=Signup&ref=WEN123` |
 
 ### 3.2 Referral Code Format
 
@@ -91,13 +91,13 @@ const SEVEN_DAYS_MS = 7 * 24 * 60 * 60 * 1000;
 
 ### 3.4 Referral Utility Functions
 
-| Function | Purpose |
-|----------|---------|
-| `getReferralCode()` | Get code from localStorage (returns null if expired) |
-| `setReferralCode(code)` | Save code with current timestamp |
-| `clearReferralCode()` | Remove code and timestamp |
-| `appendReferralToUrl(url)` | Add ref parameter to URL |
-| `initReferralSystem()` | Initialize on page load |
+| Function                   | Purpose                                              |
+| -------------------------- | ---------------------------------------------------- |
+| `getReferralCode()`        | Get code from localStorage (returns null if expired) |
+| `setReferralCode(code)`    | Save code with current timestamp                     |
+| `clearReferralCode()`      | Remove code and timestamp                            |
+| `appendReferralToUrl(url)` | Add ref parameter to URL                             |
+| `initReferralSystem()`     | Initialize on page load                              |
 
 ---
 
@@ -153,11 +153,11 @@ const SEVEN_DAYS_MS = 7 * 24 * 60 * 60 * 1000;
 
 ## 6. Design Decisions Made
 
-| Question | Decision | Rationale |
-|----------|----------|-----------|
-| Banner placement | Top bar (above Header) | More visible, consistent with Web App |
-| Referral code expiry | 7 days | Matches Web App cookie expiry |
-| Multiple referrals | Last Touch Attribution | Simpler implementation, rewards the referrer who finally convinced the user |
+| Question             | Decision               | Rationale                                                                   |
+| -------------------- | ---------------------- | --------------------------------------------------------------------------- |
+| Banner placement     | Top bar (above Header) | More visible, consistent with Web App                                       |
+| Referral code expiry | 7 days                 | Matches Web App cookie expiry                                               |
+| Multiple referrals   | Last Touch Attribution | Simpler implementation, rewards the referrer who finally convinced the user |
 
 ---
 
@@ -165,19 +165,19 @@ const SEVEN_DAYS_MS = 7 * 24 * 60 * 60 * 1000;
 
 ### Landing Page (this repo)
 
-| File | Purpose |
-|------|---------|
-| `src/utils/referral.ts` | Core referral logic |
-| `src/components/ReferralBanner.astro` | Banner UI |
-| `src/components/Pricing.astro` | Discount badges |
+| File                                  | Purpose             |
+| ------------------------------------- | ------------------- |
+| `src/utils/referral.ts`               | Core referral logic |
+| `src/components/ReferralBanner.astro` | Banner UI           |
+| `src/components/Pricing.astro`        | Discount badges     |
 
 ### Web App
 
-| File | Purpose |
-|------|---------|
-| `src/app/ref/[code]/page.tsx` | Redirects to Landing Page |
-| `src/app/api/auth/signup/route.ts` | Reads referral from cookie/param |
-| `src/components/auth/ReferralBanner.tsx` | Signup page banner |
+| File                                     | Purpose                          |
+| ---------------------------------------- | -------------------------------- |
+| `src/app/ref/[code]/page.tsx`            | Redirects to Landing Page        |
+| `src/app/api/auth/signup/route.ts`       | Reads referral from cookie/param |
+| `src/components/auth/ReferralBanner.tsx` | Signup page banner               |
 
 ---
 
