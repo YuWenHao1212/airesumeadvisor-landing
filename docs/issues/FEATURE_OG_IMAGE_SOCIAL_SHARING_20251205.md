@@ -100,47 +100,52 @@ Add the following meta tags to `src/layouts/Layout.astro`:
 ### REQ-3: Optimize og:description
 
 **Current Description** (in Layout.astro):
+
 ```
 Create tailored resumes that match job descriptions perfectly. Our AI analyzes keywords, skills, and requirements to help you stand out and get hired faster.
 ```
 
 **Optimization Guidelines**:
 
-| Platform | Max Length | Recommendation |
-|----------|------------|----------------|
+| Platform | Max Length | Recommendation                        |
+| -------- | ---------- | ------------------------------------- |
 | Facebook | ~200 chars | Keep under 155 chars for full display |
-| LinkedIn | ~300 chars | Can be slightly longer |
-| Twitter  | ~200 chars | Keep under 155 chars |
+| LinkedIn | ~300 chars | Can be slightly longer                |
+| Twitter  | ~200 chars | Keep under 155 chars                  |
 
 **Brand Messaging Reference** (from Web App Referral Program):
 
 The app uses this core message aligned with brand voice:
+
 > "Know Your Match Before You Apply"
 
 Platform-specific copy already in use (for reference):
 
-| Platform | Pre-filled Text |
-|----------|-----------------|
-| **Twitter/X** | "Stop guessing if you're qualified—know your match before you apply. AI Resume Advisor shows your alignment score in seconds, not just keyword matches." |
-| **Email Subject** | "Know Your Match Before You Apply" |
-| **LinkedIn** | Uses og:tags only (no pre-filled text supported) |
-| **Facebook** | Uses og:tags only (`quote` param deprecated since 2017) |
+| Platform          | Pre-filled Text                                                                                                                                          |
+| ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Twitter/X**     | "Stop guessing if you're qualified—know your match before you apply. AI Resume Advisor shows your alignment score in seconds, not just keyword matches." |
+| **Email Subject** | "Know Your Match Before You Apply"                                                                                                                       |
+| **LinkedIn**      | Uses og:tags only (no pre-filled text supported)                                                                                                         |
+| **Facebook**      | Uses og:tags only (`quote` param deprecated since 2017)                                                                                                  |
 
 **Recommended og:description** (optimized for social sharing):
 
 ```
 Stop guessing if you're qualified. AI Resume Advisor shows your alignment score instantly—not just keywords, but true semantic matching. Try free!
 ```
+
 (148 characters - displays fully on all platforms, aligned with brand voice)
 
 **Alternative Options**:
 
 1. **Action-focused** (aligned with Twitter copy):
+
    ```
    Know your match before you apply. Get instant alignment scores that show how your experience truly fits each role—beyond keyword matching.
    ```
 
 2. **Benefit-focused**:
+
    ```
    See exactly how you match each job in seconds. AI-powered semantic analysis shows your true fit, not just keyword overlap. Try free today!
    ```
