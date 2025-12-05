@@ -7,7 +7,7 @@ interface Props {
 
 const {
   title,
-  description = 'Create tailored resumes that match job descriptions perfectly. Our AI analyzes keywords, skills, and requirements to help you stand out and get hired faster.',
+  description = "Stop guessing if you're qualified. AI Resume Advisor shows your alignment score instantly—not just keywords, but true semantic matching. Try free!",
   image = '/images/og-image.png',
 } = Astro.props;
 
@@ -35,6 +35,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={new URL(image, Astro.site)} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="AI Resume Advisor - Tailor Your Resume with AI" />
+    <meta property="og:site_name" content="AI Resume Advisor" />
+    <meta property="og:locale" content="en_US" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
