@@ -14,7 +14,7 @@ import Footer from '../components/Footer.astro';
         <h1 class="font-display text-4xl font-bold tracking-tight text-text-primary md:text-5xl">
           Privacy Policy
         </h1>
-        <p class="mt-4 text-lg text-text-caption">Last Updated: November 28, 2025</p>
+        <p class="mt-4 text-lg text-text-caption">Last Updated: December 10, 2025</p>
       </div>
 
       <!-- Content -->
@@ -34,8 +34,9 @@ import Footer from '../components/Footer.astro';
             <p>
               AI Resume Advisor LLC ("we," "our," or "company") respects and protects your privacy.
               This Privacy Policy explains how we collect, use, share, and protect your personal
-              information. By using our services, you agree to the practices described in this
-              policy.
+              information when you use our website, web application, and browser extension
+              ("AI Resume Advisor for LinkedIn" Chrome Extension). By using our services, you
+              agree to the practices described in this policy.
             </p>
             <p>
               Our principal office address is: <strong
@@ -92,6 +93,12 @@ import Footer from '../components/Footer.astro';
                   Processed securely by third-party payment processors (Stripe).
                 </p>
               </div>
+              <div class="rounded-xl border border-gray-100 bg-gray-50 p-4">
+                <h3 class="font-semibold text-text-primary">Extension Data</h3>
+                <p class="mt-2 text-sm">
+                  Job posting content from LinkedIn pages you analyze, stored temporarily for processing.
+                </p>
+              </div>
             </div>
             <p class="mt-4 text-sm text-text-caption">
               We only collect information necessary to provide our services and are committed to
@@ -100,7 +107,7 @@ import Footer from '../components/Footer.astro';
           </div>
         </section>
 
-        <!-- Section 3 -->
+        <!-- Section 3 - Browser Extension -->
         <section class="rounded-2xl bg-white p-8 shadow-sm">
           <h2
             class="flex items-center gap-3 font-display text-xl font-bold text-text-primary md:text-2xl"
@@ -108,6 +115,99 @@ import Footer from '../components/Footer.astro';
             <span
               class="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-sm font-bold text-white"
               >3</span
+            >
+            Browser Extension
+          </h2>
+          <div class="mt-6 space-y-4 text-text-body">
+            <p>
+              When you use our Chrome Extension ("AI Resume Advisor for LinkedIn"), we collect
+              and process additional information specific to extension functionality:
+            </p>
+
+            <div class="mt-4">
+              <h3 class="font-semibold text-text-primary">Data Collected Through the Extension</h3>
+              <ul class="mt-2 space-y-2 text-sm">
+                <li class="flex items-start gap-2">
+                  <svg class="mt-1 h-4 w-4 flex-shrink-0 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  </svg>
+                  <span><strong>LinkedIn Job Page Data:</strong> Job titles, company names, job descriptions, and requirements from LinkedIn job postings you actively analyze.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <svg class="mt-1 h-4 w-4 flex-shrink-0 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  </svg>
+                  <span><strong>Local Storage Data:</strong> Authentication tokens and user preferences stored locally in your browser.</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="mt-4">
+              <h3 class="font-semibold text-text-primary">How the Extension Works</h3>
+              <ul class="mt-2 space-y-2 text-sm">
+                <li class="flex items-start gap-2">
+                  <svg class="mt-1 h-4 w-4 flex-shrink-0 text-success" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span>Reads content from LinkedIn job pages only when you actively use the "Analyze" function.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <svg class="mt-1 h-4 w-4 flex-shrink-0 text-success" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span>Communicates with our servers (app.airesumeadvisor.com) to process your analysis requests.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <svg class="mt-1 h-4 w-4 flex-shrink-0 text-success" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span>Does not collect data in the background when the extension is not actively being used.</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="mt-4">
+              <h3 class="font-semibold text-text-primary">Extension Permissions Explained</h3>
+              <div class="mt-2 grid gap-3 md:grid-cols-2">
+                <div class="rounded-lg border border-gray-200 bg-gray-50 px-3 py-2">
+                  <span class="text-sm font-medium text-text-primary">storage</span>
+                  <p class="text-xs text-text-caption">Store login session and preferences locally</p>
+                </div>
+                <div class="rounded-lg border border-gray-200 bg-gray-50 px-3 py-2">
+                  <span class="text-sm font-medium text-text-primary">activeTab</span>
+                  <p class="text-xs text-text-caption">Access current LinkedIn job page when clicked</p>
+                </div>
+                <div class="rounded-lg border border-gray-200 bg-gray-50 px-3 py-2">
+                  <span class="text-sm font-medium text-text-primary">scripting</span>
+                  <p class="text-xs text-text-caption">Extract job posting information for analysis</p>
+                </div>
+                <div class="rounded-lg border border-gray-200 bg-gray-50 px-3 py-2">
+                  <span class="text-sm font-medium text-text-primary">identity</span>
+                  <p class="text-xs text-text-caption">Enable secure LinkedIn OAuth authentication</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-6 rounded-xl border-2 border-error/30 bg-error/5 p-4">
+              <h3 class="font-semibold text-text-primary">Data NOT Collected by the Extension</h3>
+              <ul class="mt-2 space-y-1 text-sm text-text-body">
+                <li>• Your general browsing history</li>
+                <li>• LinkedIn messages, connections, or private profile data</li>
+                <li>• Data from pages you don't actively analyze</li>
+                <li>• Any information when the extension popup is closed</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 4 -->
+        <section class="rounded-2xl bg-white p-8 shadow-sm">
+          <h2
+            class="flex items-center gap-3 font-display text-xl font-bold text-text-primary md:text-2xl"
+          >
+            <span
+              class="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-sm font-bold text-white"
+              >4</span
             >
             How We Use Your Information
           </h2>
@@ -193,14 +293,14 @@ import Footer from '../components/Footer.astro';
           </div>
         </section>
 
-        <!-- Section 4 -->
+        <!-- Section 5 -->
         <section class="rounded-2xl bg-white p-8 shadow-sm">
           <h2
             class="flex items-center gap-3 font-display text-xl font-bold text-text-primary md:text-2xl"
           >
             <span
               class="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-sm font-bold text-white"
-              >4</span
+              >5</span
             >
             Information Sharing and Disclosure
           </h2>
@@ -260,14 +360,14 @@ import Footer from '../components/Footer.astro';
           </div>
         </section>
 
-        <!-- Section 5 -->
+        <!-- Section 6 -->
         <section class="rounded-2xl bg-white p-8 shadow-sm">
           <h2
             class="flex items-center gap-3 font-display text-xl font-bold text-text-primary md:text-2xl"
           >
             <span
               class="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-sm font-bold text-white"
-              >5</span
+              >6</span
             >
             Cookies and Tracking Technologies
           </h2>
@@ -307,14 +407,14 @@ import Footer from '../components/Footer.astro';
           </div>
         </section>
 
-        <!-- Section 6 -->
+        <!-- Section 7 -->
         <section class="rounded-2xl bg-white p-8 shadow-sm">
           <h2
             class="flex items-center gap-3 font-display text-xl font-bold text-text-primary md:text-2xl"
           >
             <span
               class="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-sm font-bold text-white"
-              >6</span
+              >7</span
             >
             Your Rights
           </h2>
@@ -428,14 +528,14 @@ import Footer from '../components/Footer.astro';
           </div>
         </section>
 
-        <!-- Section 7 -->
+        <!-- Section 8 -->
         <section class="rounded-2xl bg-white p-8 shadow-sm">
           <h2
             class="flex items-center gap-3 font-display text-xl font-bold text-text-primary md:text-2xl"
           >
             <span
               class="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-sm font-bold text-white"
-              >7</span
+              >8</span
             >
             Data Retention
           </h2>
@@ -477,14 +577,14 @@ import Footer from '../components/Footer.astro';
           </div>
         </section>
 
-        <!-- Section 8 -->
+        <!-- Section 9 -->
         <section class="rounded-2xl bg-white p-8 shadow-sm">
           <h2
             class="flex items-center gap-3 font-display text-xl font-bold text-text-primary md:text-2xl"
           >
             <span
               class="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-sm font-bold text-white"
-              >8</span
+              >9</span
             >
             Security Measures
           </h2>
@@ -605,14 +705,14 @@ import Footer from '../components/Footer.astro';
           </div>
         </section>
 
-        <!-- Section 9-11 -->
+        <!-- Section 10-12 -->
         <section class="rounded-2xl bg-white p-8 shadow-sm">
           <h2
             class="flex items-center gap-3 font-display text-xl font-bold text-text-primary md:text-2xl"
           >
             <span
               class="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-sm font-bold text-white"
-              >9</span
+              >10</span
             >
             Age Restriction
           </h2>
@@ -631,7 +731,7 @@ import Footer from '../components/Footer.astro';
           >
             <span
               class="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-sm font-bold text-white"
-              >10</span
+              >11</span
             >
             Policy Updates
           </h2>
@@ -649,7 +749,7 @@ import Footer from '../components/Footer.astro';
           >
             <span
               class="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-sm font-bold text-white"
-              >11</span
+              >12</span
             >
             Contact Us
           </h2>
