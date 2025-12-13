@@ -1,5 +1,17 @@
 # AI Resume Advisor Landing Page - Claude Code 協作指南
 
+## 📍 專案路徑
+
+| 項目 | 路徑 |
+|------|------|
+| **實際位置** | `~/GitHub/airesumeadvisor-landing` |
+| **Symlink (向後相容)** | `~/Documents/GitHub/airesumeadvisor-landing` → 實際位置 |
+| **GitHub Repo** | `https://github.com/YuWenHao1212/airesumeadvisor-landing` |
+
+> ⚠️ **注意**: 專案已於 2025-12-13 從 iCloud 同步資料夾遷出，避免 build 產物觸發 iCloud 同步。兩個路徑都可使用，但建議使用實際位置。
+
+---
+
 ## 🚨 對話啟動必做事項
 
 **每次新對話或 compact 後，先讀取以下文件：**
@@ -285,6 +297,6 @@ npm run build -- --analyze     # Bundle 分析
 
 ---
 
-**文檔版本**: 1.2.0
-**更新日期**: 2025-11-28
+**文檔版本**: 1.3.0
+**更新日期**: 2025-12-13
 **維護者**: Claude Code + WenHao
