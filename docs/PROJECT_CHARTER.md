@@ -1,8 +1,8 @@
 # AI Resume Advisor Landing Page - Project Charter
 
-**Document Version**: 1.1.0
+**Document Version**: 1.2.0
 **Created**: 2025-11-28
-**Last Updated**: 2025-11-29 19:11 CST
+**Last Updated**: 2025-12-13 17:02 CST
 **Status**: Completed (Live)
 
 ---
@@ -317,7 +317,7 @@ AI Resume Advisor is an AI-powered resume optimization platform that helps job s
 | ----------------- | ---------------------------------------------------------- |
 | GitHub Repository | `YuWenHao1212/airesumeadvisor-landing`                     |
 | Default Branch    | `main`                                                     |
-| Local Path        | `/Users/yuwenhao/Documents/GitHub/airesumeadvisor-landing` |
+| Local Path        | `/Users/yuwenhao/GitHub/airesumeadvisor-landing` |
 
 ---
 
@@ -327,3 +327,4 @@ AI Resume Advisor is an AI-powered resume optimization platform that helps job s
 | ------- | ---------- | ----------- | -------------------------------------- |
 | 1.0.0   | 2025-11-28 | Claude Code | Initial creation                       |
 | 1.1.0   | 2025-11-29 | Claude Code | All phases completed, project now live |
+| 1.2.0   | 2025-12-13 | Claude Code | Update local path after iCloud migration |
