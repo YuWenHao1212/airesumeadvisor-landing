@@ -1,26 +1,27 @@
 /**
  * CTA Links Configuration
  *
- * All external links to Bubble app should be defined here
+ * All external links to Web App should be defined here
  * for easy maintenance and consistency.
  */
 
-const BUBBLE_APP_URL = import.meta.env.PUBLIC_BUBBLE_APP_URL || 'https://app.airesumeadvisor.com';
+const WEB_APP_URL =
+  import.meta.env.PUBLIC_WEB_APP_URL || 'https://app.airesumeadvisor.com';
 
 export const LINKS = {
-  // Main CTAs - Bubble uses ?function parameter for auth pages
-  signup: `${BUBBLE_APP_URL}?function=Signup`,
-  login: `${BUBBLE_APP_URL}?function=Login`,
+  // Main CTAs - source=landing tracks user acquisition from landing page
+  signup: `${WEB_APP_URL}/auth/signup?source=landing`,
+  login: `${WEB_APP_URL}/auth/login`,
 
   // Feature CTAs
-  getStarted: `${BUBBLE_APP_URL}?function=Signup`,
-  tryFree: `${BUBBLE_APP_URL}?function=Signup`,
-  dashboard: `${BUBBLE_APP_URL}/main`,
+  getStarted: `${WEB_APP_URL}/auth/signup?source=landing`,
+  tryFree: `${WEB_APP_URL}/auth/signup?source=landing`,
+  dashboard: `${WEB_APP_URL}/app/dashboard`,
 
-  // Pricing CTAs - Include plan parameter for post-signup redirect
-  buyDaily: `${BUBBLE_APP_URL}?function=Signup&plan=daily`,
-  buyWeekly: `${BUBBLE_APP_URL}?function=Signup&plan=weekly`,
-  pricing: `${BUBBLE_APP_URL}?function=Signup`,
+  // Pricing CTAs - All pricing CTAs go to pricing page (plan param not supported yet)
+  buyDaily: `${WEB_APP_URL}/auth/signup?source=landing`,
+  buyWeekly: `${WEB_APP_URL}/auth/signup?source=landing`,
+  pricing: `${WEB_APP_URL}/auth/signup?source=landing`,
 
   // Legal (internal)
   terms: '/terms',
