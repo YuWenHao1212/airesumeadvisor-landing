@@ -397,7 +397,7 @@ export async function POST(request: Request) {
 
 | File | Changes | Status |
 |------|---------|:------:|
-| `src/app/api/auth/extension/login/route.ts` | Read referral cookie, pass to user creation | ⏳ TODO |
+| `src/app/api/auth/extension/callback/route.ts` | Read referral cookie, pass to user creation | ✅ Done |
 
 ---
 
@@ -421,7 +421,7 @@ export async function POST(request: Request) {
 
 ### Web App (airesumeadvisor-app)
 
-- [ ] Update Extension OAuth API to read referral cookie
+- [x] Update Extension OAuth API to read referral cookie
 - [ ] Test referral tracking end-to-end (Landing → Extension Install → OAuth → Account Created with referredBy)
 
 ---
@@ -434,7 +434,7 @@ export async function POST(request: Request) {
 | Updated Sections | 2 | ✅ Done |
 | New Components | 2 | ✅ Done |
 | New Pages (Landing) | 1 | ✅ Done |
-| Web App Changes | 1 | ⏳ TODO |
+| Web App Changes | 1 | ✅ Done |
 | New Assets | 2 | Placeholder |
 
 **Priority**: High — These features are live in production but not promoted on the Landing Page.

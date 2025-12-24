@@ -72,8 +72,8 @@ const STORE_URLS = {
       try {
         localStorage.setItem('referral_code', ref);
         localStorage.setItem('referral_timestamp', Date.now().toString());
-      } catch (e) {
-        // localStorage might be blocked
+      } catch {
+        // localStorage might be blocked, ignore silently
       }
     }
 
