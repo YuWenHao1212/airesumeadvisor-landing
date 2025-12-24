@@ -7,6 +7,8 @@
 
 const STORAGE_KEY = 'referral_code';
 const TIMESTAMP_KEY = 'referral_timestamp';
+const COOKIE_NAME = 'referral_code';
+const COOKIE_DOMAIN = '.airesumeadvisor.com';
 const SEVEN_DAYS_MS = 7 * 24 * 60 * 60 * 1000;
 
 /**
@@ -37,14 +39,30 @@ export function getReferralCode(): string | null {
 }
 
 /**
- * Save a referral code to localStorage with current timestamp
+ * Set a cookie with the referral code
+ * Cookie is set on .airesumeadvisor.com domain for cross-subdomain access
+ */
+function setReferralCookie(code: string): void {
+  if (typeof document === 'undefined') return;
+
+  const expires = new Date(Date.now() + SEVEN_DAYS_MS);
+  // Use .airesumeadvisor.com domain so app.airesumeadvisor.com can read it
+  document.cookie = `${COOKIE_NAME}=${encodeURIComponent(code)}; Domain=${COOKIE_DOMAIN}; Path=/; Expires=${expires.toUTCString()}; SameSite=Lax`;
+}
+
+/**
+ * Save a referral code to localStorage and cookie with current timestamp
  * Uses "last touch" attribution - new codes overwrite old ones
+ * Cookie is also set for cross-subdomain tracking (extension install flow)
  */
 export function setReferralCode(code: string): void {
   if (typeof window === 'undefined') return;
 
   localStorage.setItem(STORAGE_KEY, code);
   localStorage.setItem(TIMESTAMP_KEY, Date.now().toString());
+
+  // Also set cookie for cross-subdomain access
+  setReferralCookie(code);
 }
 
 /**

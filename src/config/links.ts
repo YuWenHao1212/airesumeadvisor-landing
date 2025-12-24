@@ -8,6 +8,9 @@
 const WEB_APP_URL =
   import.meta.env.PUBLIC_WEB_APP_URL || 'https://app.airesumeadvisor.com';
 
+// Chrome Web Store Extension ID (permanent, doesn't change on updates)
+const CHROME_EXTENSION_ID = 'iafpieelbhhlmhgjekflneciffoonkgf';
+
 export const LINKS = {
   // Main CTAs - source=landing tracks user acquisition from landing page
   signup: `${WEB_APP_URL}/auth/signup?source=landing`,
@@ -22,6 +25,10 @@ export const LINKS = {
   buyDaily: `${WEB_APP_URL}/auth/signup?source=landing`,
   buyWeekly: `${WEB_APP_URL}/auth/signup?source=landing`,
   pricing: `${WEB_APP_URL}/auth/signup?source=landing`,
+
+  // Extension
+  installExtension: '/install-extension',
+  chromeWebStore: `https://chromewebstore.google.com/detail/${CHROME_EXTENSION_ID}`,
 
   // Legal (internal)
   terms: '/terms',

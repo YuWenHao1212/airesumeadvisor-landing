@@ -1,0 +1,97 @@
+---
+/**
+ * Extension Install Relay Page
+ *
+ * This page preserves the referral code in a cookie before redirecting
+ * to the Chrome Web Store. Uses client-side JavaScript because Astro
+ * runs in static mode (SSG) and cannot access URL params at request time.
+ *
+ * Flow:
+ * 1. User clicks "Add to Chrome" on landing page
+ * 2. Landing page links to /install-extension?ref=ABC123
+ * 3. This page's JS reads ?ref= and sets cookie on .airesumeadvisor.com
+ * 4. JS redirects to Chrome Web Store
+ * 5. User installs extension and signs up
+ * 6. Extension OAuth endpoint reads cookie and records referral
+ */
+
+import Layout from '@layouts/Layout.astro';
+
+// Store URLs for different browsers
+const STORE_URLS = {
+  chrome: 'https://chromewebstore.google.com/detail/iafpieelbhhlmhgjekflneciffoonkgf',
+  // Future browser support:
+  // edge: 'https://microsoftedge.microsoft.com/addons/detail/YOUR_EDGE_ID',
+};
+---
+
+<Layout title="Installing Extension - AI Resume Advisor">
+  <div class="flex min-h-screen items-center justify-center bg-gray-50">
+    <div class="text-center">
+      <div class="mb-4 inline-flex h-12 w-12 animate-spin items-center justify-center rounded-full border-4 border-primary border-t-transparent"></div>
+      <p class="text-lg text-gray-600">Redirecting to Chrome Web Store...</p>
+      <p class="mt-2 text-sm text-gray-400">
+        <a
+          id="manual-link"
+          href={STORE_URLS.chrome}
+          class="text-primary underline hover:text-primary-hover"
+        >
+          Click here if not redirected automatically
+        </a>
+      </p>
+    </div>
+  </div>
+</Layout>
+
+<script define:vars={{ STORE_URLS }}>
+  // Cookie configuration
+  const COOKIE_DOMAIN = '.airesumeadvisor.com';
+  const COOKIE_NAME = 'referral_code';
+  const SEVEN_DAYS_MS = 7 * 24 * 60 * 60 * 1000;
+
+  /**
+   * Set referral cookie that can be read by app.airesumeadvisor.com
+   */
+  function setReferralCookie(code) {
+    const expires = new Date(Date.now() + SEVEN_DAYS_MS);
+    document.cookie = `${COOKIE_NAME}=${encodeURIComponent(code)}; Domain=${COOKIE_DOMAIN}; Path=/; Expires=${expires.toUTCString()}; SameSite=Lax; Secure`;
+  }
+
+  /**
+   * Main relay logic
+   */
+  function handleRelay() {
+    const params = new URLSearchParams(window.location.search);
+    const ref = params.get('ref');
+    const browser = params.get('browser') || 'chrome';
+
+    // Set cookie if referral code exists
+    if (ref) {
+      setReferralCookie(ref);
+      // Also store in localStorage for redundancy
+      try {
+        localStorage.setItem('referral_code', ref);
+        localStorage.setItem('referral_timestamp', Date.now().toString());
+      } catch (e) {
+        // localStorage might be blocked
+      }
+    }
+
+    // Get target URL
+    const targetUrl = STORE_URLS[browser] || STORE_URLS.chrome;
+
+    // Update manual link href
+    const manualLink = document.getElementById('manual-link');
+    if (manualLink) {
+      manualLink.href = targetUrl;
+    }
+
+    // Redirect after a brief moment (allows cookie to be set)
+    setTimeout(() => {
+      window.location.href = targetUrl;
+    }, 100);
+  }
+
+  // Execute on page load
+  handleRelay();
+</script>
