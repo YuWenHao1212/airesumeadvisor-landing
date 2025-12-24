@@ -1,8 +1,8 @@
 # AI Resume Advisor Landing Page - Project Charter
 
-**Document Version**: 1.2.0
+**Document Version**: 1.3.0
 **Created**: 2025-11-28
-**Last Updated**: 2025-12-13 17:02 CST
+**Last Updated**: 2025-12-24 15:08 CST
 **Status**: Completed (Live)
 
 ---
@@ -19,13 +19,16 @@ A marketing landing page for the AI Resume Advisor platform, designed to drive u
 
 ### 1.3 Business Context
 
-AI Resume Advisor is an AI-powered resume optimization platform that helps job seekers create tailored resumes for specific job postings. The platform consists of three main components:
+AI Resume Advisor is an AI-powered resume optimization platform that helps job seekers create tailored resumes for specific job postings. The platform consists of four main components:
 
-| Component           | Technology           | Purpose                                              |
-| ------------------- | -------------------- | ---------------------------------------------------- |
-| **Landing Page**    | Astro + Tailwind CSS | Marketing, SEO, user acquisition                     |
-| **Web Application** | Bubble.io            | User authentication, resume editing, dashboard       |
-| **Backend API**     | FastAPI + GPT-4.1    | AI processing (keyword extraction, resume tailoring) |
+| Component            | Technology           | Purpose                                              | Status      |
+| -------------------- | -------------------- | ---------------------------------------------------- | ----------- |
+| **Landing Page**     | Astro + Tailwind CSS | Marketing, SEO, user acquisition                     | Live        |
+| **Web App**          | Next.js 14 + Prisma  | User authentication, resume editing, dashboard       | Production  |
+| **Chrome Extension** | Vite + React         | LinkedIn job analysis, quick access                  | Published   |
+| **Backend API**      | FastAPI + GPT-4.1    | AI processing (keyword extraction, resume tailoring) | Existing    |
+
+> **Note**: Bubble.io 已於 2025 年下線，Web App 已完成遷移至 Azure App Service。
 
 ### 1.4 Project Origin
 
@@ -142,10 +145,10 @@ AI Resume Advisor is an AI-powered resume optimization platform that helps job s
 
 ### 5.2 URL Strategy
 
-| Domain                    | Target            | Purpose         |
-| ------------------------- | ----------------- | --------------- |
-| `airesumeadvisor.com`     | Azure App Service | Landing Page    |
-| `app.airesumeadvisor.com` | Bubble.io         | Web Application |
+| Domain                    | Target              | Purpose         | Status     |
+| ------------------------- | ------------------- | --------------- | ---------- |
+| `airesumeadvisor.com`     | Azure Static Web Apps | Landing Page    | Live       |
+| `app.airesumeadvisor.com` | Azure App Service   | Web App         | Production |
 
 ### 5.3 Technology Stack
 
@@ -323,8 +326,9 @@ AI Resume Advisor is an AI-powered resume optimization platform that helps job s
 
 **Document Control**
 
-| Version | Date       | Author      | Changes                                |
-| ------- | ---------- | ----------- | -------------------------------------- |
-| 1.0.0   | 2025-11-28 | Claude Code | Initial creation                       |
-| 1.1.0   | 2025-11-29 | Claude Code | All phases completed, project now live |
-| 1.2.0   | 2025-12-13 | Claude Code | Update local path after iCloud migration |
+| Version | Date       | Author      | Changes                                         |
+| ------- | ---------- | ----------- | ----------------------------------------------- |
+| 1.0.0   | 2025-11-28 | Claude Code | Initial creation                                |
+| 1.1.0   | 2025-11-29 | Claude Code | All phases completed, project now live          |
+| 1.2.0   | 2025-12-13 | Claude Code | Update local path after iCloud migration        |
+| 1.3.0   | 2025-12-24 | Claude Code | Update: Bubble.io replaced by Next.js Web App   |
