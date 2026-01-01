@@ -20,7 +20,56 @@
 2. **交接文檔**: `.claude/HANDOVER.md` - 專案背景、技術架構、進度
 3. **開發規格**: `docs/DEVELOPMENT_SPEC.md` - 完整技術規格
 4. **設計系統**: `.claude/skills/frontend-design/resources/design-tokens.md`
-5. **每日規劃**: `daily_develop/YYYY-MM-DD.md` - 當日開發計劃（如有）
+5. **每日規劃**: `~/Cockpit/daily/YYYY-MM-DD.md` - 當日開發計劃
+
+---
+
+## 🔄 Cockpit 工作流程
+
+本專案隸屬於 Cockpit 跨專案管理系統。
+
+### 完整流程
+
+```
+┌─────────────────────────────────────────────────────────┐
+│  1. Cockpit: 高層規劃                                    │
+│     → ~/Cockpit/daily/YYYY-MM-DD.md                      │
+│     → 決定今天做什麼、優先順序                            │
+└─────────────────────────┬───────────────────────────────┘
+                          ↓
+┌─────────────────────────────────────────────────────────┐
+│  2. Project: 實作                                        │
+│     → cd ~/GitHub/airesumeadvisor-landing && claude      │
+│     → docs/tasks/backlog/ → docs/tasks/in-progress/      │
+└─────────────────────────┬───────────────────────────────┘
+                          ↓
+┌─────────────────────────────────────────────────────────┐
+│  3. Project: 歸檔                                        │
+│     → docs/tasks/in-progress/ → docs/tasks-done/         │
+│     → 更新實作文檔、標記完成                              │
+└─────────────────────────┬───────────────────────────────┘
+                          ↓
+┌─────────────────────────────────────────────────────────┐
+│  4. Cockpit: 摘要                                        │
+│     → 更新 ~/Cockpit/daily/YYYY-MM-DD.md                 │
+│     → 規劃明天                                           │
+└─────────────────────────────────────────────────────────┘
+```
+
+### 任務管理
+
+| 狀態 | 位置 |
+|------|------|
+| 待辦 | `docs/tasks/backlog/` |
+| 進行中 | `docs/tasks/in-progress/` |
+| 已完成 | `docs/tasks-done/` |
+| 舊 daily notes | `docs/archive/daily_develop/` |
+
+### 重要規則
+
+1. **Daily notes 只在 Cockpit** - `~/Cockpit/daily/`，不在專案內
+2. **切換專案前用 `/clear`** - 保持 context 乾淨
+3. **任務完成後歸檔** - `in-progress/` → `tasks-done/`
 
 ---
 
@@ -107,7 +156,9 @@ import { LINKS } from '@config/links';
 | ---------------- | ----------------------------------------------------------------- | ---------------------- |
 | **專案章程**     | `docs/PROJECT_CHARTER.md`                                         | 專案目標、範圍、里程碑 |
 | **交接文檔**     | `.claude/HANDOVER.md`                                             | 專案背景、技術架構     |
-| **每日規劃**     | `daily_develop/YYYY-MM-DD.md`                                     | 每日開發計劃與任務追蹤 |
+| **每日規劃**     | `~/Cockpit/daily/YYYY-MM-DD.md`                                   | 每日開發計劃（Cockpit） |
+| **任務待辦**     | `docs/tasks/backlog/`                                             | 待開始的任務           |
+| **任務進行中**   | `docs/tasks/in-progress/`                                         | 進行中的任務           |
 | **開發規格**     | `docs/DEVELOPMENT_SPEC.md`                                        | 完整技術規格 (900+ 行) |
 | **設計 Tokens**  | `.claude/skills/frontend-design/resources/design-tokens.md`       | 顏色、字體、間距       |
 | **組件檢查清單** | `.claude/skills/frontend-design/resources/component-checklist.md` | QA 檢查項目            |
@@ -297,6 +348,6 @@ npm run build -- --analyze     # Bundle 分析
 
 ---
 
-**文檔版本**: 1.3.0
-**更新日期**: 2025-12-13
+**文檔版本**: 1.4.0
+**更新日期**: 2026-01-01
 **維護者**: Claude Code + WenHao
