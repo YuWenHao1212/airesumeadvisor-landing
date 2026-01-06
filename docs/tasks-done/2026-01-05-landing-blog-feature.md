@@ -2,9 +2,12 @@
 
 **Created**: 2026-01-05
 **Updated**: 2026-01-06
+**Completed**: 2026-01-06
+**Status**: ✅ Done
 **Priority**: High
 **Project**: airesumeadvisor-landing
 **Estimate**: 4-5 hr
+**Actual**: ~4 hr
 
 ---
 
@@ -150,20 +153,20 @@ alternateSlug 互連      →    i18n 路由自動處理
 
 ## Acceptance Criteria
 
-- [ ] `/blog` 列表頁可正常訪問
-- [ ] `/blog/[slug]` 文章頁可正常渲染 MDX
-- [ ] Meta tags 正確設置
-- [ ] Sitemap 包含 blog 頁面
-- [ ] 響應式設計（mobile/desktop）
-- [ ] Lighthouse Performance > 90
-- [ ] 語言切換按鈕正常運作
-- [ ] hreflang 標籤正確設置
+- [x] `/blog` 列表頁可正常訪問
+- [x] `/blog/[slug]` 文章頁可正常渲染 MDX
+- [x] Meta tags 正確設置
+- [x] Sitemap 包含 blog 頁面
+- [x] 響應式設計（mobile/desktop）
+- [ ] Lighthouse Performance > 90 _(待驗證)_
+- [x] 語言切換按鈕正常運作
+- [x] hreflang 標籤正確設置
 
 ---
 
 ## 實作計劃
 
-### Phase 1：基礎建設（1.5 hr）
+### Phase 1：基礎建設（1.5 hr）✅ Done
 
 **目標**：建立 Blog 架構，確保一篇文章可正常顯示
 
@@ -180,7 +183,7 @@ alternateSlug 互連      →    i18n 路由自動處理
 
 ---
 
-### Phase 2：列表頁 + 元件（1 hr）
+### Phase 2：列表頁 + 元件（1 hr）✅ Done
 
 **目標**：完成 Blog 列表頁和核心元件
 
@@ -195,7 +198,7 @@ alternateSlug 互連      →    i18n 路由自動處理
 
 ---
 
-### Phase 3：語言切換功能（0.5 hr）
+### Phase 3：語言切換功能（0.5 hr）✅ Done
 
 **目標**：實作雙語切換機制
 
@@ -210,7 +213,7 @@ alternateSlug 互連      →    i18n 路由自動處理
 
 ---
 
-### Phase 4：SEO 優化（1 hr）
+### Phase 4：SEO 優化（1 hr）✅ Done
 
 **目標**：完善 SEO 和結構化資料
 
@@ -226,7 +229,7 @@ alternateSlug 互連      →    i18n 路由自動處理
 
 ---
 
-### Phase 5：響應式 + 測試（0.5 hr）
+### Phase 5：響應式 + 測試（0.5 hr）✅ Done
 
 **目標**：確保品質和效能
 
@@ -307,10 +310,39 @@ const isEnglish = currentLang === 'en';
 
 ---
 
+## Implementation Summary
+
+### Commits (2026-01-06)
+
+1. `65b884b` - feat: add blog feature with MDX and bilingual support
+2. `b3c0865` - feat: add first bilingual blog article
+3. `5316715` - chore: update feature-tab1 screenshot
+4. `6d0bfdf` - docs: archive completed blog feature task
+
+### Files Created
+
+- `src/content/config.ts` - Content Collections schema
+- `src/layouts/BlogLayout.astro` - Article layout with SEO
+- `src/pages/blog/index.astro` - List page with language tabs
+- `src/pages/blog/[...slug].astro` - Dynamic article page
+- `src/components/blog/BlogCard.astro` - Article card component
+- `src/components/blog/BlogCTA.astro` - Call-to-action component
+- `src/components/blog/LangSwitch.astro` - Language switch button
+- `src/content/blog/resume-diagnosis-2026.mdx` - First article (EN)
+- `src/content/blog/resume-diagnosis-2026-zh.mdx` - First article (ZH-TW)
+
+### Dependencies Added
+
+- `@astrojs/mdx@3` - MDX support
+- `@tailwindcss/typography` - Prose styling
+
+---
+
 ## Next Steps
 
-1. 移到 `in-progress/` 開始開發
-2. 實作 Content Collections + 頁面
-3. 實作 LangSwitch 元件 + hreflang
-4. 發布第一篇產品 Blog 文章（雙語版本）
-5. LinkedIn 公司頁面轉發
+1. ~~移到 `in-progress/` 開始開發~~ ✅
+2. ~~實作 Content Collections + 頁面~~ ✅
+3. ~~實作 LangSwitch 元件 + hreflang~~ ✅
+4. ~~發布第一篇產品 Blog 文章（雙語版本）~~ ✅
+5. LinkedIn 公司頁面轉發 _(pending)_
+6. Lighthouse 效能測試 _(pending)_
