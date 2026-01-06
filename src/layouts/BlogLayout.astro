@@ -1,0 +1,281 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import LangSwitch from '../components/blog/LangSwitch.astro';
+import BlogCTA from '../components/blog/BlogCTA.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  pubDate: Date;
+  updatedDate?: Date;
+  author: string;
+  lang?: string;
+  alternateSlug?: string;
+}
+
+const {
+  title,
+  description,
+  image = '/images/og-image.png',
+  pubDate,
+  updatedDate,
+  author,
+  lang = 'en',
+  alternateSlug,
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const fullTitle = `${title} | AI Resume Advisor Blog`;
+
+const formattedDate = pubDate.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+
+const formattedUpdatedDate = updatedDate?.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+
+// Determine alternate language URL
+const isEnglish = lang === 'en';
+const alternateLang = isEnglish ? 'zh-TW' : 'en';
+const alternateURL = alternateSlug ? new URL(`/blog/${alternateSlug}`, Astro.site) : null;
+
+// Article schema
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description: description,
+  image: image ? new URL(image, Astro.site).toString() : undefined,
+  datePublished: pubDate.toISOString(),
+  dateModified: updatedDate?.toISOString() || pubDate.toISOString(),
+  author: {
+    '@type': 'Organization',
+    name: author,
+    url: Astro.site?.toString(),
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'AI Resume Advisor',
+    url: Astro.site?.toString(),
+    logo: {
+      '@type': 'ImageObject',
+      url: new URL('/images/logo.png', Astro.site).toString(),
+    },
+  },
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': canonicalURL.toString(),
+  },
+  inLanguage: lang === 'zh-TW' ? 'zh-Hant-TW' : 'en-US',
+};
+---
+
+<!doctype html>
+<html lang={lang === 'zh-TW' ? 'zh-Hant-TW' : 'en'}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Primary Meta Tags -->
+    <title>{fullTitle}</title>
+    <meta name="title" content={fullTitle} />
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- hreflang for language versions -->
+    <link rel="alternate" hreflang={isEnglish ? 'en' : 'zh-TW'} href={canonicalURL} />
+    {alternateURL && <link rel="alternate" hreflang={alternateLang} href={alternateURL} />}
+    <link rel="alternate" hreflang="x-default" href={isEnglish ? canonicalURL : alternateURL || canonicalURL} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(image, Astro.site)} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="AI Resume Advisor" />
+    <meta property="og:locale" content={lang === 'zh-TW' ? 'zh_TW' : 'en_US'} />
+    <meta property="article:published_time" content={pubDate.toISOString()} />
+    {updatedDate && <meta property="article:modified_time" content={updatedDate.toISOString()} />}
+    <meta property="article:author" content={author} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={fullTitle} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={new URL(image, Astro.site)} />
+
+    <!-- Preload fonts -->
+    <link rel="preload" href="/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin />
+
+    <!-- Article Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+  </head>
+  <body class="bg-white">
+    <Header />
+    <main class="min-h-screen bg-white">
+      <article class="mx-auto max-w-3xl px-4 py-12 sm:px-6 lg:px-8">
+        <!-- Article Header -->
+        <header class="mb-8 border-b border-gray-200 pb-8">
+          <h1 class="font-display text-3xl font-bold text-gray-900 sm:text-4xl lg:text-5xl">
+            {title}
+          </h1>
+          <div class="mt-4 flex flex-wrap items-center gap-4 text-sm text-gray-600">
+            <span class="flex items-center gap-1">
+              <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                ></path>
+              </svg>
+              {formattedDate}
+            </span>
+            {
+              formattedUpdatedDate && (
+                <span class="text-gray-500">(Updated: {formattedUpdatedDate})</span>
+              )
+            }
+            <span class="flex items-center gap-1">
+              <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+              </svg>
+              {author}
+            </span>
+          </div>
+
+          <!-- Language Switch -->
+          {
+            alternateSlug && (
+              <div class="mt-6">
+                <LangSwitch currentLang={lang} alternateSlug={alternateSlug} />
+              </div>
+            )
+          }
+        </header>
+
+        <!-- Featured Image -->
+        <div class="mb-10 overflow-hidden rounded-2xl">
+          <img
+            src={image}
+            alt={title}
+            class="w-full object-cover"
+            loading="eager"
+          />
+        </div>
+
+        <!-- Article Content -->
+        <div class="article-content prose prose-lg prose-gray max-w-none">
+          <slot />
+        </div>
+
+        <!-- CTA Section -->
+        <BlogCTA />
+      </article>
+    </main>
+    <Footer />
+  </body>
+</html>
+
+<style is:global>
+  @import '../styles/global.css';
+
+  /* Article Typography Styles */
+  .article-content {
+    /* Headings */
+    & h2 {
+      @apply mt-12 mb-6 font-display text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl;
+    }
+
+    & h3 {
+      @apply mt-10 mb-4 font-display text-xl font-bold tracking-tight text-gray-900 sm:text-2xl;
+    }
+
+    & h4 {
+      @apply mt-8 mb-3 font-display text-lg font-semibold text-gray-900;
+    }
+
+    /* Paragraphs */
+    & p {
+      @apply mb-6 leading-relaxed text-gray-700;
+    }
+
+    /* Lists */
+    & ul,
+    & ol {
+      @apply my-6 space-y-3 pl-6;
+    }
+
+    & li {
+      @apply leading-relaxed text-gray-700;
+    }
+
+    & ul > li {
+      @apply list-disc;
+    }
+
+    & ol > li {
+      @apply list-decimal;
+    }
+
+    /* Links */
+    & a {
+      @apply text-primary font-medium no-underline hover:underline;
+    }
+
+    /* Blockquotes */
+    & blockquote {
+      @apply my-8 border-l-4 border-primary bg-primary-light py-4 px-6 rounded-r-lg;
+    }
+
+    & blockquote p {
+      @apply mb-0 text-gray-700 not-italic;
+    }
+
+    /* Code */
+    & code {
+      @apply rounded bg-gray-100 px-1.5 py-0.5 text-sm font-mono text-gray-800;
+    }
+
+    & code::before,
+    & code::after {
+      content: none;
+    }
+
+    & pre {
+      @apply my-8 rounded-lg bg-gray-900 p-4 overflow-x-auto;
+    }
+
+    & pre code {
+      @apply bg-transparent p-0 text-gray-100;
+    }
+
+    /* Strong/Bold */
+    & strong {
+      @apply font-semibold text-gray-900;
+    }
+
+    /* Horizontal Rule */
+    & hr {
+      @apply my-12 border-gray-200;
+    }
+  }
+</style>

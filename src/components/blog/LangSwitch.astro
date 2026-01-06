@@ -1,0 +1,21 @@
+---
+interface Props {
+  currentLang: string;
+  alternateSlug?: string;
+}
+
+const { currentLang, alternateSlug } = Astro.props;
+const isEnglish = currentLang === 'en';
+---
+
+{
+  alternateSlug && (
+    <a
+      href={`/blog/${alternateSlug}`}
+      class="inline-flex items-center gap-2 rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium text-gray-700 transition-all hover:border-primary hover:bg-primary/5 hover:text-primary"
+    >
+      <span class="text-base">{isEnglish ? '🇹🇼' : '🇺🇸'}</span>
+      {isEnglish ? '閱讀中文版' : 'Read in English'}
+    </a>
+  )
+}

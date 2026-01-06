@@ -1,0 +1,68 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  pubDate: Date;
+  slug: string;
+  image: string;
+  lang?: string;
+}
+
+const { title, description, pubDate, slug, image, lang = 'en' } = Astro.props;
+
+const formattedDate = pubDate.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'short',
+  day: 'numeric',
+});
+
+const langLabel = lang === 'zh-TW' ? '中文' : 'EN';
+---
+
+<article
+  class="group relative flex flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white transition-all hover:border-primary/30 hover:shadow-lg"
+>
+  <!-- Featured Image -->
+  <div class="aspect-video overflow-hidden bg-gray-100">
+    <img
+      src={image}
+      alt={title}
+      class="h-full w-full object-cover transition-transform group-hover:scale-105"
+      loading="lazy"
+    />
+  </div>
+
+  <div class="flex flex-1 flex-col p-6">
+    <!-- Meta -->
+    <div class="mb-3 flex items-center gap-3 text-sm text-gray-500">
+      <time datetime={pubDate.toISOString()}>{formattedDate}</time>
+      {
+        lang === 'zh-TW' && (
+          <span class="rounded-full bg-amber-100 px-2 py-0.5 text-xs font-medium text-amber-700">
+            {langLabel}
+          </span>
+        )
+      }
+    </div>
+
+    <!-- Title -->
+    <h3 class="mb-2 font-display text-xl font-bold text-gray-900 group-hover:text-primary">
+      <a href={`/blog/${slug}`} class="after:absolute after:inset-0">
+        {title}
+      </a>
+    </h3>
+
+    <!-- Description -->
+    <p class="line-clamp-2 flex-1 text-gray-600">
+      {description}
+    </p>
+
+    <!-- Read more -->
+    <div class="mt-4 flex items-center text-sm font-medium text-primary">
+      Read article
+      <svg class="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+      </svg>
+    </div>
+  </div>
+</article>
