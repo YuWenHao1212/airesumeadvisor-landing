@@ -348,6 +348,118 @@ npm run build -- --analyze     # Bundle 分析
 
 ---
 
-**文檔版本**: 1.4.0
-**更新日期**: 2026-01-01
+## 🔍 SEO Skills（自動觸發）
+
+以下 skills 安裝在 `~/.claude/skills/`，會根據對話內容**自動啟動**，無需手動呼叫。
+
+### Pre-publish Post Assistant
+
+**用途**：Blog 文章發布前的 SEO 優化檢查
+
+**觸發情境**：
+- 「檢查這篇文章的 SEO」
+- 「classify this post」或「suggest categories/tags」
+- 「prepare this post for publishing」
+- 「優化 frontmatter」
+- 提供 draft post 並詢問分類建議
+
+**功能**：
+- 建議 categories（1-2 個）和 tags（3-5 個）
+- 生成 SEO metadata：title（50-60 字元）、description（150-160 字元）、focus keyphrase
+- 所有建議附帶 rationale 說明
+
+**輸出範例**：
+```markdown
+## SEO Metadata
+**Title** (58 chars): How to Build Morning Habits That Actually Stick
+**Meta Description** (156 chars): Discover the science-backed approach...
+**Focus Keyphrase**: morning habits
+```
+
+---
+
+### Astro CTA Injector
+
+**用途**：在 Blog 文章中智能插入 Call-to-Action
+
+**觸發情境**：
+- 「add CTAs to blog posts」
+- 「inject newsletter signup into content」
+- 「add product promotion to posts」
+- 「在文章中加入 CTA」
+
+**功能**：
+- 多種放置策略：`end`、`after-paragraph-50%`、`after-paragraph-60%`、`after-heading`
+- 內容相關性評分（0-10）
+- Dry-run 預覽模式
+- 自動備份和 rollback
+
+**配置位置**：`~/.claude/skills/astro-cta-injector/config.json`
+
+---
+
+### GSC Assistant
+
+**用途**：Google Search Console indexing 追蹤
+
+**觸發情境**：
+- 「indexing status」或「GSC indexing」
+- 「compare sitemap with indexed pages」
+- 「URL inspection」或「false positives」
+- 「track submissions」或「indexing progress」
+- 「generate indexing report」
+
+**功能**：
+- 維護兩個追蹤檔案：`indexed.md`（已索引）、`to-index.md`（待索引）
+- 比對 sitemap 和 GSC export 數據
+- 優先順序分類
+- 處理 URL Inspection 的 false positives
+
+**需要的資料**：
+- `gsc-export.csv`（GSC 匯出）
+- `sitemap.xml`（網站 sitemap）
+
+---
+
+### SEO 工作流整合
+
+```
+┌─────────────────────────────────────────────────────────┐
+│  Phase 1: 關鍵字研究                                     │
+│  參考：~/Cockpit/references/seo-keyword-research-workflow.md  │
+└─────────────────────────┬───────────────────────────────┘
+                          ↓
+┌─────────────────────────────────────────────────────────┐
+│  Phase 2: 撰寫文章                                       │
+│  參考：~/Cockpit/references/writing-style-guide.md       │
+└─────────────────────────┬───────────────────────────────┘
+                          ↓
+┌─────────────────────────────────────────────────────────┐
+│  Phase 3: SEO 檢查 ⭐ Pre-publish Post Assistant         │
+│  觸發：「檢查這篇文章的 SEO」                             │
+│  檢查：meta title、description、keywords                 │
+└─────────────────────────┬───────────────────────────────┘
+                          ↓
+┌─────────────────────────────────────────────────────────┐
+│  Phase 4: CTA 插入 ⭐ Astro CTA Injector                 │
+│  觸發：「在文章中加入產品 CTA」                           │
+│  選擇：位置策略、相關性評估                              │
+└─────────────────────────┬───────────────────────────────┘
+                          ↓
+┌─────────────────────────────────────────────────────────┐
+│  Phase 5: 發布                                          │
+│  發布到：src/content/blog/                              │
+└─────────────────────────┬───────────────────────────────┘
+                          ↓
+┌─────────────────────────────────────────────────────────┐
+│  Phase 6: 追蹤 ⭐ GSC Assistant                          │
+│  觸發：「檢查 indexing 狀態」                            │
+│  追蹤：哪些頁面被 Google 收錄                            │
+└─────────────────────────────────────────────────────────┘
+```
+
+---
+
+**文檔版本**: 1.5.0
+**更新日期**: 2026-01-11
 **維護者**: Claude Code + WenHao
