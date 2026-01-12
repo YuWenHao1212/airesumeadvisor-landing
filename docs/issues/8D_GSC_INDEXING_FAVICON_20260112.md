@@ -3,7 +3,7 @@
 **Date**: 2026-01-12
 **Reporter**: Claude Code
 **Project**: airesumeadvisor-landing
-**Status**: In Progress (Code fixes done, pending deploy & GSC verification)
+**Status**: Deployed - Pending GSC verification
 
 ---
 
@@ -45,6 +45,16 @@
 - Each language version only pointed to itself
 - Google could not identify these as language variants of the same content
 
+### Issue 6: Duplicate Meta Descriptions (New - discovered during audit)
+
+- Privacy, Terms, Install-extension pages all used homepage's description
+- Google may treat these as duplicate content
+
+### Issue 7: Missing 404 Page (New - discovered during audit)
+
+- No custom 404.astro page
+- Users hitting 404 had no navigation back to site
+
 ---
 
 ## D3: Containment Actions
@@ -53,6 +63,7 @@
 - [x] Verified favicon is correctly referenced in Layout.astro
 - [x] Confirmed page was re-crawled on Jan 6, 2026
 - [x] Verified sitemap exists and is referenced in robots.txt
+- [x] Performed full SEO audit to discover additional issues
 
 ---
 
@@ -85,6 +96,12 @@
 | Possible Cause | Likelihood | Evidence |
 |----------------|------------|----------|
 | Missing `alternateSlug` in blog frontmatter | **Confirmed** | Blog posts lacked cross-references |
+
+### Duplicate Description Issue
+
+| Possible Cause | Likelihood | Evidence |
+|----------------|------------|----------|
+| Pages not passing description prop to Layout | **Confirmed** | Used Layout's default description |
 
 ---
 
@@ -123,7 +140,21 @@ Disallow: /*?reset_pw_link=*
 - Fixed trailing slash in BlogLayout.astro
 - EN and ZH versions now properly cross-reference each other
 
-### Priority 5: Request Re-indexing (After deploy)
+### Priority 5: Add Unique Meta Descriptions ✅ DONE
+
+- Privacy: "Learn how AI Resume Advisor protects your data..."
+- Terms: "Review the terms and conditions for using AI Resume Advisor..."
+- Install-extension: "Install the AI Resume Advisor Chrome extension..."
+
+### Priority 6: Create Custom 404 Page ✅ DONE
+
+- Created `src/pages/404.astro` with:
+  - Friendly error message
+  - "Back to Home" button
+  - "Read Our Blog" button
+  - Helpful links section
+
+### Priority 7: Request Re-indexing (After deploy)
 
 1. Go to GSC > URL Inspection
 2. Enter `https://airesumeadvisor.com/`
@@ -136,9 +167,11 @@ Disallow: /*?reset_pw_link=*
 | Action | Verification Method | Expected Result | Status |
 |--------|---------------------|-----------------|--------|
 | Sitemap submitted | GSC > Sitemaps | Status: Success | TODO |
-| robots.txt updated | `curl .../robots.txt` | Contains Disallow rules | ✅ Done |
-| favicon.ico added | `curl -I .../favicon.ico` | HTTP 200 | ✅ Done (pending deploy) |
-| hreflang fixed | Check HTML source | EN/ZH cross-reference | ✅ Done |
+| robots.txt updated | `curl .../robots.txt` | Contains Disallow rules | ✅ Deployed |
+| favicon.ico added | `curl -I .../favicon.ico` | HTTP 200 | ✅ Deployed |
+| hreflang fixed | Check HTML source | EN/ZH cross-reference | ✅ Deployed |
+| Unique descriptions | Check HTML source | Each page has unique desc | ✅ Deployed |
+| 404 page | Visit invalid URL | Shows custom 404 page | ✅ Deployed |
 | Favicon updated in Google | Google Search | Shows correct icon | Pending (weeks/months) |
 | 404 errors resolved | GSC > Pages | No new 404 errors | Pending |
 
@@ -151,7 +184,9 @@ Disallow: /*?reset_pw_link=*
 3. **Favicon Checklist**: Include ICO format for browser compatibility ✅
 4. **hreflang Rule**: Added to CLAUDE.md - all blog posts must include `alternateSlug` ✅
 5. **Blog Template**: Created `docs/templates/blog-post-template.md` ✅
-6. **Regular GSC Monitoring**: Check GSC weekly for indexing issues
+6. **Unique Descriptions**: Each page must have its own meta description ✅
+7. **404 Page**: Custom 404 page with navigation links ✅
+8. **Regular GSC Monitoring**: Check GSC weekly for indexing issues
 
 ---
 
@@ -159,7 +194,11 @@ Disallow: /*?reset_pw_link=*
 
 - Analysis completed with Claude Code assistance
 - Issue identified during routine SEO audit on 2026-01-12
-- Additional issues (favicon.ico 404, hreflang) discovered during deep analysis
+- Additional issues discovered during comprehensive audit:
+  - favicon.ico 404
+  - hreflang configuration
+  - Duplicate meta descriptions
+  - Missing 404 page
 
 ---
 
@@ -168,20 +207,22 @@ Disallow: /*?reset_pw_link=*
 | # | Task | Priority | Status | Due Date |
 |---|------|----------|--------|----------|
 | 1 | ~~Update robots.txt with Sitemap reference~~ | ~~High~~ | ✅ Already present | - |
-| 2 | Add Disallow rules for legacy routes | High | ✅ DONE | 2026-01-12 |
-| 3 | Add favicon.ico | High | ✅ DONE | 2026-01-12 |
-| 4 | Fix hreflang configuration | High | ✅ DONE | 2026-01-12 |
-| 5 | Add blog post template & CLAUDE.md rule | Medium | ✅ DONE | 2026-01-12 |
-| 6 | Deploy changes to production | High | TODO | 2026-01-12 |
-| 7 | Submit sitemap to GSC manually | High | TODO | 2026-01-13 |
-| 8 | Request re-indexing in GSC | Medium | TODO | 2026-01-13 |
-| 9 | Monitor favicon update in Google | Low | TODO | 2026-02-12 |
+| 2 | Add Disallow rules for legacy routes | High | ✅ DEPLOYED | 2026-01-12 |
+| 3 | Add favicon.ico | High | ✅ DEPLOYED | 2026-01-12 |
+| 4 | Fix hreflang configuration | High | ✅ DEPLOYED | 2026-01-12 |
+| 5 | Add blog post template & CLAUDE.md rule | Medium | ✅ DEPLOYED | 2026-01-12 |
+| 6 | Add unique meta descriptions | High | ✅ DEPLOYED | 2026-01-12 |
+| 7 | Create custom 404 page | Medium | ✅ DEPLOYED | 2026-01-12 |
+| 8 | Submit sitemap to GSC manually | High | TODO | 2026-01-13 |
+| 9 | Request re-indexing in GSC | Medium | TODO | 2026-01-13 |
+| 10 | Monitor favicon update in Google | Low | TODO | 2026-02-12 |
 
 ---
 
 ## Commits
 
-- `fix(seo): add hreflang cross-references and favicon.ico` - 2026-01-12
+1. `b7b0e5d` - fix(seo): add hreflang cross-references, favicon.ico, and robots.txt rules
+2. `32eafc7` - fix(seo): add unique meta descriptions and 404 page
 
 ---
 
@@ -191,3 +232,4 @@ Disallow: /*?reset_pw_link=*
 - [GSC Sitemap Report](https://search.google.com/search-console/sitemaps?resource_id=sc-domain:airesumeadvisor.com)
 - [robots.txt Best Practices](https://developers.google.com/search/docs/crawling-indexing/robots/intro)
 - [hreflang Guide](https://developers.google.com/search/docs/specialty/international/localized-versions)
+- [Meta Description Best Practices](https://developers.google.com/search/docs/appearance/snippet)
