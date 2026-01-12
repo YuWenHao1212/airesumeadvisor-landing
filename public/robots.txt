@@ -1,4 +1,13 @@
 User-agent: *
 Allow: /
 
+# Block legacy routes (from old Bubble app)
+Disallow: /reset_password*
+Disallow: /version-test*
+Disallow: /api/*
+
+# Block URLs with tokens (expired auth links)
+Disallow: /*?token=*
+Disallow: /*?reset_pw_link=*
+
 Sitemap: https://airesumeadvisor.com/sitemap-index.xml

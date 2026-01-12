@@ -44,7 +44,7 @@ const formattedUpdatedDate = updatedDate?.toLocaleDateString('en-US', {
 // Determine alternate language URL
 const isEnglish = lang === 'en';
 const alternateLang = isEnglish ? 'zh-TW' : 'en';
-const alternateURL = alternateSlug ? new URL(`/blog/${alternateSlug}`, Astro.site) : null;
+const alternateURL = alternateSlug ? new URL(`/blog/${alternateSlug}/`, Astro.site) : null;
 
 // Article schema
 const articleSchema = {

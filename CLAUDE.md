@@ -148,6 +148,27 @@ import { LINKS } from '@config/links';
 <a href="https://app.airesumeadvisor.com/signup">Sign Up</a>
 ```
 
+### 7. Blog 文章撰寫規則 ⚠️ **重要**
+
+撰寫 EN/ZH 配對文章時，**必須**在兩邊 frontmatter 加入 `alternateSlug`：
+
+```yaml
+# EN 版本 (example-post.mdx)
+lang: "en"
+alternateSlug: "example-post-zh"  # ← 指向 ZH 版本
+
+# ZH 版本 (example-post-zh.mdx)
+lang: "zh-TW"
+alternateSlug: "example-post"     # ← 指向 EN 版本
+```
+
+**為什麼重要**：
+- 讓 Google 知道這是同一內容的不同語言版本
+- 避免被視為重複內容而降權
+- 讓正確語言版本出現在對應地區的搜尋結果
+
+**模板位置**：`docs/templates/blog-post-template.md`
+
 ---
 
 ## 📚 文檔快速導航
