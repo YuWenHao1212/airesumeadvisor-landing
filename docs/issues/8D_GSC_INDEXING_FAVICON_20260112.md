@@ -166,9 +166,10 @@ Disallow: /*?reset_pw_link=*
 
 | Action | Verification Method | Expected Result | Status |
 |--------|---------------------|-----------------|--------|
-| Sitemap submitted | GSC > Sitemaps | Status: Success | ✅ Done |
+| Sitemap submitted | GSC > Sitemaps | Status: Success, 9 URLs discovered | ✅ Done |
 | robots.txt updated | `curl .../robots.txt` | Contains Disallow rules | ✅ Deployed |
 | favicon.ico added | `curl -I .../favicon.ico` | HTTP 200 | ✅ Deployed |
+| favicon.ico in HTML | Check HTML source | `<link rel="icon" href="/favicon.ico">` | ✅ Deployed |
 | hreflang fixed | Check HTML source | EN/ZH cross-reference | ✅ Deployed |
 | Unique descriptions | Check HTML source | Each page has unique desc | ✅ Deployed |
 | 404 page | Visit invalid URL | Shows custom 404 page | ✅ Deployed |
@@ -214,7 +215,7 @@ Disallow: /*?reset_pw_link=*
 | 6 | Add unique meta descriptions | High | ✅ DEPLOYED | 2026-01-12 |
 | 7 | Create custom 404 page | Medium | ✅ DEPLOYED | 2026-01-12 |
 | 8 | Submit sitemap to GSC manually | High | ✅ DONE | 2026-01-12 |
-| 9 | Request re-indexing in GSC | Medium | TODO | 2026-01-13 |
+| 9 | Request re-indexing in GSC | Medium | ✅ DONE | 2026-01-12 |
 | 10 | Monitor favicon update in Google | Low | TODO | 2026-02-12 |
 
 ---
@@ -223,6 +224,7 @@ Disallow: /*?reset_pw_link=*
 
 1. `b7b0e5d` - fix(seo): add hreflang cross-references, favicon.ico, and robots.txt rules
 2. `32eafc7` - fix(seo): add unique meta descriptions and 404 page
+3. `00a6d73` - fix(seo): add explicit favicon.ico reference for faster Google favicon update
 
 ---
 
