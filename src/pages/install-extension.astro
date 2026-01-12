@@ -17,6 +17,8 @@
 
 import Layout from '@layouts/Layout.astro';
 
+const description = "Install the AI Resume Advisor Chrome extension. Get instant job-fit scores on LinkedIn and optimize your resume for every application.";
+
 // Store URLs for different browsers
 const STORE_URLS = {
   chrome: 'https://chromewebstore.google.com/detail/iafpieelbhhlmhgjekflneciffoonkgf',
@@ -25,7 +27,7 @@ const STORE_URLS = {
 };
 ---
 
-<Layout title="Installing Extension - AI Resume Advisor">
+<Layout title="Install Chrome Extension - AI Resume Advisor" description={description}>
   <div class="flex min-h-screen items-center justify-center bg-gray-50">
     <div class="text-center">
       <div class="mb-4 inline-flex h-12 w-12 animate-spin items-center justify-center rounded-full border-4 border-primary border-t-transparent"></div>
