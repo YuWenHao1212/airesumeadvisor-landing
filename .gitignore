@@ -32,5 +32,8 @@ coverage/
 .cache/
 .parcel-cache/
 
+# Serena MCP
+.serena/
+
 # Misc
 *.pem
