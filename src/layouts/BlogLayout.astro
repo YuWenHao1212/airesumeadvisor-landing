@@ -3,6 +3,8 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import LangSwitch from '../components/blog/LangSwitch.astro';
 import BlogCTA from '../components/blog/BlogCTA.astro';
+import { formatDate } from '../i18n/utils';
+import type { Locale } from '../i18n/types';
 
 interface Props {
   title: string;
@@ -26,25 +28,24 @@ const {
   alternateSlug,
 } = Astro.props;
 
+const locale = lang as Locale;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const fullTitle = `${title} | AI Resume Advisor Blog`;
 
-const formattedDate = pubDate.toLocaleDateString('en-US', {
-  year: 'numeric',
-  month: 'long',
-  day: 'numeric',
-});
-
-const formattedUpdatedDate = updatedDate?.toLocaleDateString('en-US', {
-  year: 'numeric',
-  month: 'long',
-  day: 'numeric',
-});
+const formattedDate = formatDate(pubDate, locale);
+const formattedUpdatedDate = updatedDate ? formatDate(updatedDate, locale) : undefined;
 
 // Determine alternate language URL
 const isEnglish = lang === 'en';
 const alternateLang = isEnglish ? 'zh-TW' : 'en';
-const alternateURL = alternateSlug ? new URL(`/blog/${alternateSlug}/`, Astro.site) : null;
+
+// EN posts link to /zh-TW/blog/{alternateSlug}/
+// ZH posts link to /blog/{alternateSlug}/
+const alternateURL = alternateSlug
+  ? isEnglish
+    ? new URL(`/zh-TW/blog/${alternateSlug}/`, Astro.site)
+    : new URL(`/blog/${alternateSlug}/`, Astro.site)
+  : null;
 
 // Article schema
 const articleSchema = {
@@ -126,7 +127,7 @@ const articleSchema = {
     <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
   </head>
   <body class="bg-white">
-    <Header />
+    <Header lang={locale} />
     <main class="min-h-screen bg-white">
       <article class="mx-auto max-w-3xl px-4 py-12 sm:px-6 lg:px-8">
         <!-- Article Header -->
@@ -148,7 +149,7 @@ const articleSchema = {
             </span>
             {
               formattedUpdatedDate && (
-                <span class="text-gray-500">(Updated: {formattedUpdatedDate})</span>
+                <span class="text-gray-500">({isEnglish ? 'Updated' : '\u66f4\u65b0'}: {formattedUpdatedDate})</span>
               )
             }
             <span class="flex items-center gap-1">
@@ -189,10 +190,10 @@ const articleSchema = {
         </div>
 
         <!-- CTA Section -->
-        <BlogCTA />
+        <BlogCTA lang={locale} />
       </article>
     </main>
-    <Footer />
+    <Footer lang={locale} />
   </body>
 </html>
 

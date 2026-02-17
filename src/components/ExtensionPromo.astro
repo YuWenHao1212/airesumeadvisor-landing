@@ -1,11 +1,20 @@
 ---
 import { LINKS } from '../config/links';
+import { useTranslations } from '../i18n/utils';
+import type { Locale } from '../i18n/types';
+
+interface Props {
+  lang?: Locale;
+}
+
+const { lang = 'en' } = Astro.props;
+const t = useTranslations(lang);
 
 const features = [
-  { icon: '⚡', text: 'Instant alignment score while browsing' },
-  { icon: '📊', text: 'Section-by-section breakdown' },
-  { icon: '🔑', text: 'Keyword match checklist' },
-  { icon: '🔗', text: 'One click to full report' },
+  { icon: '\u26A1', text: t('extensionPromo.feature1') },
+  { icon: '\uD83D\uDCCA', text: t('extensionPromo.feature2') },
+  { icon: '\uD83D\uDD11', text: t('extensionPromo.feature3') },
+  { icon: '\uD83D\uDD17', text: t('extensionPromo.feature4') },
 ];
 ---
 
@@ -35,11 +44,11 @@ const features = [
       <!-- Content (Right on desktop) -->
       <div class="order-1 max-w-lg lg:order-2">
         <h2 class="font-display text-3xl font-bold text-text-primary sm:text-4xl">
-          Screen Jobs in Seconds
+          {t('extensionPromo.title')}
         </h2>
 
         <p class="mt-6 text-lg leading-relaxed text-text-body">
-          Browse LinkedIn and know your fit instantly — without leaving the page.
+          {t('extensionPromo.description')}
         </p>
 
         <!-- Features List -->
@@ -70,7 +79,7 @@ const features = [
                 d="M12 0C8.21 0 4.831 1.757 2.632 4.501l3.953 6.848A5.454 5.454 0 0 1 12 6.545h10.691A12 12 0 0 0 12 0zM1.931 5.47A11.943 11.943 0 0 0 0 12c0 6.012 4.42 10.991 10.189 11.864l3.953-6.847a5.45 5.45 0 0 1-6.865-2.29zm13.342 2.166a5.446 5.446 0 0 1 1.45 7.09l.002.001h-.002l-3.952 6.848a12.014 12.014 0 0 0 9.229-9.006zM12 16.364a4.364 4.364 0 1 1 0-8.728 4.364 4.364 0 0 1 0 8.728z"
               ></path>
             </svg>
-            Add to Chrome
+            {t('extensionPromo.addToChrome')}
           </a>
 
           <!-- Secondary: Get Started -->
@@ -79,7 +88,7 @@ const features = [
             data-cta-link="signup"
             class="inline-flex items-center gap-2 rounded-lg border border-gray-300 bg-white px-6 py-3 font-medium text-text-primary transition-all hover:border-primary hover:text-primary"
           >
-            Get Started
+            {t('extensionPromo.getStarted')}
             <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path
                 stroke-linecap="round"

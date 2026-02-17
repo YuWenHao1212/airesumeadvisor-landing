@@ -6,6 +6,15 @@
  * Shows "You've been invited! Sign up for 20% OFF your first purchase"
  * Hidden by default, shown via JavaScript when referral code is detected.
  */
+import { useTranslations } from '../i18n/utils';
+import type { Locale } from '../i18n/types';
+
+interface Props {
+  lang?: Locale;
+}
+
+const { lang = 'en' } = Astro.props;
+const t = useTranslations(lang);
 ---
 
 <div
@@ -22,10 +31,10 @@
       ></path>
     </svg>
     <span>
-      <span class="font-semibold">You've been invited!</span>
-      {' '}Sign up for{' '}
-      <span class="font-bold text-yellow-300">20% OFF</span>
-      {' '}your first purchase
+      <span class="font-semibold">{t('referral.invited')}</span>
+      {' '}{t('referral.signUpFor')}{' '}
+      <span class="font-bold text-yellow-300">{t('referral.discount')}</span>
+      {' '}{t('referral.firstPurchase')}
     </span>
   </div>
 </div>

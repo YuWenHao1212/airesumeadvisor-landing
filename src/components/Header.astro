@@ -1,18 +1,30 @@
 ---
-import { LINKS } from '../config/links';
+import { LINKS, getLocalizedLink } from '../config/links';
+import { useTranslations } from '../i18n/utils';
+import type { Locale } from '../i18n/types';
+import LanguageSwitcher from './LanguageSwitcher.astro';
+
+interface Props {
+  lang?: Locale;
+}
+
+const { lang = 'en' } = Astro.props;
+const t = useTranslations(lang);
 
 const navItems = [
-  { label: 'About', href: '/#features' },
-  { label: 'How it works', href: '/#how-it-works' },
-  { label: 'Pricing', href: '/#pricing' },
-  { label: 'Blog', href: '/blog' },
+  { label: t('header.nav.about'), href: getLocalizedLink('/#features', lang) },
+  { label: t('header.nav.howItWorks'), href: getLocalizedLink('/#how-it-works', lang) },
+  { label: t('header.nav.pricing'), href: getLocalizedLink('/#pricing', lang) },
+  { label: t('header.nav.blog'), href: getLocalizedLink('/blog', lang) },
 ];
+
+const logoHref = lang === 'en' ? '/' : '/zh-TW/';
 ---
 
 <header class="sticky top-0 z-50 w-full border-b border-gray-100 bg-white/95 backdrop-blur-sm">
   <div class="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
     <!-- Logo -->
-    <a href="/" class="flex items-center gap-2">
+    <a href={logoHref} class="flex items-center gap-2">
       <picture>
         <source srcset="/images/logo.webp" type="image/webp" />
         <img
@@ -39,21 +51,22 @@ const navItems = [
       }
     </nav>
 
-    <!-- CTA Buttons -->
-    <div class="hidden items-center gap-4 md:flex">
+    <!-- CTA Buttons + Language Switcher -->
+    <div class="hidden items-center gap-3 md:flex">
+      <LanguageSwitcher lang={lang} />
       <a
         href={LINKS.login}
         data-cta-link="login"
         class="text-sm font-medium text-primary transition-colors hover:text-primary-hover"
       >
-        Log In
+        {t('header.login')}
       </a>
       <a
         href={LINKS.signup}
         data-cta-link="signup"
         class="inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-2.5 text-sm font-medium text-white shadow-primary transition-all hover:bg-primary-hover hover:shadow-lg"
       >
-        Sign Up Free
+        {t('header.signup')}
         <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path
             stroke-linecap="round"
@@ -68,7 +81,7 @@ const navItems = [
     <button
       type="button"
       class="inline-flex items-center justify-center rounded-md p-2 text-text-body hover:bg-gray-100 md:hidden"
-      aria-label="Open menu"
+      aria-label={t('header.openMenu')}
       id="mobile-menu-button"
     >
       <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -95,19 +108,22 @@ const navItems = [
         ))
       }
       <div class="mt-4 flex flex-col gap-3 border-t border-gray-100 pt-4">
+        <div class="flex justify-center">
+          <LanguageSwitcher lang={lang} />
+        </div>
         <a
           href={LINKS.login}
           data-cta-link="login"
           class="block rounded-lg px-3 py-2 text-center text-base font-medium text-primary hover:bg-primary-light"
         >
-          Log In
+          {t('header.login')}
         </a>
         <a
           href={LINKS.signup}
           data-cta-link="signup"
           class="block rounded-lg bg-primary px-3 py-2.5 text-center text-base font-medium text-white hover:bg-primary-hover"
         >
-          Sign Up Free
+          {t('header.signup')}
         </a>
       </div>
     </div>

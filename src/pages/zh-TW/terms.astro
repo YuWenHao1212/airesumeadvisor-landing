@@ -1,14 +1,16 @@
 ---
 import Layout from '@layouts/Layout.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { useTranslations } from '../../i18n/utils';
 
-const lang = 'en' as const;
+const lang = 'zh-TW' as const;
+const t = useTranslations(lang);
 ---
 
 <Layout
-  title="Terms of Service - AI Resume Advisor"
-  description="Review the terms and conditions for using AI Resume Advisor. Understand your rights and responsibilities when using our resume optimization service."
+  title="服務條款 - AI Resume Advisor"
+  description="查看 AI Resume Advisor 的服務條款與使用規範。了解你在使用我們履歷優化服務時的權利與責任。"
   lang={lang}
 >
   <Header lang={lang} />
@@ -18,9 +20,9 @@ const lang = 'en' as const;
       <!-- Page Header -->
       <div class="mb-16 text-center">
         <h1 class="font-display text-4xl font-bold tracking-tight text-text-primary md:text-5xl">
-          Terms of Service
+          服務條款
         </h1>
-        <p class="mt-4 text-lg text-text-caption">Last Updated: December 10, 2025</p>
+        <p class="mt-4 text-lg text-text-caption">最後更新：2025 年 12 月 10 日</p>
       </div>
 
       <!-- Content -->
@@ -34,18 +36,15 @@ const lang = 'en' as const;
               class="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-sm font-bold text-white"
               >1</span
             >
-            Welcome to AI Resume Advisor LLC
+            歡迎使用 AI Resume Advisor LLC
           </h2>
           <div class="mt-6 space-y-4 text-text-body">
             <p>
-              Welcome to the services provided by AI Resume Advisor LLC ("we," "our," or "Company"),
-              registered at 30 N Gould St Ste N Sheridan, WY 82801. These Terms of Service ("Terms")
-              establish the conditions that apply to you when you use our website, web application,
-              browser extension, and related services (collectively, the "Service").
+              歡迎使用 AI Resume Advisor LLC（以下簡稱「我們」或「本公司」）所提供的服務，本公司註冊地址為
+              30 N Gould St Ste N Sheridan, WY 82801。本服務條款（以下簡稱「條款」）適用於你使用我們的網站、網頁應用程式、瀏覽器擴充功能及相關服務（統稱「服務」）時所應遵守的條件。
             </p>
             <p>
-              By accessing or using our Service, you agree to be bound by these Terms. If you do not
-              agree to these Terms, please do not use our Service.
+              當你存取或使用我們的服務，即表示你同意受本條款約束。如果你不同意本條款，請勿使用我們的服務。
             </p>
           </div>
         </section>
@@ -59,57 +58,51 @@ const lang = 'en' as const;
               class="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-sm font-bold text-white"
               >2</span
             >
-            Description of Service
+            服務說明
           </h2>
           <div class="mt-6 space-y-4 text-text-body">
-            <p>AI Resume Advisor LLC provides the following services:</p>
+            <p>AI Resume Advisor LLC 提供以下服務：</p>
             <div class="mt-4 grid gap-4 md:grid-cols-2">
               <div class="rounded-xl border border-gray-100 bg-gray-50 p-4">
-                <h3 class="font-semibold text-text-primary">Job-Resume Alignment Analysis</h3>
+                <h3 class="font-semibold text-text-primary">職缺與履歷匹配分析</h3>
                 <p class="mt-2 text-sm">
-                  Our AI analyzes job descriptions and your resume to calculate an Alignment Score
-                  and Keyword Coverage Rate.
+                  我們的 AI 會分析職缺描述與你的履歷，計算匹配分數與關鍵字涵蓋率。
                 </p>
               </div>
               <div class="rounded-xl border border-gray-100 bg-gray-50 p-4">
-                <h3 class="font-semibold text-text-primary">Gap Identification</h3>
+                <h3 class="font-semibold text-text-primary">落差識別</h3>
                 <p class="mt-2 text-sm">
-                  We identify Presentation Gaps (skills not effectively communicated) and Skill Gaps
-                  (skills to develop).
+                  我們會識別表達落差（技能未被有效呈現）與技能落差（需要發展的技能）。
                 </p>
               </div>
               <div class="rounded-xl border border-gray-100 bg-gray-50 p-4">
-                <h3 class="font-semibold text-text-primary">AI-Powered Optimization</h3>
+                <h3 class="font-semibold text-text-primary">AI 驅動優化</h3>
                 <p class="mt-2 text-sm">
-                  Our AI rewrites your resume to better showcase your experience in the language
-                  employers want.
+                  我們的 AI 會改寫你的履歷，以雇主偏好的語言更好地展現你的經歷。
                 </p>
               </div>
               <div class="rounded-xl border border-gray-100 bg-gray-50 p-4">
-                <h3 class="font-semibold text-text-primary">Skill Development</h3>
+                <h3 class="font-semibold text-text-primary">技能發展建議</h3>
                 <p class="mt-2 text-sm">
-                  We recommend courses and certifications with guidance on what to learn and how
-                  much it matters.
+                  我們會推薦課程與認證，並提供學習指引，說明該學什麼以及其重要程度。
                 </p>
               </div>
               <div class="rounded-xl border border-gray-100 bg-gray-50 p-4">
-                <h3 class="font-semibold text-text-primary">Job Alignment Simulator</h3>
+                <h3 class="font-semibold text-text-primary">職缺匹配模擬器</h3>
                 <p class="mt-2 text-sm">
-                  Add skills to your resume and see your alignment score change in real time.
+                  在履歷中新增技能，即時查看匹配分數的變化。
                 </p>
               </div>
               <div class="rounded-xl border border-gray-100 bg-gray-50 p-4">
-                <h3 class="font-semibold text-text-primary">Career Assessment Reports</h3>
+                <h3 class="font-semibold text-text-primary">職涯評估報告</h3>
                 <p class="mt-2 text-sm">
-                  Detailed reports including strengths, weaknesses, quick wins, and personalized
-                  suggestions.
+                  詳細報告包含優勢、劣勢、速效改善建議，以及個人化的推薦。
                 </p>
               </div>
               <div class="rounded-xl border border-gray-100 bg-gray-50 p-4">
-                <h3 class="font-semibold text-text-primary">Browser Extension</h3>
+                <h3 class="font-semibold text-text-primary">瀏覽器擴充功能</h3>
                 <p class="mt-2 text-sm">
-                  Analyze LinkedIn job postings directly from the LinkedIn website with instant
-                  alignment scores and keyword coverage.
+                  直接在 LinkedIn 網站上分析職缺，即時取得匹配分數與關鍵字涵蓋率。
                 </p>
               </div>
             </div>
@@ -125,7 +118,7 @@ const lang = 'en' as const;
               class="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-sm font-bold text-white"
               >3</span
             >
-            User Registration and Account
+            使用者註冊與帳號
           </h2>
           <div class="mt-6 text-text-body">
             <ul class="space-y-3">
@@ -134,14 +127,14 @@ const lang = 'en' as const;
                   class="mt-1 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-primary-light text-xs font-medium text-primary"
                   >a</span
                 >
-                <span>You must be at least 18 years old to use our Service.</span>
+                <span>你必須年滿 18 歲才能使用我們的服務。</span>
               </li>
               <li class="flex items-start gap-3">
                 <span
                   class="mt-1 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-primary-light text-xs font-medium text-primary"
                   >b</span
                 >
-                <span>You need to register an account to use certain features of our Service.</span>
+                <span>你需要註冊帳號才能使用服務的部分功能。</span>
               </li>
               <li class="flex items-start gap-3">
                 <span
@@ -149,8 +142,7 @@ const lang = 'en' as const;
                   >c</span
                 >
                 <span
-                  >You are responsible for maintaining the security of your account, including
-                  protecting your password.</span
+                  >你有責任維護帳號安全，包括妥善保管你的密碼。</span
                 >
               </li>
               <li class="flex items-start gap-3">
@@ -159,7 +151,7 @@ const lang = 'en' as const;
                   >d</span
                 >
                 <span
-                  >You agree to provide accurate, complete, and up-to-date registration information.</span
+                  >你同意提供準確、完整且最新的註冊資訊。</span
                 >
               </li>
             </ul>
@@ -175,24 +167,24 @@ const lang = 'en' as const;
               class="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-sm font-bold text-white"
               >4</span
             >
-            User Responsibilities and Code of Conduct
+            使用者責任與行為規範
           </h2>
           <div class="mt-6 text-text-body">
-            <p class="mb-4">When using our Service, you agree to:</p>
+            <p class="mb-4">使用我們的服務時，你同意：</p>
             <ul class="space-y-3">
               <li class="flex items-start gap-3">
                 <span
                   class="mt-1 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-primary-light text-xs font-medium text-primary"
                   >a</span
                 >
-                <span>Not violate any applicable laws or regulations.</span>
+                <span>不違反任何適用的法律或法規。</span>
               </li>
               <li class="flex items-start gap-3">
                 <span
                   class="mt-1 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-primary-light text-xs font-medium text-primary"
                   >b</span
                 >
-                <span>Not infringe on the intellectual property or other rights of others.</span>
+                <span>不侵犯他人的智慧財產權或其他權利。</span>
               </li>
               <li class="flex items-start gap-3">
                 <span
@@ -200,8 +192,7 @@ const lang = 'en' as const;
                   >c</span
                 >
                 <span
-                  >Not upload materials containing viruses, malicious code, or other harmful
-                  content.</span
+                  >不上傳含有病毒、惡意程式碼或其他有害內容的資料。</span
                 >
               </li>
               <li class="flex items-start gap-3">
@@ -210,8 +201,7 @@ const lang = 'en' as const;
                   >d</span
                 >
                 <span
-                  >Not engage in behavior that may damage the Service or affect other users'
-                  experience.</span
+                  >不從事可能損害服務或影響其他使用者體驗的行為。</span
                 >
               </li>
             </ul>
@@ -227,31 +217,31 @@ const lang = 'en' as const;
               class="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-sm font-bold text-white"
               >5</span
             >
-            Browser Extension Usage
+            瀏覽器擴充功能使用規範
           </h2>
           <div class="mt-6 text-text-body">
-            <p class="mb-4">When using our Chrome Extension, you additionally agree to:</p>
+            <p class="mb-4">使用我們的 Chrome Extension 時，你另外同意：</p>
             <ul class="space-y-3">
               <li class="flex items-start gap-3">
                 <span
                   class="mt-1 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-primary-light text-xs font-medium text-primary"
                   >a</span
                 >
-                <span>Use the extension only for personal job search purposes.</span>
+                <span>僅將擴充功能用於個人求職目的。</span>
               </li>
               <li class="flex items-start gap-3">
                 <span
                   class="mt-1 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-primary-light text-xs font-medium text-primary"
                   >b</span
                 >
-                <span>Not use automated tools or scripts to mass-analyze job postings.</span>
+                <span>不使用自動化工具或腳本大量分析職缺。</span>
               </li>
               <li class="flex items-start gap-3">
                 <span
                   class="mt-1 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-primary-light text-xs font-medium text-primary"
                   >c</span
                 >
-                <span>Comply with LinkedIn's Terms of Service while using the extension.</span>
+                <span>使用擴充功能時遵守 LinkedIn 的服務條款。</span>
               </li>
               <li class="flex items-start gap-3">
                 <span
@@ -259,22 +249,18 @@ const lang = 'en' as const;
                   >d</span
                 >
                 <span
-                  >Grant the extension necessary permissions (storage, activeTab, scripting,
-                  identity) for proper functionality.</span
+                  >授予擴充功能所需的權限（storage、activeTab、scripting、identity），以確保功能正常運作。</span
                 >
               </li>
             </ul>
             <div class="mt-6 rounded-xl border border-gray-200 bg-gray-50 p-4">
-              <h3 class="font-semibold text-text-primary">Usage Limits</h3>
+              <h3 class="font-semibold text-text-primary">使用量限制</h3>
               <p class="mt-2 text-sm text-text-body">
-                The extension has fair usage limits that vary by account type. Current limits are
-                displayed within the extension and may be adjusted to maintain service quality for
-                all users.
+                擴充功能設有合理的使用量限制，依帳號類型而異。目前的限制會顯示在擴充功能中，我們可能會調整限制以維持所有使用者的服務品質。
               </p>
             </div>
             <p class="mt-4 text-sm text-text-caption">
-              We reserve the right to limit or suspend extension access for users who violate these
-              terms or abuse the service.
+              我們保留對違反本條款或濫用服務的使用者，限制或暫停其擴充功能存取權的權利。
             </p>
           </div>
         </section>
@@ -288,23 +274,17 @@ const lang = 'en' as const;
               class="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-sm font-bold text-white"
               >6</span
             >
-            Intellectual Property and User Content
+            智慧財產權與使用者內容
           </h2>
           <div class="mt-6 space-y-4 text-text-body">
             <p>
-              <strong>Our Property:</strong> Our Service, including all related intellectual property
-              rights, is owned by AI Resume Advisor LLC.
+              <strong>我們的財產：</strong>我們的服務，包括所有相關智慧財產權，均為 AI Resume Advisor LLC 所有。
             </p>
             <p>
-              <strong>Your Content:</strong> You retain full ownership and control over the content you
-              upload to our Service, including your resume and personal information. By using our Service,
-              you grant us a limited license to store, process, and analyze your content solely for the
-              purpose of providing and improving our Service to you.
+              <strong>你的內容：</strong>你完全保有上傳至我們服務的內容的所有權與控制權，包括你的履歷和個人資訊。使用我們的服務即表示你授予我們有限的許可，得以儲存、處理和分析你的內容，僅限於為你提供和改善服務之目的。
             </p>
             <p>
-              We will not use your personal information or resume content for any other purpose
-              without your explicit consent. You can delete your content from our Service at any
-              time.
+              未經你明確同意，我們不會將你的個人資訊或履歷內容用於任何其他用途。你可以隨時從我們的服務中刪除你的內容。
             </p>
           </div>
         </section>
@@ -318,14 +298,14 @@ const lang = 'en' as const;
               class="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-sm font-bold text-white"
               >7</span
             >
-            Privacy and Data Processing
+            隱私與資料處理
           </h2>
           <div class="mt-6 text-text-body">
             <p>
-              We value your privacy. Please refer to our <a
-                href="/privacy"
-                class="font-medium text-primary hover:text-primary-hover">Privacy Policy</a
-              > for information on how we collect, use, and protect your personal information.
+              我們重視你的隱私。關於我們如何蒐集、使用和保護你的個人資訊，請參閱我們的<a
+                href="/zh-TW/privacy"
+                class="font-medium text-primary hover:text-primary-hover">隱私權政策</a
+              >。
             </p>
           </div>
         </section>
@@ -339,41 +319,36 @@ const lang = 'en' as const;
               class="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-sm font-bold text-white"
               >8</span
             >
-            Payment and Subscriptions
+            付款與訂閱
           </h2>
           <div class="mt-6 space-y-6 text-text-body">
-            <p>We offer both free and paid services:</p>
+            <p>我們提供免費與付費服務：</p>
             <div class="grid gap-4 md:grid-cols-3">
               <div class="rounded-xl border-2 border-gray-200 p-4 text-center">
-                <p class="text-2xl font-bold text-text-primary">Free</p>
-                <p class="text-sm text-text-caption">5 jobs/day</p>
-                <p class="mt-2 text-xs text-text-body">Analyze and optimize up to 5 jobs per day</p>
+                <p class="text-2xl font-bold text-text-primary">免費</p>
+                <p class="text-sm text-text-caption">每日 5 個職位</p>
+                <p class="mt-2 text-xs text-text-body">每天可分析和優化最多 5 個職位</p>
               </div>
               <div class="rounded-xl border-2 border-gray-200 p-4 text-center">
                 <p class="text-2xl font-bold text-text-primary">$6</p>
-                <p class="text-sm text-text-caption">Daily Pass (24 hours)</p>
-                <p class="mt-2 text-xs text-text-body">Unlimited access</p>
+                <p class="text-sm text-text-caption">日票（24 小時）</p>
+                <p class="mt-2 text-xs text-text-body">無限制使用</p>
               </div>
               <div class="rounded-xl border-2 border-primary bg-primary-light p-4 text-center">
                 <p class="text-2xl font-bold text-primary">$20</p>
-                <p class="text-sm text-text-caption">Weekly Pass (7 days)</p>
-                <p class="mt-2 text-xs font-medium text-primary">Best Value - Save 50%+</p>
+                <p class="text-sm text-text-caption">週票（7 天）</p>
+                <p class="mt-2 text-xs font-medium text-primary">最划算 - 省下超過 50%</p>
               </div>
             </div>
             <ul class="mt-4 space-y-2 text-sm">
               <li>
-                Payments are processed through Stripe. By using our paid services, you agree to
-                Stripe's terms of service.
+                付款由 Stripe 處理。使用我們的付費服務即表示你同意 Stripe 的服務條款。
               </li>
               <li>
-                Subscriptions do not automatically renew. Each pass expires after its designated
-                period.
+                訂閱不會自動續訂。每張票券到期後即失效。
               </li>
               <li>
-                Refund Policy: Refunds are available within 24 hours of purchase if the service
-                has not been used. A non-refundable processing fee applies: $0.50 for Daily Pass,
-                $1.00 for Weekly Pass. Once any analysis or report has been generated, purchases
-                are final. To request a refund, contact wenhao@airesumeadvisor.com.
+                退款政策：購買後 24 小時內且尚未使用服務，可申請退款。退款將扣除不可退還的手續費：日票 $0.50、週票 $1.00。一旦已產生任何分析或報告，購買即為最終交易，不予退款。如需申請退款，請聯繫 wenhao@airesumeadvisor.com。
               </li>
             </ul>
           </div>
@@ -388,12 +363,11 @@ const lang = 'en' as const;
               class="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-sm font-bold text-white"
               >9</span
             >
-            Termination
+            終止服務
           </h2>
           <div class="mt-6 text-text-body">
             <p>
-              We reserve the right to terminate or suspend your use of the Service at any time for
-              any reason, including breach of these Terms.
+              我們保留因任何原因隨時終止或暫停你使用服務的權利，包括但不限於違反本條款。
             </p>
           </div>
         </section>
@@ -406,13 +380,12 @@ const lang = 'en' as const;
               class="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-sm font-bold text-white"
               >10</span
             >
-            Disclaimer and Limitation of Liability
+            免責聲明與責任限制
           </h2>
           <div class="mt-6 space-y-4 text-text-body">
-            <p>Our Service is provided "as is" without any express or implied warranties.</p>
+            <p>我們的服務以「現狀」提供，不提供任何明示或默示的保證。</p>
             <p>
-              To the maximum extent permitted by law, AI Resume Advisor LLC shall not be liable for
-              any direct, indirect, incidental, special, or consequential damages.
+              在法律允許的最大範圍內，AI Resume Advisor LLC 不對任何直接、間接、附帶、特殊或衍生的損害承擔責任。
             </p>
           </div>
         </section>
@@ -425,7 +398,7 @@ const lang = 'en' as const;
               class="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-sm font-bold text-white"
               >11</span
             >
-            Dispute Resolution and Governing Law
+            爭議解決與準據法
           </h2>
           <div class="mt-6 text-text-body">
             <ul class="space-y-3">
@@ -434,14 +407,14 @@ const lang = 'en' as const;
                   class="mt-1 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-primary-light text-xs font-medium text-primary"
                   >a</span
                 >
-                <span>These Terms are governed by the laws of the State of Wyoming.</span>
+                <span>本條款受美國懷俄明州法律管轄。</span>
               </li>
               <li class="flex items-start gap-3">
                 <span
                   class="mt-1 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-primary-light text-xs font-medium text-primary"
                   >b</span
                 >
-                <span>Any disputes should first be resolved through friendly negotiation.</span>
+                <span>任何爭議應先透過友善協商解決。</span>
               </li>
               <li class="flex items-start gap-3">
                 <span
@@ -449,7 +422,7 @@ const lang = 'en' as const;
                   >c</span
                 >
                 <span
-                  >If resolution cannot be reached, disputes will be submitted to Wyoming courts.</span
+                  >若無法達成協議，爭議將提交至懷俄明州法院處理。</span
                 >
               </li>
             </ul>
@@ -464,13 +437,11 @@ const lang = 'en' as const;
               class="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-sm font-bold text-white"
               >12</span
             >
-            Modifications to Terms
+            條款修改
           </h2>
           <div class="mt-6 text-text-body">
             <p>
-              We may modify these Terms from time to time. Modified terms will be posted on the
-              website and will be effective immediately upon posting. Continued use of our Service
-              after any such changes shall constitute your consent to such changes.
+              我們可能會不定期修改本條款。修改後的條款將公告於網站上，並於公告時立即生效。你在條款變更後繼續使用我們的服務，即視為同意修改後的條款。
             </p>
           </div>
         </section>
@@ -483,10 +454,10 @@ const lang = 'en' as const;
               class="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-sm font-bold text-white"
               >13</span
             >
-            Contact Us
+            聯絡我們
           </h2>
           <div class="mt-6 text-text-body">
-            <p>If you have any questions about these Terms, please contact us at:</p>
+            <p>如果你對本條款有任何疑問，歡迎透過以下方式聯絡我們：</p>
             <a
               href="mailto:wenhao@airesumeadvisor.com"
               class="mt-4 inline-flex items-center gap-2 font-medium text-primary hover:text-primary-hover"
@@ -507,8 +478,7 @@ const lang = 'en' as const;
         <!-- Footer Note -->
         <div class="rounded-2xl bg-primary-light p-6 text-center">
           <p class="text-sm text-primary">
-            By using our Service, you acknowledge that you have read, understood, and agree to be
-            bound by these Terms.
+            使用我們的服務即表示你已閱讀、理解並同意受本條款約束。
           </p>
         </div>
       </div>

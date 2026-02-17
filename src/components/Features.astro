@@ -1,13 +1,21 @@
 ---
 import { LINKS } from '../config/links';
+import { useTranslations } from '../i18n/utils';
+import type { Locale } from '../i18n/types';
+
+interface Props {
+  lang?: Locale;
+}
+
+const { lang = 'en' } = Astro.props;
+const t = useTranslations(lang);
 
 const features = [
   {
     id: 'alignment',
-    tab: 'See Your Match',
-    title: 'Know Exactly Where You Stand',
-    description:
-      'Get your alignment score in seconds—not just keyword matches, but true semantic analysis of how your experience fits the role. See your strengths, gaps, and quick wins at a glance. No more guessing if you\'re qualified. Know before you apply.',
+    tab: t('features.tab1'),
+    title: t('features.title1'),
+    description: t('features.desc1'),
     image: {
       webp: '/images/feature-tab1.webp',
       fallback: '/images/screenshots/feature-tab1.png',
@@ -16,10 +24,9 @@ const features = [
   },
   {
     id: 'tailored',
-    tab: 'Fix & Polish',
-    title: 'AI-Powered Resume Rewrite',
-    description:
-      'Found a presentation gap? Our AI rewrites your resume to better showcase what you already have. See exactly how each section improves with before-and-after scores. Your experience stays real—just presented in the language employers want to see.',
+    tab: t('features.tab2'),
+    title: t('features.title2'),
+    description: t('features.desc2'),
     image: {
       webp: '/images/feature-tab2.webp',
       fallback: '/images/screenshots/feature-tab2-polish.png',
@@ -28,10 +35,9 @@ const features = [
   },
   {
     id: 'development',
-    tab: 'Level Up',
-    title: 'Bridge Your Skill Gaps',
-    description:
-      'Found skills you\'re missing? We\'ll show you exactly which courses and certifications can close the gap—with recommendations tailored to your target role. No more wondering what to learn next.',
+    tab: t('features.tab3'),
+    title: t('features.title3'),
+    description: t('features.desc3'),
     image: {
       webp: '/images/feature-tab3.webp',
       fallback: '/images/screenshots/feature-tab3-levelup.png',
@@ -45,7 +51,7 @@ const features = [
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <!-- Section Title -->
     <h2 class="text-center font-display text-3xl font-bold text-text-primary sm:text-4xl md:text-5xl">
-      From Analysis to Action
+      {t('features.sectionTitle')}
     </h2>
 
     <!-- Tabs -->
@@ -100,7 +106,7 @@ const features = [
                 href={LINKS.getStarted}
                 class="mt-6 inline-flex items-center gap-2 font-medium text-primary transition-colors hover:text-primary-hover"
               >
-                Get Started
+                {t('features.getStarted')}
                 <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                 </svg>

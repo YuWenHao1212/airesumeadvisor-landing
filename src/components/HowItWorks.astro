@@ -1,5 +1,14 @@
 ---
 import { LINKS } from '../config/links';
+import { useTranslations } from '../i18n/utils';
+import type { Locale } from '../i18n/types';
+
+interface Props {
+  lang?: Locale;
+}
+
+const { lang = 'en' } = Astro.props;
+const t = useTranslations(lang);
 ---
 
 <section id="how-it-works" class="bg-background py-16 md:py-24">
@@ -7,18 +16,17 @@ import { LINKS } from '../config/links';
     <div class="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
       <!-- Content -->
       <div class="max-w-lg">
-        <h2 class="font-display text-3xl font-bold text-text-primary sm:text-4xl">How it Works</h2>
+        <h2 class="font-display text-3xl font-bold text-text-primary sm:text-4xl">{t('howItWorks.title')}</h2>
 
         <p class="mt-6 text-lg leading-relaxed text-text-body">
-          Simply copy and paste the data from a job description from the original source and leave
-          the rest to us.
+          {t('howItWorks.description')}
         </p>
 
         <a
           href={LINKS.getStarted}
           class="mt-8 inline-flex items-center gap-2 font-medium text-primary transition-colors hover:text-primary-hover"
         >
-          Get Started
+          {t('howItWorks.getStarted')}
           <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path
               stroke-linecap="round"
@@ -113,7 +121,7 @@ import { LINKS } from '../config/links';
                     d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"
                   ></path>
                 </svg>
-                <p class="mt-2 text-sm">Video Coming Soon</p>
+                <p class="mt-2 text-sm">{t('howItWorks.videoComingSoon')}</p>
               </div>
             </div>
           </div>

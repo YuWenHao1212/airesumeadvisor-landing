@@ -1,5 +1,14 @@
 ---
 import { LINKS } from '../config/links';
+import { useTranslations } from '../i18n/utils';
+import type { Locale } from '../i18n/types';
+
+interface Props {
+  lang?: Locale;
+}
+
+const { lang = 'en' } = Astro.props;
+const t = useTranslations(lang);
 ---
 
 <section class="bg-white py-16 md:py-24">
@@ -8,26 +17,23 @@ import { LINKS } from '../config/links';
       <!-- Content -->
       <div class="max-w-lg">
         <h2 class="font-display text-3xl font-bold text-text-primary sm:text-4xl">
-          Your Career Skill Tree
+          {t('jobSimulator.title')}
         </h2>
 
         <p class="mt-6 text-lg leading-relaxed text-text-body">
-          Before you invest months in a course, see if it's worth it. Add any skill, certification,
-          or project to your resume and watch your alignment score change in real time. Know the ROI
-          of every learning decision before you make it.
+          {t('jobSimulator.description')}
         </p>
 
         <!-- User Quote -->
         <blockquote class="mt-6 border-l-4 border-primary pl-4 italic text-text-body">
-          "It's like a skill tree in a game, but it's my real career—and now I finally know how to
-          level up my life."
+          {t('jobSimulator.quote')}
         </blockquote>
 
         <a
           href={LINKS.getStarted}
           class="mt-8 inline-flex items-center gap-2 font-medium text-primary transition-colors hover:text-primary-hover"
         >
-          Get Started
+          {t('jobSimulator.getStarted')}
           <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path
               stroke-linecap="round"

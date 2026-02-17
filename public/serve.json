@@ -1,4 +1,26 @@
 {
+  "redirects": [
+    {
+      "source": "/blog/resume-diagnosis-2026-zh",
+      "destination": "/zh-TW/blog/resume-diagnosis-2026",
+      "type": 301
+    },
+    {
+      "source": "/blog/best-jobscan-alternatives-2026-zh",
+      "destination": "/zh-TW/blog/best-jobscan-alternatives-2026",
+      "type": 301
+    },
+    {
+      "source": "/blog/best-linkedin-chrome-extensions-job-seekers-2026-zh",
+      "destination": "/zh-TW/blog/best-linkedin-chrome-extensions-job-seekers-2026",
+      "type": 301
+    },
+    {
+      "source": "/blog/how-to-tailor-resume-to-job-description-zh",
+      "destination": "/zh-TW/blog/how-to-tailor-resume-to-job-description",
+      "type": 301
+    }
+  ],
   "headers": [
     {
       "source": "**/*.woff2",

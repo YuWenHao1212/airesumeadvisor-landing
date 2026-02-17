@@ -45,3 +45,31 @@ export const LINKS = {
 } as const;
 
 export type LinkKey = keyof typeof LINKS;
+
+/**
+ * Returns a locale-aware version of a link.
+ * - External links (https://) are returned as-is.
+ * - Anchor links (#features) get prefixed: /zh-TW/#features
+ * - Internal paths (/terms) get prefixed: /zh-TW/terms
+ * - EN locale returns original link unchanged.
+ */
+export function getLocalizedLink(
+  link: string,
+  locale: 'en' | 'zh-TW'
+): string {
+  if (locale === 'en') return link;
+
+  // External links — no prefix
+  if (link.startsWith('http://') || link.startsWith('https://')) return link;
+
+  // Anchor-only links like '#features'
+  if (link.startsWith('#')) return `/zh-TW/${link}`;
+
+  // Anchor links with path like '/#features'
+  if (link.startsWith('/#')) return `/zh-TW${link}`;
+
+  // Internal paths like '/terms', '/blog'
+  if (link.startsWith('/')) return `/zh-TW${link}`;
+
+  return link;
+}

@@ -1,9 +1,18 @@
 ---
 import { LINKS } from '../config/links';
+import { useTranslations } from '../i18n/utils';
+import type { Locale } from '../i18n/types';
+
+interface Props {
+  lang?: Locale;
+}
+
+const { lang = 'en' } = Astro.props;
+const t = useTranslations(lang);
 ---
 
 <section
-  class="relative overflow-hidden bg-gradient-to-b from-white to-primary-selected py-16 md:py-24"
+  class="relative overflow-hidden bg-gradient-to-b from-white to-primary-selected py-20 md:py-32"
 >
   <!-- Decorative elements -->
   <div class="pointer-events-none absolute inset-0 overflow-hidden">
@@ -19,20 +28,20 @@ import { LINKS } from '../config/links';
         <h1
           class="font-display text-4xl font-bold leading-tight tracking-tight text-text-primary sm:text-5xl lg:text-6xl"
         >
-          Know Your Match Before You Apply
+          {t('hero.headline')}
         </h1>
 
-        <p class="mt-6 text-lg leading-relaxed text-text-body">
-          Instant analysis of your resume vs. job requirements—with a clear path to improve.
+        <p class="mt-8 text-lg leading-relaxed text-text-body">
+          {t('hero.description')}
         </p>
 
-        <div class="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
+        <div class="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
           <a
             href={LINKS.signup}
             data-cta-link="signup"
             class="inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-6 py-3 text-base font-medium text-white shadow-primary transition-all hover:bg-primary-hover hover:shadow-lg"
           >
-            Sign Up Free
+            {t('hero.cta')}
             <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path
                 stroke-linecap="round"
@@ -43,28 +52,16 @@ import { LINKS } from '../config/links';
           </a>
         </div>
 
-        <!-- Sponsor Badges -->
-        <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-6">
-          <!-- Microsoft Sponsor -->
-          <div class="flex items-center gap-2">
-            <span class="text-sm text-text-caption">Sponsored by</span>
-            <svg class="h-5 w-auto" viewBox="0 0 23 23" fill="none">
-              <path d="M0 0h10.931v10.931H0z" fill="#f25022"></path>
-              <path d="M12.069 0H23v10.931H12.069z" fill="#7fba00"></path>
-              <path d="M0 12.069h10.931V23H0z" fill="#00a4ef"></path>
-              <path d="M12.069 12.069H23V23H12.069z" fill="#ffb900"></path>
-            </svg>
-            <span class="text-sm font-medium text-text-primary">Microsoft</span>
-          </div>
-
-          <!-- Divider (desktop only) -->
-          <div class="hidden h-4 w-px bg-gray-300 sm:block"></div>
-
-          <!-- Coursera Partner -->
-          <div class="flex items-center gap-2">
-            <span class="text-sm text-text-caption">Course content by</span>
-            <img src="/images/coursera-logo.svg" alt="Coursera" class="h-4 w-auto" />
-          </div>
+        <!-- Sponsor Badge -->
+        <div class="mt-10 flex items-center gap-2">
+          <span class="text-sm text-text-caption">{t('hero.sponsoredBy')}</span>
+          <svg class="h-5 w-auto" viewBox="0 0 23 23" fill="none">
+            <path d="M0 0h10.931v10.931H0z" fill="#f25022"></path>
+            <path d="M12.069 0H23v10.931H12.069z" fill="#7fba00"></path>
+            <path d="M0 12.069h10.931V23H0z" fill="#00a4ef"></path>
+            <path d="M12.069 12.069H23V23H12.069z" fill="#ffb900"></path>
+          </svg>
+          <span class="text-sm font-medium text-text-primary">{t('hero.microsoft')}</span>
         </div>
       </div>
 
@@ -97,8 +94,8 @@ import { LINKS } from '../config/links';
                 </svg>
               </div>
               <div>
-                <p class="text-xs font-medium text-text-primary">LinkedIn Profile URL</p>
-                <p class="text-xs text-text-caption">Import your profile information</p>
+                <p class="text-xs font-medium text-text-primary">{t('hero.linkedinProfileUrl')}</p>
+                <p class="text-xs text-text-caption">{t('hero.importProfile')}</p>
               </div>
             </div>
           </div>
@@ -126,7 +123,7 @@ import { LINKS } from '../config/links';
               </div>
               <div>
                 <p class="text-lg font-bold text-primary">83%</p>
-                <p class="text-xs text-text-caption">Job Alignment Score</p>
+                <p class="text-xs text-text-caption">{t('hero.jobAlignmentScore')}</p>
               </div>
             </div>
           </div>
@@ -153,8 +150,8 @@ import { LINKS } from '../config/links';
                 </svg>
               </div>
               <div>
-                <p class="text-xs font-medium text-text-primary">Recommended Courses</p>
-                <p class="text-xs text-text-caption">3 courses to boost your score</p>
+                <p class="text-xs font-medium text-text-primary">{t('hero.recommendedCourses')}</p>
+                <p class="text-xs text-text-caption">{t('hero.coursesToBoost')}</p>
               </div>
             </div>
           </div>

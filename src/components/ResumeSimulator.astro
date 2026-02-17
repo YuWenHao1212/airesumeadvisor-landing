@@ -1,11 +1,20 @@
 ---
 import { LINKS } from '../config/links';
+import { useTranslations } from '../i18n/utils';
+import type { Locale } from '../i18n/types';
+
+interface Props {
+  lang?: Locale;
+}
+
+const { lang = 'en' } = Astro.props;
+const t = useTranslations(lang);
 
 const features = [
-  { icon: '✨', text: 'AI rewrites your resume to match the job' },
-  { icon: '✏️', text: 'Make your own edits anytime' },
-  { icon: '📊', text: 'Real-time score updates' },
-  { icon: '🎯', text: 'Clear before/after comparison' },
+  { icon: '\u2728', text: t('resumeSimulator.feature1') },
+  { icon: '\u270F\uFE0F', text: t('resumeSimulator.feature2') },
+  { icon: '\uD83D\uDCCA', text: t('resumeSimulator.feature3') },
+  { icon: '\uD83C\uDFAF', text: t('resumeSimulator.feature4') },
 ];
 ---
 
@@ -15,11 +24,11 @@ const features = [
       <!-- Content (Left on desktop) -->
       <div class="max-w-lg">
         <h2 class="font-display text-3xl font-bold text-text-primary sm:text-4xl">
-          Edit Your Resume. See Your Score Move.
+          {t('resumeSimulator.title')}
         </h2>
 
         <p class="mt-6 text-lg leading-relaxed text-text-body">
-          See how your resume matches any job — edit and watch your score change.
+          {t('resumeSimulator.description')}
         </p>
 
         <!-- Features List -->
@@ -40,7 +49,7 @@ const features = [
           data-cta-link="signup"
           class="mt-8 inline-flex items-center gap-2 font-medium text-primary transition-colors hover:text-primary-hover"
         >
-          Get Started
+          {t('resumeSimulator.getStarted')}
           <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path
               stroke-linecap="round"

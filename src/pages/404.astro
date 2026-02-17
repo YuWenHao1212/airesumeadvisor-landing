@@ -2,6 +2,7 @@
 import Layout from '@layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import { ui } from '../i18n/ui';
 ---
 
 <Layout
@@ -18,16 +19,17 @@ import Footer from '../components/Footer.astro';
       </div>
 
       <!-- Message -->
-      <h1 class="font-display text-3xl font-bold tracking-tight text-gray-900 md:text-4xl">
+      <h1 id="404-title" class="font-display text-3xl font-bold tracking-tight text-gray-900 md:text-4xl">
         Page not found
       </h1>
-      <p class="mt-4 text-lg text-gray-600">
+      <p id="404-description" class="mt-4 text-lg text-gray-600">
         Sorry, we couldn't find the page you're looking for. It might have been moved or deleted.
       </p>
 
       <!-- Actions -->
       <div class="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
         <a
+          id="404-back-home"
           href="/"
           class="inline-flex items-center justify-center rounded-lg bg-primary px-6 py-3 text-base font-medium text-white shadow-sm transition hover:bg-primary-hover focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
         >
@@ -37,6 +39,7 @@ import Footer from '../components/Footer.astro';
           Back to Home
         </a>
         <a
+          id="404-view-blog"
           href="/blog/"
           class="inline-flex items-center justify-center rounded-lg border border-gray-300 bg-white px-6 py-3 text-base font-medium text-gray-700 shadow-sm transition hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
         >
@@ -46,19 +49,19 @@ import Footer from '../components/Footer.astro';
 
       <!-- Helpful Links -->
       <div class="mt-12 border-t border-gray-200 pt-8">
-        <p class="text-sm text-gray-500">Here are some helpful links:</p>
+        <p id="404-helpful" class="text-sm text-gray-500">Here are some helpful links:</p>
         <ul class="mt-4 flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm">
           <li>
-            <a href="/" class="text-primary hover:underline">Home</a>
+            <a id="404-link-home" href="/" class="text-primary hover:underline">Home</a>
           </li>
           <li>
-            <a href="/blog/" class="text-primary hover:underline">Blog</a>
+            <a id="404-link-blog" href="/blog/" class="text-primary hover:underline">Blog</a>
           </li>
           <li>
-            <a href="/privacy/" class="text-primary hover:underline">Privacy Policy</a>
+            <a id="404-link-privacy" href="/privacy/" class="text-primary hover:underline">Privacy Policy</a>
           </li>
           <li>
-            <a href="/terms/" class="text-primary hover:underline">Terms of Service</a>
+            <a id="404-link-terms" href="/terms/" class="text-primary hover:underline">Terms of Service</a>
           </li>
         </ul>
       </div>
@@ -67,3 +70,58 @@ import Footer from '../components/Footer.astro';
 
   <Footer />
 </Layout>
+
+<script define:vars={{ zhTW: ui['zh-TW'] }}>
+  // Client-side locale detection for 404 page
+  if (window.location.pathname.startsWith('/zh-TW/') || window.location.pathname === '/zh-TW') {
+    const prefix = '/zh-TW';
+
+    // Swap text
+    const title = document.getElementById('404-title');
+    if (title) title.textContent = zhTW['404.title'];
+
+    const desc = document.getElementById('404-description');
+    if (desc) desc.textContent = zhTW['404.description'];
+
+    const backHome = document.getElementById('404-back-home');
+    if (backHome) {
+      backHome.href = prefix + '/';
+      backHome.innerHTML =
+        '<svg class="mr-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>' +
+        zhTW['404.backHome'];
+    }
+
+    const viewBlog = document.getElementById('404-view-blog');
+    if (viewBlog) {
+      viewBlog.href = prefix + '/blog/';
+      viewBlog.textContent = zhTW['404.viewBlog'];
+    }
+
+    const helpful = document.getElementById('404-helpful');
+    if (helpful) helpful.textContent = zhTW['404.helpfulLinks'];
+
+    const linkHome = document.getElementById('404-link-home');
+    if (linkHome) {
+      linkHome.href = prefix + '/';
+      linkHome.textContent = zhTW['404.home'];
+    }
+
+    const linkBlog = document.getElementById('404-link-blog');
+    if (linkBlog) {
+      linkBlog.href = prefix + '/blog/';
+      linkBlog.textContent = zhTW['404.blog'];
+    }
+
+    const linkPrivacy = document.getElementById('404-link-privacy');
+    if (linkPrivacy) {
+      linkPrivacy.href = prefix + '/privacy/';
+      linkPrivacy.textContent = zhTW['404.privacy'];
+    }
+
+    const linkTerms = document.getElementById('404-link-terms');
+    if (linkTerms) {
+      linkTerms.href = prefix + '/terms/';
+      linkTerms.textContent = zhTW['404.terms'];
+    }
+  }
+</script>

@@ -1,0 +1,43 @@
+---
+import Layout from '@layouts/Layout.astro';
+import ReferralBanner from '../../components/ReferralBanner.astro';
+import Header from '../../components/Header.astro';
+import Hero from '../../components/Hero.astro';
+import ExtensionPromo from '../../components/ExtensionPromo.astro';
+import Features from '../../components/Features.astro';
+import ResumeSimulator from '../../components/ResumeSimulator.astro';
+import JobSimulator from '../../components/JobSimulator.astro';
+import HowItWorks from '../../components/HowItWorks.astro';
+import Pricing from '../../components/Pricing.astro';
+import BottomCTA from '../../components/BottomCTA.astro';
+import Footer from '../../components/Footer.astro';
+import { useTranslations } from '../../i18n/utils';
+
+const lang = 'zh-TW' as const;
+const t = useTranslations(lang);
+---
+
+<Layout title={t('meta.title')} lang={lang}>
+  <ReferralBanner lang={lang} />
+  <Header lang={lang} />
+
+  <main>
+    <Hero lang={lang} />
+    <ExtensionPromo lang={lang} />
+    <Features lang={lang} />
+    <ResumeSimulator lang={lang} />
+    <JobSimulator lang={lang} />
+    <HowItWorks lang={lang} />
+    <Pricing lang={lang} />
+    <BottomCTA lang={lang} />
+  </main>
+
+  <Footer lang={lang} />
+</Layout>
+
+<script>
+  import { initReferralSystem } from '../../utils/referral';
+
+  // Initialize referral system when DOM is ready
+  document.addEventListener('DOMContentLoaded', initReferralSystem);
+</script>

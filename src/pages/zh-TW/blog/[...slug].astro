@@ -1,16 +1,20 @@
 ---
 import { type CollectionEntry, getCollection } from 'astro:content';
-import BlogLayout from '../../layouts/BlogLayout.astro';
+import BlogLayout from '../../../layouts/BlogLayout.astro';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
-  // Only generate EN posts under /blog/
+  // Only generate ZH-TW posts under /zh-TW/blog/
   return posts
-    .filter((post) => (post.data.lang || 'en') === 'en')
-    .map((post) => ({
-      params: { slug: post.slug },
-      props: post,
-    }));
+    .filter((post) => post.data.lang === 'zh-TW')
+    .map((post) => {
+      // Strip 'zh/' prefix from Astro slug to produce clean URL
+      const cleanSlug = post.slug.replace(/^zh\//, '');
+      return {
+        params: { slug: cleanSlug },
+        props: post,
+      };
+    });
 }
 
 type Props = CollectionEntry<'blog'>;

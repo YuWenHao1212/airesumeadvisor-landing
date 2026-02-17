@@ -1,4 +1,14 @@
 ---
+import { getLocalizedLink } from '../config/links';
+import { useTranslations } from '../i18n/utils';
+import type { Locale } from '../i18n/types';
+
+interface Props {
+  lang?: Locale;
+}
+
+const { lang = 'en' } = Astro.props;
+const t = useTranslations(lang);
 const currentYear = new Date().getFullYear();
 ---
 
@@ -8,16 +18,16 @@ const currentYear = new Date().getFullYear();
       <!-- Copyright -->
       <p class="text-sm text-text-body">
         <span class="font-medium text-text-primary">AI Resume Advisor</span>
-        {' '}© {currentYear}. All rights reserved.
+        {' '}&copy; {currentYear}. {t('footer.copyright')}
       </p>
 
       <!-- Legal Links -->
       <div class="flex items-center gap-6">
-        <a href="/terms" class="text-sm text-text-body transition-colors hover:text-text-primary">
-          Terms
+        <a href={getLocalizedLink('/terms', lang)} class="text-sm text-text-body transition-colors hover:text-text-primary">
+          {t('footer.terms')}
         </a>
-        <a href="/privacy" class="text-sm text-text-body transition-colors hover:text-text-primary">
-          Privacy
+        <a href={getLocalizedLink('/privacy', lang)} class="text-sm text-text-body transition-colors hover:text-text-primary">
+          {t('footer.privacy')}
         </a>
       </div>
     </div>

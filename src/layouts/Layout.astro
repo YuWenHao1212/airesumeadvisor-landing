@@ -1,21 +1,57 @@
 ---
+import type { Locale } from '../i18n/types';
+import { useTranslations, getAlternateUrl } from '../i18n/utils';
+
 interface Props {
   title: string;
   description?: string;
   image?: string;
+  lang?: Locale;
 }
 
 const {
   title,
-  description = "Stop guessing if you're qualified. AI Resume Advisor shows your alignment score instantly—not just keywords, but true semantic matching. Try free!",
+  description,
   image = '/images/og-image.png',
+  lang = 'en',
 } = Astro.props;
 
+const t = useTranslations(lang);
+const defaultDescription = t('meta.description');
+const resolvedDescription = description || defaultDescription;
+
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const ogLocale = lang === 'zh-TW' ? 'zh_TW' : 'en_US';
+const htmlLang = lang === 'zh-TW' ? 'zh-Hant-TW' : 'en';
+
+// Hreflang URLs
+const enUrl = getAlternateUrl(Astro.url, 'en', Astro.site!);
+const zhUrl = getAlternateUrl(Astro.url, 'zh-TW', Astro.site!);
+
+// Structured data
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'AI Resume Advisor',
+  applicationCategory: 'BusinessApplication',
+  operatingSystem: 'Web',
+  offers: {
+    '@type': 'Offer',
+    price: '10.00',
+    priceCurrency: 'USD',
+  },
+  description: resolvedDescription,
+  inLanguage: lang === 'zh-TW' ? 'zh-Hant-TW' : 'en-US',
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '4.8',
+    ratingCount: '1000',
+  },
+};
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={htmlLang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -27,52 +63,38 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <!-- Primary Meta Tags -->
     <title>{title}</title>
     <meta name="title" content={title} />
-    <meta name="description" content={description} />
+    <meta name="description" content={resolvedDescription} />
     <link rel="canonical" href={canonicalURL} />
+
+    <!-- hreflang -->
+    <link rel="alternate" hreflang="en" href={enUrl} />
+    <link rel="alternate" hreflang="zh-TW" href={zhUrl} />
+    <link rel="alternate" hreflang="x-default" href={enUrl} />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
+    <meta property="og:description" content={resolvedDescription} />
     <meta property="og:image" content={new URL(image, Astro.site)} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="AI Resume Advisor - Tailor Your Resume with AI" />
-    <meta property="og:site_name" content="AI Resume Advisor" />
-    <meta property="og:locale" content="en_US" />
+    <meta property="og:image:alt" content={t('meta.og.imageAlt')} />
+    <meta property="og:site_name" content={t('meta.siteName')} />
+    <meta property="og:locale" content={ogLocale} />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content={canonicalURL} />
     <meta property="twitter:title" content={title} />
-    <meta property="twitter:description" content={description} />
+    <meta property="twitter:description" content={resolvedDescription} />
     <meta property="twitter:image" content={new URL(image, Astro.site)} />
 
     <!-- Preload fonts -->
     <link rel="preload" href="/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin />
 
     <!-- Structured Data -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "name": "AI Resume Advisor",
-        "applicationCategory": "BusinessApplication",
-        "operatingSystem": "Web",
-        "offers": {
-          "@type": "Offer",
-          "price": "10.00",
-          "priceCurrency": "USD"
-        },
-        "description": "AI-powered resume builder that tailors your resume to job descriptions",
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "4.8",
-          "ratingCount": "1000"
-        }
-      }
-    </script>
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
   </head>
   <body class="bg-white">
     <slot />

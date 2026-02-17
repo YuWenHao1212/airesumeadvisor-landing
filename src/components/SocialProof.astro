@@ -1,5 +1,14 @@
 ---
 import { LINKS } from '../config/links';
+import { useTranslations } from '../i18n/utils';
+import type { Locale } from '../i18n/types';
+
+interface Props {
+  lang?: Locale;
+}
+
+const { lang = 'en' } = Astro.props;
+const t = useTranslations(lang);
 ---
 
 <section class="overflow-hidden bg-white py-16 md:py-24">
@@ -90,21 +99,18 @@ import { LINKS } from '../config/links';
       <!-- Content -->
       <div class="lg:pl-8">
         <h2 class="font-display text-3xl font-bold text-text-primary sm:text-4xl lg:text-5xl">
-          Join Thousands of Happy Job Seekers
+          {t('socialProof.title')}
         </h2>
 
         <p class="mt-6 text-lg leading-relaxed text-text-body">
-          Experience the joy of landing your dream job with a resume that stands out. Our AI Resume
-          Builder has helped thousands of professionals tailor their applications, increasing their
-          chances of success. See the smiles of users who've taken their career to the next
-          level—now it's your turn!
+          {t('socialProof.description')}
         </p>
 
         <a
           href={LINKS.getStarted}
           class="mt-8 inline-flex items-center gap-2 font-medium text-primary transition-colors hover:text-primary-hover"
         >
-          Get Started
+          {t('socialProof.getStarted')}
           <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path
               stroke-linecap="round"

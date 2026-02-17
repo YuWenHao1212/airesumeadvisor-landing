@@ -1,14 +1,16 @@
 ---
 import Layout from '@layouts/Layout.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { useTranslations } from '../../i18n/utils';
 
-const lang = 'en' as const;
+const lang = 'zh-TW' as const;
+const t = useTranslations(lang);
 ---
 
 <Layout
-  title="Privacy Policy - AI Resume Advisor"
-  description="Learn how AI Resume Advisor protects your data. We prioritize your privacy with secure handling of resumes and personal information. Read our full privacy policy."
+  title="隱私權政策 - AI Resume Advisor"
+  description="了解 AI Resume Advisor 如何保護你的資料。我們以安全的方式處理履歷和個人資訊，重視你的隱私。閱讀完整隱私權政策。"
   lang={lang}
 >
   <Header lang={lang} />
@@ -18,9 +20,9 @@ const lang = 'en' as const;
       <!-- Page Header -->
       <div class="mb-16 text-center">
         <h1 class="font-display text-4xl font-bold tracking-tight text-text-primary md:text-5xl">
-          Privacy Policy
+          隱私權政策
         </h1>
-        <p class="mt-4 text-lg text-text-caption">Last Updated: December 10, 2025</p>
+        <p class="mt-4 text-lg text-text-caption">最後更新：2025 年 12 月 10 日</p>
       </div>
 
       <!-- Content -->
@@ -34,20 +36,16 @@ const lang = 'en' as const;
               class="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-sm font-bold text-white"
               >1</span
             >
-            Introduction
+            簡介
           </h2>
           <div class="mt-6 space-y-4 text-text-body">
             <p>
-              AI Resume Advisor LLC ("we," "our," or "company") respects and protects your privacy.
-              This Privacy Policy explains how we collect, use, share, and protect your personal
-              information when you use our website, web application, and browser extension
-              ("AI Resume Advisor for LinkedIn" Chrome Extension). By using our services, you
-              agree to the practices described in this policy.
+              AI Resume Advisor LLC（以下簡稱「我們」或「本公司」）尊重並保護你的隱私。本隱私權政策說明當你使用我們的網站、網頁應用程式及瀏覽器擴充功能（「AI Resume Advisor for LinkedIn」Chrome Extension）時，我們如何蒐集、使用、分享及保護你的個人資訊。使用我們的服務即表示你同意本政策所述之做法。
             </p>
             <p>
-              Our principal office address is: <strong
+              本公司主要辦公地址為：<strong
                 >30 N Gould St Ste N Sheridan, WY 82801</strong
-              >.
+              >。
             </p>
           </div>
         </section>
@@ -61,54 +59,52 @@ const lang = 'en' as const;
               class="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-sm font-bold text-white"
               >2</span
             >
-            Information We Collect
+            我們蒐集的資訊
           </h2>
           <div class="mt-6 space-y-4 text-text-body">
-            <p>We may collect the following types of information:</p>
+            <p>我們可能蒐集以下類型的資訊：</p>
             <div class="mt-4 grid gap-4 md:grid-cols-2">
               <div class="rounded-xl border border-gray-100 bg-gray-50 p-4">
-                <h3 class="font-semibold text-text-primary">Account Information</h3>
+                <h3 class="font-semibold text-text-primary">帳號資訊</h3>
                 <p class="mt-2 text-sm">
-                  Name, email address, and password provided when creating an account.
+                  建立帳號時提供的姓名、電子郵件地址和密碼。
                 </p>
               </div>
               <div class="rounded-xl border border-gray-100 bg-gray-50 p-4">
-                <h3 class="font-semibold text-text-primary">Resume Content</h3>
+                <h3 class="font-semibold text-text-primary">履歷內容</h3>
                 <p class="mt-2 text-sm">
-                  Resume text, job descriptions, LinkedIn data, alignment scores, and simulator
-                  selections.
+                  履歷文字、職缺描述、LinkedIn 資料、匹配分數及模擬器選擇項目。
                 </p>
               </div>
               <div class="rounded-xl border border-gray-100 bg-gray-50 p-4">
-                <h3 class="font-semibold text-text-primary">Career Information</h3>
-                <p class="mt-2 text-sm">Job preferences, target positions, expected salary, etc.</p>
+                <h3 class="font-semibold text-text-primary">職涯資訊</h3>
+                <p class="mt-2 text-sm">工作偏好、目標職位、期望薪資等。</p>
               </div>
               <div class="rounded-xl border border-gray-100 bg-gray-50 p-4">
-                <h3 class="font-semibold text-text-primary">Usage Information</h3>
-                <p class="mt-2 text-sm">Pages visited, features used, documents created, etc.</p>
+                <h3 class="font-semibold text-text-primary">使用資訊</h3>
+                <p class="mt-2 text-sm">瀏覽的頁面、使用的功能、建立的文件等。</p>
               </div>
               <div class="rounded-xl border border-gray-100 bg-gray-50 p-4">
-                <h3 class="font-semibold text-text-primary">Device Information</h3>
+                <h3 class="font-semibold text-text-primary">裝置資訊</h3>
                 <p class="mt-2 text-sm">
-                  Device type, OS, browser, IP address, language preferences.
+                  裝置類型、作業系統、瀏覽器、IP 位址、語言偏好。
                 </p>
               </div>
               <div class="rounded-xl border border-gray-100 bg-gray-50 p-4">
-                <h3 class="font-semibold text-text-primary">Payment Information</h3>
+                <h3 class="font-semibold text-text-primary">付款資訊</h3>
                 <p class="mt-2 text-sm">
-                  Processed securely by third-party payment processors (Stripe).
+                  透過第三方支付處理商（Stripe）安全處理。
                 </p>
               </div>
               <div class="rounded-xl border border-gray-100 bg-gray-50 p-4">
-                <h3 class="font-semibold text-text-primary">Extension Data</h3>
+                <h3 class="font-semibold text-text-primary">擴充功能資料</h3>
                 <p class="mt-2 text-sm">
-                  Job posting content from LinkedIn pages you analyze, stored temporarily for processing.
+                  你分析的 LinkedIn 頁面上的職缺內容，僅暫時儲存以供處理。
                 </p>
               </div>
             </div>
             <p class="mt-4 text-sm text-text-caption">
-              We only collect information necessary to provide our services and are committed to
-              protecting your privacy.
+              我們僅蒐集提供服務所必要的資訊，並致力於保護你的隱私。
             </p>
           </div>
         </section>
@@ -122,85 +118,84 @@ const lang = 'en' as const;
               class="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-sm font-bold text-white"
               >3</span
             >
-            Browser Extension
+            瀏覽器擴充功能
           </h2>
           <div class="mt-6 space-y-4 text-text-body">
             <p>
-              When you use our Chrome Extension ("AI Resume Advisor for LinkedIn"), we collect
-              and process additional information specific to extension functionality:
+              當你使用我們的 Chrome Extension（「AI Resume Advisor for LinkedIn」）時，我們會蒐集並處理與擴充功能相關的額外資訊：
             </p>
 
             <div class="mt-4">
-              <h3 class="font-semibold text-text-primary">Data Collected Through the Extension</h3>
+              <h3 class="font-semibold text-text-primary">透過擴充功能蒐集的資料</h3>
               <ul class="mt-2 space-y-2 text-sm">
                 <li class="flex items-start gap-2">
                   <svg class="mt-1 h-4 w-4 flex-shrink-0 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                   </svg>
-                  <span><strong>LinkedIn Job Page Data:</strong> Job titles, company names, job descriptions, and requirements from LinkedIn job postings you actively analyze.</span>
+                  <span><strong>LinkedIn 職缺頁面資料：</strong>你主動分析的 LinkedIn 職缺刊登中的職稱、公司名稱、職缺描述和要求。</span>
                 </li>
                 <li class="flex items-start gap-2">
                   <svg class="mt-1 h-4 w-4 flex-shrink-0 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                   </svg>
-                  <span><strong>Local Storage Data:</strong> Authentication tokens and user preferences stored locally in your browser.</span>
+                  <span><strong>本機儲存資料：</strong>驗證 Token 和使用者偏好設定，儲存在你的瀏覽器本機中。</span>
                 </li>
               </ul>
             </div>
 
             <div class="mt-4">
-              <h3 class="font-semibold text-text-primary">How the Extension Works</h3>
+              <h3 class="font-semibold text-text-primary">擴充功能的運作方式</h3>
               <ul class="mt-2 space-y-2 text-sm">
                 <li class="flex items-start gap-2">
                   <svg class="mt-1 h-4 w-4 flex-shrink-0 text-success" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                   </svg>
-                  <span>Reads content from LinkedIn job pages only when you actively use the "Analyze" function.</span>
+                  <span>僅在你主動使用「分析」功能時，才會讀取 LinkedIn 職缺頁面的內容。</span>
                 </li>
                 <li class="flex items-start gap-2">
                   <svg class="mt-1 h-4 w-4 flex-shrink-0 text-success" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                   </svg>
-                  <span>Communicates with our servers (app.airesumeadvisor.com) to process your analysis requests.</span>
+                  <span>與我們的伺服器（app.airesumeadvisor.com）通訊以處理你的分析請求。</span>
                 </li>
                 <li class="flex items-start gap-2">
                   <svg class="mt-1 h-4 w-4 flex-shrink-0 text-success" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                   </svg>
-                  <span>Does not collect data in the background when the extension is not actively being used.</span>
+                  <span>未主動使用擴充功能時，不會在背景蒐集任何資料。</span>
                 </li>
               </ul>
             </div>
 
             <div class="mt-4">
-              <h3 class="font-semibold text-text-primary">Extension Permissions Explained</h3>
+              <h3 class="font-semibold text-text-primary">擴充功能權限說明</h3>
               <div class="mt-2 grid gap-3 md:grid-cols-2">
                 <div class="rounded-lg border border-gray-200 bg-gray-50 px-3 py-2">
                   <span class="text-sm font-medium text-text-primary">storage</span>
-                  <p class="text-xs text-text-caption">Store login session and preferences locally</p>
+                  <p class="text-xs text-text-caption">在本機儲存登入狀態和偏好設定</p>
                 </div>
                 <div class="rounded-lg border border-gray-200 bg-gray-50 px-3 py-2">
                   <span class="text-sm font-medium text-text-primary">activeTab</span>
-                  <p class="text-xs text-text-caption">Access current LinkedIn job page when clicked</p>
+                  <p class="text-xs text-text-caption">點擊時存取目前的 LinkedIn 職缺頁面</p>
                 </div>
                 <div class="rounded-lg border border-gray-200 bg-gray-50 px-3 py-2">
                   <span class="text-sm font-medium text-text-primary">scripting</span>
-                  <p class="text-xs text-text-caption">Extract job posting information for analysis</p>
+                  <p class="text-xs text-text-caption">擷取職缺刊登資訊以進行分析</p>
                 </div>
                 <div class="rounded-lg border border-gray-200 bg-gray-50 px-3 py-2">
                   <span class="text-sm font-medium text-text-primary">identity</span>
-                  <p class="text-xs text-text-caption">Enable secure LinkedIn OAuth authentication</p>
+                  <p class="text-xs text-text-caption">啟用安全的 LinkedIn OAuth 驗證</p>
                 </div>
               </div>
             </div>
 
             <div class="mt-6 rounded-xl border-2 border-error/30 bg-error/5 p-4">
-              <h3 class="font-semibold text-text-primary">Data NOT Collected by the Extension</h3>
+              <h3 class="font-semibold text-text-primary">擴充功能不會蒐集的資料</h3>
               <ul class="mt-2 space-y-1 text-sm text-text-body">
-                <li>• Your general browsing history</li>
-                <li>• LinkedIn messages, connections, or private profile data</li>
-                <li>• Data from pages you don't actively analyze</li>
-                <li>• Any information when the extension popup is closed</li>
+                <li>• 你的一般瀏覽紀錄</li>
+                <li>• LinkedIn 訊息、人脈或私人個人檔案資料</li>
+                <li>• 你未主動分析的頁面資料</li>
+                <li>• 擴充功能彈出視窗關閉時的任何資訊</li>
               </ul>
             </div>
           </div>
@@ -215,10 +210,10 @@ const lang = 'en' as const;
               class="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-sm font-bold text-white"
               >4</span
             >
-            How We Use Your Information
+            我們如何使用你的資訊
           </h2>
           <div class="mt-6 text-text-body">
-            <p class="mb-4">We use the collected information to:</p>
+            <p class="mb-4">我們使用蒐集的資訊來：</p>
             <ul class="space-y-3">
               <li class="flex items-start gap-3">
                 <svg
@@ -233,7 +228,7 @@ const lang = 'en' as const;
                     stroke-width="2"
                     d="M5 13l4 4L19 7"></path>
                 </svg>
-                <span>Provide and improve our services</span>
+                <span>提供與改善我們的服務</span>
               </li>
               <li class="flex items-start gap-3">
                 <svg
@@ -248,7 +243,7 @@ const lang = 'en' as const;
                     stroke-width="2"
                     d="M5 13l4 4L19 7"></path>
                 </svg>
-                <span>Personalize your experience</span>
+                <span>個人化你的使用體驗</span>
               </li>
               <li class="flex items-start gap-3">
                 <svg
@@ -263,7 +258,7 @@ const lang = 'en' as const;
                     stroke-width="2"
                     d="M5 13l4 4L19 7"></path>
                 </svg>
-                <span>Conduct analysis and research</span>
+                <span>進行分析與研究</span>
               </li>
               <li class="flex items-start gap-3">
                 <svg
@@ -278,7 +273,7 @@ const lang = 'en' as const;
                     stroke-width="2"
                     d="M5 13l4 4L19 7"></path>
                 </svg>
-                <span>Communicate with you</span>
+                <span>與你溝通聯繫</span>
               </li>
               <li class="flex items-start gap-3">
                 <svg
@@ -293,7 +288,7 @@ const lang = 'en' as const;
                     stroke-width="2"
                     d="M5 13l4 4L19 7"></path>
                 </svg>
-                <span>Protect our legitimate interests</span>
+                <span>保護我們的合法權益</span>
               </li>
             </ul>
           </div>
@@ -308,12 +303,11 @@ const lang = 'en' as const;
               class="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-sm font-bold text-white"
               >5</span
             >
-            Information Sharing and Disclosure
+            資訊分享與揭露
           </h2>
           <div class="mt-6 space-y-4 text-text-body">
             <p>
-              We value your privacy and strictly limit the sharing of your information. We may share
-              your information in the following circumstances:
+              我們重視你的隱私，並嚴格限制你的資訊分享。在以下情況下，我們可能會分享你的資訊：
             </p>
             <ul class="space-y-3">
               <li class="flex items-start gap-3">
@@ -322,8 +316,7 @@ const lang = 'en' as const;
                   >a</span
                 >
                 <span
-                  ><strong>With your explicit consent:</strong> We will only share your data with third
-                  parties when you explicitly agree.</span
+                  ><strong>經你明確同意：</strong>僅在你明確同意的情況下，我們才會與第三方分享你的資料。</span
                 >
               </li>
               <li class="flex items-start gap-3">
@@ -332,8 +325,7 @@ const lang = 'en' as const;
                   >b</span
                 >
                 <span
-                  ><strong>Service providers:</strong> Third-party providers who help deliver our services
-                  (e.g., cloud storage, payment processors).</span
+                  ><strong>服務提供商：</strong>協助我們提供服務的第三方供應商（例如雲端儲存、支付處理商）。</span
                 >
               </li>
               <li class="flex items-start gap-3">
@@ -342,8 +334,7 @@ const lang = 'en' as const;
                   >c</span
                 >
                 <span
-                  ><strong>Legal requirements:</strong> When required by law or to protect our legitimate
-                  interests.</span
+                  ><strong>法律要求：</strong>法律規定或為保護我們的合法權益時。</span
                 >
               </li>
               <li class="flex items-start gap-3">
@@ -352,15 +343,13 @@ const lang = 'en' as const;
                   >d</span
                 >
                 <span
-                  ><strong>Business transfers:</strong> In the event of a merger, acquisition, or asset
-                  sale.</span
+                  ><strong>業務轉讓：</strong>在合併、收購或資產出售的情況下。</span
                 >
               </li>
             </ul>
             <div class="mt-6 rounded-xl border-2 border-primary-light bg-primary-light/50 p-4">
               <p class="text-sm font-medium text-primary">
-                We will never sell, rent, or share your personal information or resume data with any
-                third party for marketing purposes without your explicit permission.
+                未經你的明確許可，我們絕不會為了行銷目的而將你的個人資訊或履歷資料出售、出租或分享給任何第三方。
               </p>
             </div>
           </div>
@@ -375,40 +364,38 @@ const lang = 'en' as const;
               class="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-sm font-bold text-white"
               >6</span
             >
-            Cookies and Tracking Technologies
+            Cookie 與追蹤技術
           </h2>
           <div class="mt-6 space-y-4 text-text-body">
             <p>
-              We use cookies and similar tracking technologies to improve your experience. Types of
-              cookies we use:
+              我們使用 Cookie 和類似的追蹤技術來改善你的使用體驗。我們使用的 Cookie 類型包括：
             </p>
             <div class="mt-4 grid gap-4 md:grid-cols-2">
               <div class="rounded-xl border border-gray-100 bg-gray-50 p-4">
-                <h3 class="font-semibold text-text-primary">Essential Cookies</h3>
+                <h3 class="font-semibold text-text-primary">必要 Cookie</h3>
                 <p class="mt-2 text-sm">
-                  Necessary for basic website functionality, such as keeping you logged in.
+                  網站基本功能所必需，例如維持你的登入狀態。
                 </p>
               </div>
               <div class="rounded-xl border border-gray-100 bg-gray-50 p-4">
-                <h3 class="font-semibold text-text-primary">Analytics Cookies</h3>
+                <h3 class="font-semibold text-text-primary">分析 Cookie</h3>
                 <p class="mt-2 text-sm">
-                  Help us understand how our website is used to improve user experience.
+                  幫助我們了解網站的使用方式，以改善使用者體驗。
                 </p>
               </div>
               <div class="rounded-xl border border-gray-100 bg-gray-50 p-4">
-                <h3 class="font-semibold text-text-primary">Functional Cookies</h3>
+                <h3 class="font-semibold text-text-primary">功能性 Cookie</h3>
                 <p class="mt-2 text-sm">
-                  Remember your choices (language, preferences) for a personalized experience.
+                  記住你的選擇（語言、偏好設定），提供個人化體驗。
                 </p>
               </div>
               <div class="rounded-xl border border-gray-100 bg-gray-50 p-4">
-                <h3 class="font-semibold text-text-primary">Advertising Cookies</h3>
-                <p class="mt-2 text-sm">May be used to provide ads relevant to your interests.</p>
+                <h3 class="font-semibold text-text-primary">廣告 Cookie</h3>
+                <p class="mt-2 text-sm">可能用於提供與你興趣相關的廣告。</p>
               </div>
             </div>
             <p class="mt-4 text-sm">
-              You can control cookies through your browser settings. Our website also responds to
-              "Do Not Track" signals.
+              你可以透過瀏覽器設定控制 Cookie。我們的網站也會回應「不追蹤」（Do Not Track）訊號。
             </p>
           </div>
         </section>
@@ -422,11 +409,11 @@ const lang = 'en' as const;
               class="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-sm font-bold text-white"
               >7</span
             >
-            Your Rights
+            你的權利
           </h2>
           <div class="mt-6 text-text-body">
             <p class="mb-4">
-              According to applicable data protection laws, you may have the following rights:
+              根據適用的資料保護法律，你可能享有以下權利：
             </p>
             <div class="grid gap-3 md:grid-cols-2 lg:grid-cols-3">
               <div
@@ -450,7 +437,7 @@ const lang = 'en' as const;
                     d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
                   ></path>
                 </svg>
-                <span class="text-sm font-medium">Access your data</span>
+                <span class="text-sm font-medium">存取你的資料</span>
               </div>
               <div
                 class="flex items-center gap-2 rounded-lg border border-gray-200 bg-gray-50 px-4 py-3"
@@ -468,7 +455,7 @@ const lang = 'en' as const;
                     d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
                   ></path>
                 </svg>
-                <span class="text-sm font-medium">Correct inaccuracies</span>
+                <span class="text-sm font-medium">更正不正確的資料</span>
               </div>
               <div
                 class="flex items-center gap-2 rounded-lg border border-gray-200 bg-gray-50 px-4 py-3"
@@ -486,7 +473,7 @@ const lang = 'en' as const;
                     d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
                   ></path>
                 </svg>
-                <span class="text-sm font-medium">Delete your data</span>
+                <span class="text-sm font-medium">刪除你的資料</span>
               </div>
               <div
                 class="flex items-center gap-2 rounded-lg border border-gray-200 bg-gray-50 px-4 py-3"
@@ -504,7 +491,7 @@ const lang = 'en' as const;
                     d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"
                   ></path>
                 </svg>
-                <span class="text-sm font-medium">Restrict processing</span>
+                <span class="text-sm font-medium">限制處理</span>
               </div>
               <div
                 class="flex items-center gap-2 rounded-lg border border-gray-200 bg-gray-50 px-4 py-3"
@@ -521,15 +508,15 @@ const lang = 'en' as const;
                     stroke-width="2"
                     d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
                 </svg>
-                <span class="text-sm font-medium">Data portability</span>
+                <span class="text-sm font-medium">資料可攜性</span>
               </div>
             </div>
             <p class="mt-6 text-sm">
-              To exercise these rights, please email <a
+              如需行使這些權利，請寄信至 <a
                 href="mailto:wenhao@airesumeadvisor.com"
                 class="font-medium text-primary hover:text-primary-hover"
                 >wenhao@airesumeadvisor.com</a
-              >. We will respond within 30 days.
+              >。我們會在 30 天內回覆。
             </p>
           </div>
         </section>
@@ -543,12 +530,11 @@ const lang = 'en' as const;
               class="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-sm font-bold text-white"
               >8</span
             >
-            Data Retention
+            資料保留
           </h2>
           <div class="mt-6 space-y-4 text-text-body">
             <p>
-              We retain your personal information for as long as necessary to fulfill the purposes
-              described in this Privacy Policy:
+              我們會在本隱私權政策所述目的所需的期間內保留你的個人資訊：
             </p>
             <ul class="space-y-3">
               <li class="flex items-start gap-3">
@@ -557,8 +543,7 @@ const lang = 'en' as const;
                   >1</span
                 >
                 <span
-                  ><strong>Account data:</strong> Retained while your account is active. You can request
-                  deletion at any time.</span
+                  ><strong>帳號資料：</strong>在你的帳號有效期間保留。你可以隨時要求刪除。</span
                 >
               </li>
               <li class="flex items-start gap-3">
@@ -567,7 +552,7 @@ const lang = 'en' as const;
                   >2</span
                 >
                 <span
-                  ><strong>Usage data:</strong> Retained in aggregate or anonymized form for analytics.</span
+                  ><strong>使用資料：</strong>以彙總或匿名化形式保留，供分析使用。</span
                 >
               </li>
               <li class="flex items-start gap-3">
@@ -576,7 +561,7 @@ const lang = 'en' as const;
                   >3</span
                 >
                 <span
-                  ><strong>Communication records:</strong> Retained for customer support purposes.</span
+                  ><strong>通訊紀錄：</strong>為客戶支援目的而保留。</span
                 >
               </li>
             </ul>
@@ -592,11 +577,11 @@ const lang = 'en' as const;
               class="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-sm font-bold text-white"
               >9</span
             >
-            Security Measures
+            安全措施
           </h2>
           <div class="mt-6 text-text-body">
             <p class="mb-4">
-              We employ multi-layered security measures to protect your personal information:
+              我們採用多層安全措施來保護你的個人資訊：
             </p>
             <div class="grid gap-3 md:grid-cols-2 lg:grid-cols-3">
               <div
@@ -615,7 +600,7 @@ const lang = 'en' as const;
                     d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
                   ></path>
                 </svg>
-                <span class="text-sm">SSL/TLS Encryption</span>
+                <span class="text-sm">SSL/TLS 加密</span>
               </div>
               <div
                 class="flex items-center gap-2 rounded-lg border border-gray-200 bg-gray-50 px-4 py-3"
@@ -633,7 +618,7 @@ const lang = 'en' as const;
                     d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
                   ></path>
                 </svg>
-                <span class="text-sm">Access Control</span>
+                <span class="text-sm">存取控制</span>
               </div>
               <div
                 class="flex items-center gap-2 rounded-lg border border-gray-200 bg-gray-50 px-4 py-3"
@@ -651,7 +636,7 @@ const lang = 'en' as const;
                     d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"
                   ></path>
                 </svg>
-                <span class="text-sm">Regular Backups</span>
+                <span class="text-sm">定期備份</span>
               </div>
               <div
                 class="flex items-center gap-2 rounded-lg border border-gray-200 bg-gray-50 px-4 py-3"
@@ -669,7 +654,7 @@ const lang = 'en' as const;
                     d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
                   ></path>
                 </svg>
-                <span class="text-sm">Security Audits</span>
+                <span class="text-sm">安全稽核</span>
               </div>
               <div
                 class="flex items-center gap-2 rounded-lg border border-gray-200 bg-gray-50 px-4 py-3"
@@ -687,7 +672,7 @@ const lang = 'en' as const;
                     d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"
                   ></path>
                 </svg>
-                <span class="text-sm">Employee Training</span>
+                <span class="text-sm">員工訓練</span>
               </div>
               <div
                 class="flex items-center gap-2 rounded-lg border border-gray-200 bg-gray-50 px-4 py-3"
@@ -705,7 +690,7 @@ const lang = 'en' as const;
                     d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
                   ></path>
                 </svg>
-                <span class="text-sm">Physical Security</span>
+                <span class="text-sm">實體安全</span>
               </div>
             </div>
           </div>
@@ -720,13 +705,11 @@ const lang = 'en' as const;
               class="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-sm font-bold text-white"
               >10</span
             >
-            Age Restriction
+            年齡限制
           </h2>
           <div class="mt-6 text-text-body">
             <p>
-              Our services are intended for users 18 years of age and older. If we become aware that
-              we have collected personal information from users under 18, we will take steps to
-              promptly delete that information.
+              我們的服務僅供 18 歲以上的使用者使用。如果我們發現已蒐集到 18 歲以下使用者的個人資訊，我們會採取措施盡速刪除該資訊。
             </p>
           </div>
         </section>
@@ -739,12 +722,11 @@ const lang = 'en' as const;
               class="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-sm font-bold text-white"
               >11</span
             >
-            Policy Updates
+            政策更新
           </h2>
           <div class="mt-6 text-text-body">
             <p>
-              We may update this Privacy Policy from time to time. We will post the updated version
-              on our website and notify you of any significant changes.
+              我們可能會不定期更新本隱私權政策。更新版本將公布於我們的網站上，若有重大變更，我們也會另行通知你。
             </p>
           </div>
         </section>
@@ -757,11 +739,11 @@ const lang = 'en' as const;
               class="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-sm font-bold text-white"
               >12</span
             >
-            Contact Us
+            聯絡我們
           </h2>
           <div class="mt-6 text-text-body">
             <p>
-              If you have any questions or concerns about this Privacy Policy, please contact us:
+              如果你對本隱私權政策有任何疑問或疑慮，請透過以下方式聯絡我們：
             </p>
             <div class="mt-4 flex flex-col gap-3 sm:flex-row sm:gap-6">
               <a
@@ -801,8 +783,7 @@ const lang = 'en' as const;
         <!-- Footer Note -->
         <div class="rounded-2xl bg-primary-light p-6 text-center">
           <p class="text-sm text-primary">
-            By using our services, you acknowledge that you have read, understood, and agree to the
-            practices described in this Privacy Policy.
+            使用我們的服務即表示你已閱讀、理解並同意本隱私權政策所述之做法。
           </p>
         </div>
       </div>

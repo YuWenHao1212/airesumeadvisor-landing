@@ -1,22 +1,24 @@
 ---
+import { formatDate } from '../../i18n/utils';
+import { useTranslations } from '../../i18n/utils';
+import type { Locale } from '../../i18n/types';
+
 interface Props {
   title: string;
   description: string;
   pubDate: Date;
   slug: string;
   image: string;
-  lang?: string;
+  locale?: Locale;
 }
 
-const { title, description, pubDate, slug, image, lang = 'en' } = Astro.props;
+const { title, description, pubDate, slug, image, locale = 'en' } = Astro.props;
 
-const formattedDate = pubDate.toLocaleDateString('en-US', {
-  year: 'numeric',
-  month: 'short',
-  day: 'numeric',
-});
+const formattedDate = formatDate(pubDate, locale);
+const t = useTranslations(locale);
 
-const langLabel = lang === 'zh-TW' ? '中文' : 'EN';
+// EN -> /blog/{slug}, ZH -> /zh-TW/blog/{slug}
+const href = locale === 'zh-TW' ? `/zh-TW/blog/${slug}` : `/blog/${slug}`;
 ---
 
 <article
@@ -36,18 +38,11 @@ const langLabel = lang === 'zh-TW' ? '中文' : 'EN';
     <!-- Meta -->
     <div class="mb-3 flex items-center gap-3 text-sm text-gray-500">
       <time datetime={pubDate.toISOString()}>{formattedDate}</time>
-      {
-        lang === 'zh-TW' && (
-          <span class="rounded-full bg-amber-100 px-2 py-0.5 text-xs font-medium text-amber-700">
-            {langLabel}
-          </span>
-        )
-      }
     </div>
 
     <!-- Title -->
     <h3 class="mb-2 font-display text-xl font-bold text-gray-900 group-hover:text-primary">
-      <a href={`/blog/${slug}`} class="after:absolute after:inset-0">
+      <a href={href} class="after:absolute after:inset-0">
         {title}
       </a>
     </h3>
@@ -59,7 +54,7 @@ const langLabel = lang === 'zh-TW' ? '中文' : 'EN';
 
     <!-- Read more -->
     <div class="mt-4 flex items-center text-sm font-medium text-primary">
-      Read article
+      {t('blog.readArticle')}
       <svg class="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
       </svg>
