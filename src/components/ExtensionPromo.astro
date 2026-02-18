@@ -71,6 +71,7 @@ const features = [
             target="_blank"
             rel="noopener noreferrer"
             data-cta-link="installExtension"
+            data-umami-event="extension_install_click"
             class="inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 font-medium text-white shadow-lg transition-all hover:bg-primary-hover hover:shadow-xl"
           >
             <!-- Chrome Icon -->
@@ -86,6 +87,7 @@ const features = [
           <a
             href={LINKS.getStarted}
             data-cta-link="signup"
+            data-umami-event="extension_getstarted_click"
             class="inline-flex items-center gap-2 rounded-lg border border-gray-300 bg-white px-6 py-3 font-medium text-text-primary transition-all hover:border-primary hover:text-primary"
           >
             {t('extensionPromo.getStarted')}
