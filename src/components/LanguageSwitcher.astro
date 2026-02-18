@@ -24,6 +24,7 @@ const targetHref = getLocalizedPath(basePath, targetLocale);
 
 <a
   href={targetHref}
+  data-umami-event={`lang_switch_to_${targetLocale}`}
   class="inline-flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-sm font-medium text-text-body transition-colors hover:bg-gray-100 hover:text-text-primary"
   aria-label={currentLocale === 'en' ? 'Switch to Chinese' : 'Switch to English'}
 >

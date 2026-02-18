@@ -17,6 +17,7 @@ const href = isEnglish
   alternateSlug && (
     <a
       href={href}
+      data-umami-event={isEnglish ? 'blog_lang_switch_to_zh-TW' : 'blog_lang_switch_to_en'}
       class="inline-flex items-center gap-2 rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium text-gray-700 transition-all hover:border-primary hover:bg-primary/5 hover:text-primary"
     >
       <span class="text-base">{isEnglish ? '\ud83c\uddf9\ud83c\uddfc' : '\ud83c\uddfa\ud83c\uddf8'}</span>
