@@ -57,6 +57,7 @@ const logoHref = lang === 'en' ? '/' : '/zh-TW/';
       <a
         href={LINKS.login}
         data-cta-link="login"
+        data-umami-event="header_login_click"
         class="text-sm font-medium text-primary transition-colors hover:text-primary-hover"
       >
         {t('header.login')}
@@ -64,6 +65,7 @@ const logoHref = lang === 'en' ? '/' : '/zh-TW/';
       <a
         href={LINKS.signup}
         data-cta-link="signup"
+        data-umami-event="header_signup_click"
         class="inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-2.5 text-sm font-medium text-white shadow-primary transition-all hover:bg-primary-hover hover:shadow-lg"
       >
         {t('header.signup')}
@@ -114,6 +116,7 @@ const logoHref = lang === 'en' ? '/' : '/zh-TW/';
         <a
           href={LINKS.login}
           data-cta-link="login"
+          data-umami-event="mobile_login_click"
           class="block rounded-lg px-3 py-2 text-center text-base font-medium text-primary hover:bg-primary-light"
         >
           {t('header.login')}
@@ -121,6 +124,7 @@ const logoHref = lang === 'en' ? '/' : '/zh-TW/';
         <a
           href={LINKS.signup}
           data-cta-link="signup"
+          data-umami-event="mobile_signup_click"
           class="block rounded-lg bg-primary px-3 py-2.5 text-center text-base font-medium text-white hover:bg-primary-hover"
         >
           {t('header.signup')}
