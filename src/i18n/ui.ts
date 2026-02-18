@@ -85,7 +85,6 @@ export const ui = {
     'howItWorks.description':
       'See how AI Resume Advisor helps you land interviews',
     'howItWorks.getStarted': 'Get Started',
-    'howItWorks.videoComingSoon': 'Video Coming Soon',
 
     // -- Pricing --
     'pricing.sectionTitle':
@@ -248,7 +247,6 @@ export const ui = {
     'howItWorks.description':
       '看看 AI Resume Advisor 如何幫你拿到面試機會',
     'howItWorks.getStarted': '\u958b\u59cb\u4f7f\u7528',
-    'howItWorks.videoComingSoon': '\u5f71\u7247\u5373\u5c07\u63a8\u51fa',
 
     // -- Pricing --
     'pricing.sectionTitle': '省下顧問費，分析一樣專業',
