@@ -131,6 +131,12 @@ export const ui = {
     'referral.discount': '20% OFF',
     'referral.firstPurchase': 'your first purchase',
 
+    // -- PromoBanner --
+    'promo.codePrefix': 'A Taiwan dev rooting for you! Enter',
+    'promo.codeSuffix': 'at checkout for a FREE pass',
+    'promo.copyHint': 'Click to select',
+    'promo.teaser': 'A Taiwan dev rooting for you \u2014 free for FB followers!',
+
     // -- Footer --
     'footer.copyright': 'All rights reserved.',
     'footer.terms': 'Terms',
@@ -291,6 +297,12 @@ export const ui = {
     'referral.signUpFor': '\u8a3b\u518a\u5373\u4eab',
     'referral.discount': '20% OFF',
     'referral.firstPurchase': '\u9996\u6b21\u8cfc\u8cb7\u512a\u60e0',
+
+    // -- PromoBanner --
+    'promo.codePrefix': '\u795d\u5e74\u5f8c\u8f49\u8077\u9806\u5229\u2014\u2014\u53f0\u7063\u958b\u767c\u8005\u633a\u4f60\uff01\u7d50\u5e33\u6642\u8f38\u5165',
+    'promo.codeSuffix': '\u5373\u53ef\u514d\u8cbb',
+    'promo.copyHint': '\u9ede\u64ca\u9078\u53d6',
+    'promo.teaser': '\u795d\u5e74\u5f8c\u8f49\u8077\u9806\u5229\u2014\u2014\u53f0\u7063\u958b\u767c\u8005\u633a\u4f60\uff01FB \u7c89\u7d72\u514d\u8cbb\u7528',
 
     // -- Footer --
     'footer.copyright': '\u7248\u6b0a\u6240\u6709\u3002',

@@ -1,0 +1,48 @@
+---
+/**
+ * PromoBanner Component
+ *
+ * Two modes controlled by JS in referral.ts:
+ * - "code" mode: FB traffic (has promo in localStorage) — shows full code TAIWANNB1
+ * - "teaser" mode: general visitors during promo period — shows vague hint + FB CTA
+ * Hidden by default, shown via JavaScript.
+ */
+import { useTranslations } from '../i18n/utils';
+import type { Locale } from '../i18n/types';
+
+interface Props {
+  lang?: Locale;
+}
+
+const { lang = 'en' } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<div
+  id="promo-banner"
+  class="hidden bg-gradient-to-r from-red-600 via-orange-500 to-red-600 px-4 py-2.5 text-center"
+>
+  <div class="mx-auto flex max-w-7xl items-center justify-center gap-2 text-sm text-white">
+    <span id="promo-banner-code" class="hidden">
+      {t('promo.codePrefix')}{' '}
+      <code
+        class="cursor-pointer select-all rounded bg-white/20 px-1.5 py-0.5 font-mono font-bold text-yellow-200"
+        title={t('promo.copyHint')}
+      >TAIWANNB1</code>{' '}
+      {t('promo.codeSuffix')}
+    </span>
+    <span id="promo-banner-teaser" class="hidden">
+      {t('promo.teaser')}
+    </span>
+    <button
+      id="promo-banner-close"
+      type="button"
+      class="ml-2 flex-shrink-0 rounded-full p-0.5 text-white/80 hover:bg-white/20 hover:text-white"
+      aria-label="Close"
+    >
+      <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
+    </button>
+  </div>
+</div>

@@ -1,6 +1,7 @@
 ---
 import Layout from '@layouts/Layout.astro';
 import ReferralBanner from '../../components/ReferralBanner.astro';
+import PromoBanner from '../../components/PromoBanner.astro';
 import Header from '../../components/Header.astro';
 import Hero from '../../components/Hero.astro';
 import ExtensionPromo from '../../components/ExtensionPromo.astro';
@@ -19,6 +20,7 @@ const t = useTranslations(lang);
 
 <Layout title={t('meta.title')} lang={lang}>
   <ReferralBanner lang={lang} />
+  <PromoBanner lang={lang} />
   <Header lang={lang} />
 
   <main>
