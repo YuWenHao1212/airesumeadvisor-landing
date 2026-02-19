@@ -11,6 +11,10 @@ const COOKIE_NAME = 'referral_code';
 const COOKIE_DOMAIN = '.airesumeadvisor.com';
 const SEVEN_DAYS_MS = 7 * 24 * 60 * 60 * 1000;
 
+const UTM_PARAMS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'fbclid'] as const;
+const UTM_STORAGE_KEY = 'utm_params';
+const UTM_TIMESTAMP_KEY = 'utm_timestamp';
+
 /**
  * Check if a referral code has expired (older than 7 days)
  */
@@ -76,6 +80,67 @@ export function clearReferralCode(): void {
 }
 
 /**
+ * Get UTM params from localStorage
+ * Returns empty object if expired or not found
+ */
+function getUtmParams(): Record<string, string> {
+  if (typeof window === 'undefined') return {};
+
+  const raw = localStorage.getItem(UTM_STORAGE_KEY);
+  const timestamp = localStorage.getItem(UTM_TIMESTAMP_KEY);
+
+  if (!raw || isExpired(timestamp)) {
+    clearUtmParams();
+    return {};
+  }
+
+  try {
+    return JSON.parse(raw) as Record<string, string>;
+  } catch {
+    clearUtmParams();
+    return {};
+  }
+}
+
+/**
+ * Save UTM params to localStorage with 7-day expiry
+ * Only overwrites if the current URL actually contains UTM params
+ */
+function setUtmParams(params: Record<string, string>): void {
+  if (typeof window === 'undefined') return;
+
+  localStorage.setItem(UTM_STORAGE_KEY, JSON.stringify(params));
+  localStorage.setItem(UTM_TIMESTAMP_KEY, Date.now().toString());
+}
+
+/**
+ * Clear UTM params from localStorage
+ */
+function clearUtmParams(): void {
+  if (typeof window === 'undefined') return;
+
+  localStorage.removeItem(UTM_STORAGE_KEY);
+  localStorage.removeItem(UTM_TIMESTAMP_KEY);
+}
+
+/**
+ * Read UTM params from the current URL search params
+ * Returns only the params that are present and non-empty
+ */
+function captureUtmFromUrl(searchParams: URLSearchParams): Record<string, string> {
+  const params: Record<string, string> = {};
+
+  for (const key of UTM_PARAMS) {
+    const value = searchParams.get(key);
+    if (value) {
+      params[key] = value;
+    }
+  }
+
+  return params;
+}
+
+/**
  * Append referral code to a URL if one exists
  * Handles URLs that already have query parameters
  */
@@ -107,11 +172,20 @@ export function initReferralSystem(): void {
     setReferralCode(urlRefCode);
   }
 
+  // Capture UTM params from URL and store (only if present)
+  const urlUtmParams = captureUtmFromUrl(searchParams);
+  if (Object.keys(urlUtmParams).length > 0) {
+    setUtmParams(urlUtmParams);
+  }
+
   // Get current referral code (may be from URL or previous visit)
   const referralCode = getReferralCode();
 
-  // Update all CTA links with referral code
-  updateCtaLinks(referralCode);
+  // Get stored UTM params (may be from URL or previous visit)
+  const utmParams = getUtmParams();
+
+  // Update all CTA links with referral code and UTM params
+  updateCtaLinks(referralCode, utmParams);
 
   // Show/hide referral banner
   updateBannerVisibility(referralCode);
@@ -121,11 +195,12 @@ export function initReferralSystem(): void {
 }
 
 /**
- * Update all CTA links with the referral code
+ * Update all CTA links with the referral code and UTM params
  * Links should have data-cta-link="signup|login|buyDaily|buyWeekly" attribute
  */
-function updateCtaLinks(referralCode: string | null): void {
+function updateCtaLinks(referralCode: string | null, utmParams: Record<string, string>): void {
   const ctaLinks = document.querySelectorAll<HTMLAnchorElement>('[data-cta-link]');
+  const hasUtm = Object.keys(utmParams).length > 0;
 
   ctaLinks.forEach((link) => {
     const originalHref = link.getAttribute('data-original-href') || link.href;
@@ -135,9 +210,17 @@ function updateCtaLinks(referralCode: string | null): void {
       link.setAttribute('data-original-href', originalHref);
     }
 
-    if (referralCode) {
+    if (referralCode || hasUtm) {
       const url = new URL(originalHref);
-      url.searchParams.set('ref', referralCode);
+
+      if (referralCode) {
+        url.searchParams.set('ref', referralCode);
+      }
+
+      for (const [key, value] of Object.entries(utmParams)) {
+        url.searchParams.set(key, value);
+      }
+
       link.href = url.toString();
     } else {
       link.href = originalHref;
