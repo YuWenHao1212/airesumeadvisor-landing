@@ -240,6 +240,7 @@ function updatePromoBannerVisibility(): void {
   // Toggle code vs teaser mode
   const codeSpan = document.getElementById('promo-banner-code');
   const teaserSpan = document.getElementById('promo-banner-teaser');
+  const mode = hasCode ? 'code' : 'teaser';
 
   if (hasCode) {
     codeSpan?.classList.remove('hidden');
@@ -249,6 +250,9 @@ function updatePromoBannerVisibility(): void {
     teaserSpan?.classList.remove('hidden');
   }
 
+  // Track banner view
+  window.umami?.track('promo_banner_view', { mode });
+
   // Wire close button (replace element to remove old listeners)
   const closeBtn = document.getElementById('promo-banner-close');
   if (closeBtn) {
@@ -257,6 +261,7 @@ function updatePromoBannerVisibility(): void {
     freshBtn.addEventListener('click', () => {
       banner.classList.add('hidden');
       localStorage.setItem(PROMO_DISMISSED_KEY, 'true');
+      window.umami?.track('promo_banner_close', { mode });
     });
   }
 }
@@ -293,6 +298,18 @@ export function initReferralSystem(): void {
   if (urlPromo === PROMO_CODE || urlCampaign === PROMO_CAMPAIGN) {
     setPromoCode(PROMO_CODE);
   }
+
+  // Track entry source for campaign attribution
+  const referrer = document.referrer;
+  const hasPromo = urlPromo === PROMO_CODE || urlCampaign === PROMO_CAMPAIGN;
+  const hasUtm = Object.keys(urlUtmParams).length > 0;
+  const entrySource = hasPromo ? 'fb_direct'
+    : hasUtm ? 'utm_tagged'
+    : referrer.includes('google') ? 'google_organic'
+    : referrer.includes('facebook') ? 'fb_referral'
+    : referrer ? 'other_referral'
+    : 'direct';
+  window.umami?.track('landing_entry', { source: entrySource });
 
   // Get current referral code (may be from URL or previous visit)
   const referralCode = getReferralCode();
