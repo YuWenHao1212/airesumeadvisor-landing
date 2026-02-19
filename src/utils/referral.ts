@@ -5,6 +5,13 @@
  * Referral codes are stored in localStorage with a 7-day expiry.
  */
 
+/**
+ * Send a tracking event to Umami analytics (no-op if Umami is not loaded)
+ */
+function trackEvent(event: string, data?: Record<string, string>): void {
+  (window as any).umami?.track(event, data);
+}
+
 const STORAGE_KEY = 'referral_code';
 const TIMESTAMP_KEY = 'referral_timestamp';
 const COOKIE_NAME = 'referral_code';
@@ -251,7 +258,7 @@ function updatePromoBannerVisibility(): void {
   }
 
   // Track banner view
-  window.umami?.track('promo_banner_view', { mode });
+  trackEvent('promo_banner_view', { mode });
 
   // Wire close button (replace element to remove old listeners)
   const closeBtn = document.getElementById('promo-banner-close');
@@ -261,7 +268,7 @@ function updatePromoBannerVisibility(): void {
     freshBtn.addEventListener('click', () => {
       banner.classList.add('hidden');
       localStorage.setItem(PROMO_DISMISSED_KEY, 'true');
-      window.umami?.track('promo_banner_close', { mode });
+      trackEvent('promo_banner_close', { mode });
     });
   }
 }
@@ -309,7 +316,7 @@ export function initReferralSystem(): void {
     : referrer.includes('facebook') ? 'fb_referral'
     : referrer ? 'other_referral'
     : 'direct';
-  window.umami?.track('landing_entry', { source: entrySource });
+  trackEvent('landing_entry', { source: entrySource });
 
   // Get current referral code (may be from URL or previous visit)
   const referralCode = getReferralCode();
