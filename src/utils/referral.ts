@@ -22,14 +22,6 @@ const UTM_PARAMS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', '
 const UTM_STORAGE_KEY = 'utm_params';
 const UTM_TIMESTAMP_KEY = 'utm_timestamp';
 
-const PROMO_STORAGE_KEY = 'promo_code';
-const PROMO_TIMESTAMP_KEY = 'promo_timestamp';
-const PROMO_DISMISSED_KEY = 'promo_banner_dismissed';
-const PROMO_CODE = 'TAIWANNB1';
-const PROMO_CAMPAIGN = 'cny-2026';
-// Promo ends 2026-02-28 = 2026-03-01 00:00 CST
-const PROMO_EXPIRY_DATE = new Date('2026-03-01T00:00:00+08:00');
-
 /**
  * Check if a referral code has expired (older than 7 days)
  */
@@ -169,117 +161,12 @@ export function appendReferralToUrl(baseUrl: string): string {
 }
 
 /**
- * Get the promo code from localStorage
- * Returns null if expired or not found
- */
-function getPromoCode(): string | null {
-  if (typeof window === 'undefined') return null;
-
-  const code = localStorage.getItem(PROMO_STORAGE_KEY);
-  const timestamp = localStorage.getItem(PROMO_TIMESTAMP_KEY);
-
-  if (!code || isExpired(timestamp)) {
-    clearPromoCode();
-    return null;
-  }
-
-  return code;
-}
-
-/**
- * Save a promo code to localStorage with current timestamp
- */
-function setPromoCode(code: string): void {
-  if (typeof window === 'undefined') return;
-
-  localStorage.setItem(PROMO_STORAGE_KEY, code);
-  localStorage.setItem(PROMO_TIMESTAMP_KEY, Date.now().toString());
-}
-
-/**
- * Clear promo code and timestamp from localStorage
- */
-function clearPromoCode(): void {
-  if (typeof window === 'undefined') return;
-
-  localStorage.removeItem(PROMO_STORAGE_KEY);
-  localStorage.removeItem(PROMO_TIMESTAMP_KEY);
-}
-
-/**
- * Check if the promo period is still active (hard cutoff)
- */
-function isPromoPeriod(): boolean {
-  return Date.now() < PROMO_EXPIRY_DATE.getTime();
-}
-
-/**
- * Check if the user has a stored promo code (arrived via FB link)
- */
-function hasPromoCode(): boolean {
-  if (!isPromoPeriod()) {
-    clearPromoCode();
-    return false;
-  }
-  return getPromoCode() !== null;
-}
-
-/**
- * Show or hide the promo banner with two modes:
- * - "code" mode: FB traffic (has stored promo code) — shows full TAIWANNB1 code
- * - "teaser" mode: general visitors during promo period — shows vague hint
- * Wires close button to dismiss and persist to localStorage
- */
-function updatePromoBannerVisibility(): void {
-  const banner = document.getElementById('promo-banner');
-  if (!banner) return;
-
-  const dismissed = localStorage.getItem(PROMO_DISMISSED_KEY) === 'true';
-  const inPeriod = isPromoPeriod();
-  const hasCode = hasPromoCode();
-
-  if (!inPeriod && !hasCode) return;
-  if (dismissed) return;
-
-  // Show the banner
-  banner.classList.remove('hidden');
-
-  // Toggle code vs teaser mode
-  const codeSpan = document.getElementById('promo-banner-code');
-  const teaserSpan = document.getElementById('promo-banner-teaser');
-  const mode = hasCode ? 'code' : 'teaser';
-
-  if (hasCode) {
-    codeSpan?.classList.remove('hidden');
-    teaserSpan?.classList.add('hidden');
-  } else {
-    codeSpan?.classList.add('hidden');
-    teaserSpan?.classList.remove('hidden');
-  }
-
-  // Track banner view
-  trackEvent('promo_banner_view', { mode });
-
-  // Wire close button (replace element to remove old listeners)
-  const closeBtn = document.getElementById('promo-banner-close');
-  if (closeBtn) {
-    const freshBtn = closeBtn.cloneNode(true) as HTMLElement;
-    closeBtn.parentNode?.replaceChild(freshBtn, closeBtn);
-    freshBtn.addEventListener('click', () => {
-      banner.classList.add('hidden');
-      localStorage.setItem(PROMO_DISMISSED_KEY, 'true');
-      trackEvent('promo_banner_close', { mode });
-    });
-  }
-}
-
-/**
  * Initialize referral system on page load
  * - Reads ref parameter from URL
  * - Stores in localStorage (overwrites existing)
  * - Updates all CTA links with referral code
  * - Shows referral banner if code exists
- * - Detects promo/UTM params and shows promo banner
+ * - Captures UTM params for attribution
  */
 export function initReferralSystem(): void {
   if (typeof window === 'undefined') return;
@@ -299,19 +186,10 @@ export function initReferralSystem(): void {
     setUtmParams(urlUtmParams);
   }
 
-  // Detect promo code or CNY campaign UTM and persist
-  const urlPromo = searchParams.get('promo');
-  const urlCampaign = searchParams.get('utm_campaign');
-  if (urlPromo === PROMO_CODE || urlCampaign === PROMO_CAMPAIGN) {
-    setPromoCode(PROMO_CODE);
-  }
-
   // Track entry source for campaign attribution
   const referrer = document.referrer;
-  const hasPromo = urlPromo === PROMO_CODE || urlCampaign === PROMO_CAMPAIGN;
   const hasUtm = Object.keys(urlUtmParams).length > 0;
-  const entrySource = hasPromo ? 'fb_direct'
-    : hasUtm ? 'utm_tagged'
+  const entrySource = hasUtm ? 'utm_tagged'
     : referrer.includes('google') ? 'google_organic'
     : referrer.includes('facebook') ? 'fb_referral'
     : referrer ? 'other_referral'
@@ -333,8 +211,6 @@ export function initReferralSystem(): void {
   // Show/hide discount badges on pricing cards
   updateDiscountBadges(referralCode);
 
-  // Show/hide promo banner (two modes: code vs teaser)
-  updatePromoBannerVisibility();
 }
 
 /**
