@@ -73,17 +73,12 @@
 
 ---
 
-## 🕐 時間處理規則 (TIME HANDLING RULE)
+## 🕐 時間處理規則
 
-**任何需要日期或時間時，必須先執行**：
-
-```bash
-TZ='Asia/Taipei' date '+%Y-%m-%d %H:%M:%S %Z'
-```
-
-- 文檔命名：`[TYPE]_[MODULE]_YYYYMMDD.md`
-- 日誌記錄：`YYYY-MM-DD HH:MM CST`
-- **絕不使用 `<env>` 中的日期或憑空推測！**
+> 核心規則見 `~/.claude/CLAUDE.md` 的「時間處理規則」段。本檔只記 repo 專屬格式：
+>
+> - 文檔命名：`[TYPE]_[MODULE]_YYYYMMDD.md`
+> - 日誌記錄：`YYYY-MM-DD HH:MM CST`
 
 ---
 
