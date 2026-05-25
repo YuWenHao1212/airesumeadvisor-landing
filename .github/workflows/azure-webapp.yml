@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 env:
-  AZURE_WEBAPP_NAME: airesumeadvisor-landing
+  AZURE_WEBAPP_NAME: aira-landing
   NODE_VERSION: '20.x'
 
 jobs:
