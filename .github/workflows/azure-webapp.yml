@@ -1,8 +1,8 @@
 name: Deploy to Azure App Service
 
+# Azure runtime retired 2026-08-16 (ISS-129): prod runs on Zeabur (git build).
+# Manual dispatch only (rollback escape hatch); delete this file after Azure cleanup.
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
 
 env:
