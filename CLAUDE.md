@@ -1,5 +1,7 @@
 # AI Resume Advisor Landing Page - Claude Code 協作指南
 
+> ⚠️ **sleeping 專案（2026-10-28 註記）**：AI Resume Advisor 目前不做新功能。landing 2026-10-18 起放在 Cloudflare Pages（mail@ 帳號），Azure Static Web Apps 和它的 workflow 已移除；`app.airesumeadvisor.com` 現在是 airesumeadvisor-app 的 Next.js 版，不是 Bubble；文中提到的 `~/.claude/skills/` 三支 skill 都不存在了；`~/Cockpit` 已併進 FLUX Vault。以下多數段落寫的是搬家前的狀況，**不要照著操作**，回來做時先整份重寫。
+
 ## 📍 專案路徑
 
 | 項目 | 路徑 |
