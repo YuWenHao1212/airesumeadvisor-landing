@@ -118,10 +118,7 @@ npm run check
 
 ### 4. Git Push 確認
 
-推送到 main branch 需要確認：
-
-- 手動確認：`git push origin main` (輸入 'yes')
-- 自動確認：`AUTO_CONFIRM_PUSH=yes git push origin main`
+推送到 main branch 需要確認：push 前先問使用者，等明確同意才推（全域規則「不要擅自 push」）。沒有自動確認的捷徑。
 
 ### 5. 圖片優化規則 ⚠️ **重要**
 
